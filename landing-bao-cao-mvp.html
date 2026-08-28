@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitto — Con học dùng tiền qua thực hành</title>
+  <meta name="description" content="Khảo sát 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu vòng lặp thực hành. Tải báo cáo & dùng thử kit 4 tuần." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0D9B8A;
+      --primary-dark: #0A7A6C;
+      --primary-light: #E6F7F5;
+      --blue: #2B8CDE;
+      --gold: #F0B429;
+      --gold-soft: #FFF8E6;
+      --navy: #0A3D5C;
+      --bg: #F7FBFA;
+      --card: #ffffff;
+      --text: #1A2B2E;
+      --muted: #5A6B6E;
+      --border: #D5E8E4;
+      --radius: 16px;
+      --shadow: 0 4px 20px rgba(13,155,138,.07);
+      --grad: linear-gradient(135deg, #2B8CDE 0%, #0D9B8A 48%, #5BCB3A 78%, #F0B429 100%);
+      --grad-btn: linear-gradient(135deg, #0D9B8A 0%, #1AB5A6 100%);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 640px; margin: 0 auto; padding: 10px 20px;
+    }
+    .logo-link { display: flex; align-items: center; text-decoration: none; }
+    .logo-img { height: 40px; width: auto; display: block; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: inherit; font-weight: 600; cursor: pointer;
+      border: none; border-radius: 12px; transition: .18s ease;
+      text-decoration: none;
+    }
+    .btn-hdr {
+      background: var(--grad-btn); color: #fff;
+      padding: 10px 18px; font-size: 13.5px;
+      box-shadow: 0 2px 10px rgba(13,155,138,.22);
+      min-height: 42px;
+    }
+    .btn-hdr:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(13,155,138,.3); }
+
+    .hero { padding: 36px 0 28px; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12.5px; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 16px; border: 1px solid #B8E8E1;
+    }
+    .hero h1 {
+      font-size: 26px; font-weight: 700; line-height: 1.3;
+      color: var(--navy); margin-bottom: 14px; letter-spacing: -.02em;
+    }
+    .hero h1 .hl {
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-lead {
+      font-size: 15.5px; color: var(--muted);
+      max-width: 480px; margin: 0 auto 24px; line-height: 1.55;
+    }
+    .ctas {
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 320px; margin: 0 auto;
+    }
+    .btn-lg {
+      padding: 15px 24px; font-size: 15.5px; border-radius: 12px;
+      min-height: 52px; width: 100%;
+    }
+    .btn-main {
+      background: var(--grad-btn); color: #fff;
+      box-shadow: 0 4px 16px rgba(13,155,138,.28);
+    }
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13,155,138,.35);
+    }
+    .btn-ghost {
+      background: #fff; color: var(--primary-dark);
+      border: 1.5px solid var(--primary);
+    }
+    .btn-ghost:hover { background: var(--primary-light); }
+    .trust-line {
+      font-size: 12.5px; color: var(--muted);
+      margin-top: 14px; display: flex; align-items: center;
+      justify-content: center; gap: 6px; flex-wrap: wrap;
+    }
+    .trust-line span::before {
+      content: "✓"; color: var(--primary); font-weight: 700; margin-right: 3px;
+    }
+
+    /* Findings from report */
+    .strip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 18px;
+      box-shadow: var(--shadow); margin-bottom: 16px;
+    }
+    .strip-title {
+      font-size: 12px; font-weight: 600; color: var(--primary);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px;
+    }
+    .findings { display: grid; gap: 12px; }
+    .find {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 14px; line-height: 1.5;
+    }
+    .find b { color: var(--navy); }
+    .dot {
+      width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0;
+      background: var(--grad-btn); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; margin-top: 1px;
+    }
+    .callout {
+      margin-top: 14px; background: var(--gold-soft);
+      border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0;
+      padding: 12px 14px; font-size: 13.5px; line-height: 1.5;
+    }
+    .callout strong { color: #B8860B; }
+
+    .report {
+      background: var(--grad); border-radius: var(--radius);
+      padding: 22px 20px; color: #fff; margin-bottom: 28px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 10px 28px rgba(13,155,138,.16);
+    }
+    .report::after {
+      content: ''; position: absolute; top: -40%; right: -12%;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: rgba(255,255,255,.1);
+    }
+    .report-label {
+      font-size: 11.5px; font-weight: 600; opacity: .9;
+      text-transform: uppercase; letter-spacing: .03em;
+      margin-bottom: 6px; position: relative;
+    }
+    .report h3 {
+      font-size: 17px; font-weight: 700; margin-bottom: 6px;
+      position: relative; line-height: 1.3;
+    }
+    .report p {
+      font-size: 13.5px; opacity: .93; margin-bottom: 12px;
+      position: relative; line-height: 1.45;
+    }
+    .report-meta {
+      display: flex; flex-wrap: wrap; gap: 6px 12px;
+      font-size: 12px; opacity: .88; margin-bottom: 14px; position: relative;
+    }
+    .btn-white {
+      background: #fff; color: var(--primary-dark);
+      padding: 12px 20px; font-size: 14px; border-radius: 10px;
+      position: relative; width: 100%; min-height: 48px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .btn-white:hover { transform: translateY(-1px); }
+
+    .sec { margin-bottom: 28px; }
+    .sec-label {
+      font-size: 12px; font-weight: 600; color: var(--primary);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px;
+    }
+    .sec h2 {
+      font-size: 20px; font-weight: 700; color: var(--navy);
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .sec-desc {
+      font-size: 14.5px; color: var(--muted); margin-bottom: 16px; line-height: 1.5;
+    }
+
+    .steps { display: grid; gap: 10px; margin-bottom: 16px; }
+    .step {
+      display: flex; gap: 12px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px; align-items: flex-start;
+    }
+    .step-n {
+      width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
+      background: var(--grad-btn); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+    }
+    .step h4 { font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    .benefits {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .ben {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 12px; text-align: center;
+    }
+    .ben span { font-size: 22px; display: block; margin-bottom: 4px; }
+    .ben h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .ben p { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
+    .trial {
+      background: var(--primary-light);
+      border: 1px solid #C5EBE5;
+      border-radius: 18px;
+      padding: 26px 18px;
+      margin-bottom: 24px;
+    }
+    .trial .sec-label,
+    .trial h2,
+    .trial .sec-desc { text-align: center; }
+    .trial h2 { font-size: 19px; margin-bottom: 4px; }
+    .trial .sec-desc { margin-bottom: 18px; font-size: 14px; }
+
+    .form {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 16px;
+      max-width: 380px; margin: 0 auto; box-shadow: var(--shadow);
+    }
+    .fg { margin-bottom: 14px; }
+    .fg label {
+      display: block; font-size: 13px; font-weight: 600;
+      margin-bottom: 5px; color: var(--text);
+    }
+    .fg input, .fg select {
+      width: 100%; padding: 13px 14px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-size: 15px; font-family: inherit;
+      color: var(--text); background: #fff; transition: .15s;
+      min-height: 48px; -webkit-appearance: none;
+    }
+    .fg input:focus, .fg select:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,155,138,.14);
+    }
+    .btn-submit {
+      width: 100%; background: var(--grad-btn); color: #fff;
+      padding: 15px; font-size: 15.5px; border-radius: 12px;
+      min-height: 52px; margin-top: 4px;
+      box-shadow: 0 4px 14px rgba(13,155,138,.28);
+    }
+    .btn-submit:hover { transform: translateY(-1px); }
+    .form-note {
+      font-size: 12px; color: var(--muted); text-align: center;
+      margin-top: 12px; line-height: 1.4;
+    }
+
+    .ok { display: none; text-align: center; padding: 18px 8px; }
+    .ok.show { display: block; }
+    .ok .ico { font-size: 40px; margin-bottom: 10px; }
+    .ok h3 { font-size: 17px; color: var(--navy); margin-bottom: 6px; }
+    .ok p { font-size: 14px; color: var(--muted); line-height: 1.45; }
+
+    footer {
+      text-align: center; padding: 24px 0 36px;
+      border-top: 1px solid var(--border);
+    }
+    footer .logo-img { height: 28px; margin: 0 auto 10px; display: block; }
+    footer p { font-size: 12.5px; color: var(--muted); margin-bottom: 4px; line-height: 1.45; }
+
+    @media (min-width: 480px) {
+      .ctas { flex-direction: row; max-width: none; justify-content: center; }
+      .btn-lg { width: auto; min-width: 180px; }
+      .hero h1 { font-size: 28px; }
+    }
+    @media (max-width: 400px) {
+      .benefits { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 23px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo-link" aria-label="Kitto">
+      <img src="kitto-logo.jpg" alt="Kitto" class="logo-img" width="120" height="40" />
+    </a>
+    <button class="btn btn-hdr" onclick="go('trial')">Dùng thử miễn phí</button>
+  </div>
+</header>
+
+<!-- Hero — benefit + survey signal -->
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">Từ khảo sát 40 phụ huynh · Hà Nội & TP.HCM</div>
+    <h1>Con học dùng tiền tốt hơn<br>khi được <span class="hl">thực hành thật</span></h1>
+    <p class="hero-lead">
+      Khảo sát cho thấy nhiều gia đình đã nói chuyện với con về tiền,
+      nhưng vẫn thiếu một vòng lặp đơn giản: tự quyết → trải nghiệm → nhìn lại → điều chỉnh.
+    </p>
+    <div class="ctas">
+      <button class="btn btn-lg btn-main" onclick="go('trial')">Dùng thử kit 4 tuần — miễn phí</button>
+      <button class="btn btn-lg btn-ghost" onclick="go('report')">Tải báo cáo khảo sát</button>
+    </div>
+    <div class="trust-line">
+      <span>Không cần thẻ</span>
+      <span>10–15 phút/tuần</span>
+      <span>Dừng bất cứ lúc nào</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- 5 findings from report -->
+  <div class="strip">
+    <div class="strip-title">5 phát hiện từ báo cáo khảo sát</div>
+    <div class="findings">
+      <div class="find">
+        <div class="dot">1</div>
+        <div><b>Có tiền ≠ có cơ hội học quản lý tiền.</b> Tiền lì xì và cho theo dịp vẫn phổ biến hơn tiền tiêu vặt định kỳ — con có tiền nhưng ít chu kỳ ổn định để thực hành.</div>
+      </div>
+      <div class="find">
+        <div class="dot">2</div>
+        <div><b>Nói chuyện nhiều, vòng lặp thực hành còn thiếu.</b> Phụ huynh đã nhắc và hỏi, nhưng ít gia đình có chu kỳ: tự quyết → trải nghiệm kết quả → nhìn lại → điều chỉnh.</div>
+      </div>
+      <div class="find">
+        <div class="dot">3</div>
+        <div><b>“Cần hay muốn?” là điểm bắt đầu tự nhiên.</b> Đây là kỹ năng được chọn nhiều nhất nếu chỉ cải thiện được một điều.</div>
+      </div>
+      <div class="find">
+        <div class="dot">4</div>
+        <div><b>Nhu cầu không chỉ xuất hiện khi đã có vấn đề.</b> Nhiều phụ huynh “chưa thấy vấn đề đáng kể” vẫn quan tâm đến cách tiếp cận có cấu trúc.</div>
+      </div>
+      <div class="find">
+        <div class="dot">5</div>
+        <div><b>63% sẵn sàng dành 15–20 phút/tuần</b> nếu cách làm rõ ràng và đơn giản — miễn là thấy tiến bộ.</div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Khoảng trống chính:</strong> Không phải thiếu kiến thức, mà thiếu khung đơn giản để lặp lại. Đó là lý do “đã dạy rồi mà vẫn phải nhắc”.
+    </div>
+  </div>
+
+  <!-- Report download -->
+  <div class="report" id="report">
+    <div class="report-label">Báo cáo miễn phí</div>
+    <h3>Tải báo cáo: Cách trẻ học và sử dụng tiền</h3>
+    <p>5 phát hiện chính · Phân tích chi tiết · Gợi ý thực hành 4 tuần · Liên hệ nghiên cứu quốc tế — viết cho phụ huynh, dễ đọc.</p>
+    <div class="report-meta">
+      <span>📍 Hà Nội & TP.HCM</span>
+      <span>👨‍👩‍👧 40 phụ huynh</span>
+      <span>📅 Tháng 8/2026</span>
+      <span>🔬 Kitto Research</span>
+    </div>
+    <button class="btn btn-white" onclick="dl()">Tải báo cáo miễn phí</button>
+  </div>
+
+  <!-- Kit solution -->
+  <div class="sec">
+    <div class="sec-label">Từ báo cáo đến hành động</div>
+    <h2>Kit 4 tuần — vòng lặp thực hành đơn giản</h2>
+    <p class="sec-desc">
+      Thiết kế đúng khoảng trống khảo sát chỉ ra: tiền thật quy mô nhỏ, câu hỏi dẫn dắt, nhìn lại đều đặn, tiến bộ nhìn thấy được.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div>
+          <h4>Tuần 1 — Có tiền</h4>
+          <p>Thiết lập khoản định kỳ nhỏ. Thống nhất vài nguyên tắc đơn giản với con (và giữa bố mẹ).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div>
+          <h4>Tuần 2 — Có lựa chọn</h4>
+          <p>Để con tự quyết vài khoản chi trong phạm vi đã thống nhất.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div>
+          <h4>Tuần 3 — Nhìn lại</h4>
+          <p>Cùng ngồi 10–15 phút: tuần này tiêu gì, còn bao nhiêu, muốn điều chỉnh gì.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div>
+          <h4>Tuần 4 — Đặt mục tiêu</h4>
+          <p>Chọn một mục tiêu tiết kiệm nhỏ và theo dõi tiến bộ cùng con.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits">
+      <div class="ben"><span>🪙</span><h4>Tiền thật</h4><p>Con tự quyết trong phạm vi an toàn</p></div>
+      <div class="ben"><span>❓</span><h4>Câu hỏi dẫn dắt</h4><p>Thay “không được” bằng vài câu cố định</p></div>
+      <div class="ben"><span>⏱️</span><h4>10–15 phút/tuần</h4><p>Vừa đủ để đóng vòng, không nặng</p></div>
+      <div class="ben"><span>👀</span><h4>Thấy tiến bộ</h4><p>Cả con và bố mẹ đều rõ hơn</p></div>
+    </div>
+  </div>
+
+  <!-- Trial form -->
+  <div class="trial" id="trial">
+    <div class="sec-label">Dùng thử miễn phí</div>
+    <h2>Bắt đầu thử nghiệm 4 tuần</h2>
+    <p class="sec-desc">Để lại thông tin — chúng tôi gửi hướng dẫn và tài liệu trong 24 giờ.</p>
+
+    <div class="form">
+      <div id="fv">
+        <form onsubmit="sub(event)">
+          <div class="fg">
+            <label for="name">Bạn tên gì?</label>
+            <input id="name" type="text" name="name" placeholder="Ví dụ: Chị Lan" required autocomplete="name" />
+          </div>
+          <div class="fg">
+            <label for="contact">Email hoặc Zalo</label>
+            <input id="contact" type="text" name="contact" placeholder="Để chúng tôi gửi hướng dẫn" required autocomplete="email" />
+          </div>
+          <div class="fg">
+            <label for="age">Con đang bao nhiêu tuổi?</label>
+            <select id="age" name="age" required>
+              <option value="">Chọn độ tuổi</option>
+              <option value="7-8">7–8 tuổi</option>
+              <option value="9-10">9–10 tuổi</option>
+              <option value="11-12">11–12 tuổi</option>
+              <option value="13-14">13–14 tuổi</option>
+              <option value="15+">15 tuổi trở lên</option>
+              <option value="multi">Có nhiều con trong độ tuổi</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="pain">Điều bạn quan tâm nhất hiện nay?</label>
+            <select id="pain" name="pain" required>
+              <option value="">Chọn một</option>
+              <option value="practice">Muốn con được thực hành nhiều hơn</option>
+              <option value="structure">Muốn có hoạt động cụ thể làm cùng con</option>
+              <option value="remind">Đang nhắc nhiều nhưng chưa thấy thói quen</option>
+              <option value="need-want">Muốn con phân biệt cần – muốn tốt hơn</option>
+              <option value="habit">Muốn xây thói quen sớm, dù chưa có vấn đề lớn</option>
+              <option value="other">Khác</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="report">Bạn muốn nhận kèm báo cáo khảo sát?</label>
+            <select id="report" name="report">
+              <option value="yes">Có, gửi kèm báo cáo</option>
+              <option value="no">Không cần, chỉ dùng thử kit</option>
+              <option value="already">Đã tải rồi</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-submit">Gửi đăng ký — nhận hướng dẫn</button>
+          <p class="form-note">Không spam. Bạn có thể dừng bất cứ lúc nào.<br>MVP đang trong giai đoạn thử nghiệm.</p>
+        </form>
+      </div>
+      <div class="ok" id="ok">
+        <div class="ico">✅</div>
+        <h3>Cảm ơn bạn!</h3>
+        <p>Chúng tôi đã nhận thông tin và sẽ gửi hướng dẫn cùng tài liệu trong vòng 24 giờ.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="kitto-logo.jpg" alt="Kitto" class="logo-img" width="90" height="30" />
+    <p>Giúp con học cách sử dụng tiền qua thực hành</p>
+    <p>Báo cáo thực hiện bởi Nhóm Nghiên cứu Kitto và các cộng sự · Tháng 8/2026</p>
+    <p style="opacity:.7;margin-top:8px">Kết quả mang tính định hướng, không đại diện toàn bộ phụ huynh Việt Nam.</p>
+  </div>
+</footer>
+
+<script>
+  function go(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function dl() {
+    alert('Báo cáo sẽ được tải xuống.\n\n(Khi lên server thật, nút này sẽ tải file PDF/Word trực tiếp.)');
+  }
+  function sub(e) {
+    e.preventDefault();
+    const f = e.target;
+    const data = {
+      name: f.name.value,
+      contact: f.contact.value,
+      age: f.age.value,
+      pain: f.pain.value,
+      report: f.report.value,
+      time: new Date().toISOString(),
+      source: 'landing-bao-cao-mvp'
+    };
+    console.log('Lead:', data);
+    try {
+      const leads = JSON.parse(localStorage.getItem('kitto_leads') || '[]');
+      leads.push(data);
+      localStorage.setItem('kitto_leads', JSON.stringify(leads));
+    } catch (_) {}
+    document.getElementById('fv').style.display = 'none';
+    document.getElementById('ok').classList.add('show');
+  }
+</script>
+</body>
+</html>
