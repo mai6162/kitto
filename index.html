@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kitto — Con học dùng tiền qua thực hành</title>
-  <meta name="description" content="Khảo sát 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu vòng lặp thực hành. Tải báo cáo & dùng thử kit 4 tuần." />
+  <title>KittoFam — Con học dùng tiền qua thực hành thật</title>
+  <meta name="description" content="Từ khảo sát 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu vòng lặp thực hành. Tải báo cáo & dùng thử kit 4 tuần (bảng physical cho con + web hướng dẫn bố mẹ)." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,7 +52,6 @@
     .logo-img { height: 40px; width: auto; display: block; }
     .hdr-right { display: flex; align-items: center; gap: 8px; }
 
-    /* Language switcher */
     .lang-switch {
       display: flex; background: var(--primary-light);
       border: 1px solid #B8E8E1; border-radius: 10px; overflow: hidden;
@@ -210,6 +209,27 @@
       font-size: 14.5px; color: var(--muted); margin-bottom: 16px; line-height: 1.5;
     }
 
+    /* Hybrid Physical + Web */
+    .hybrid {
+      display: grid; gap: 12px; margin-bottom: 20px;
+    }
+    .hybrid-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 16px;
+    }
+    .hybrid-card .tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px; margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: .03em;
+    }
+    .tag-kid { background: #E8F5EE; color: #1B7A4E; }
+    .tag-parent { background: #E6F0FA; color: #1A5F9E; }
+    .hybrid-card h4 { font-size: 15.5px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .hybrid-card p { font-size: 13.5px; color: var(--muted); line-height: 1.45; margin-bottom: 8px; }
+    .hybrid-card ul { padding-left: 18px; font-size: 13.5px; color: var(--text); }
+    .hybrid-card li { margin-bottom: 4px; }
+
+    /* Onboarding steps */
     .steps { display: grid; gap: 10px; margin-bottom: 16px; }
     .step {
       display: flex; gap: 12px; background: var(--card);
@@ -225,6 +245,22 @@
     .step h4 { font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
     .step p { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
+    /* Week cards */
+    .weeks { display: grid; gap: 10px; margin-bottom: 18px; }
+    .week {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .week-head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+    }
+    .week-num {
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px;
+    }
+    .week h4 { font-size: 14.5px; font-weight: 700; color: var(--navy); }
+    .week p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
     .benefits {
       display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
     }
@@ -235,6 +271,42 @@
     .ben span { font-size: 22px; display: block; margin-bottom: 4px; }
     .ben h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
     .ben p { font-size: 12px; color: var(--muted); line-height: 1.35; }
+
+    /* Simple guide box */
+    .guide-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 16px; margin-bottom: 20px;
+    }
+    .guide-box h3 {
+      font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px;
+    }
+    .guide-item {
+      display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start;
+    }
+    .guide-item:last-child { margin-bottom: 0; }
+    .guide-icon {
+      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+      background: var(--primary-light); color: var(--primary-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700;
+    }
+    .guide-item strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 2px; }
+    .guide-item span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    .do-dont {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+    }
+    .do, .dont {
+      border-radius: 12px; padding: 12px;
+      font-size: 13px; line-height: 1.4;
+    }
+    .do { background: #E8F5EE; border: 1px solid #B8E0C8; }
+    .dont { background: #FFF5F5; border: 1px solid #F0C8C8; }
+    .do strong, .dont strong { display: block; margin-bottom: 6px; font-size: 13px; }
+    .do strong { color: #1B7A4E; }
+    .dont strong { color: #C0392B; }
+    .do ul, .dont ul { padding-left: 16px; margin: 0; }
+    .do li, .dont li { margin-bottom: 3px; }
 
     .trial {
       background: var(--primary-light);
@@ -312,6 +384,7 @@
       .trial { padding: 20px 12px; }
       .form { padding: 16px 12px; }
       .benefits { grid-template-columns: 1fr; }
+      .do-dont { grid-template-columns: 1fr; }
       .trust-line { font-size: 11.5px; gap: 4px 8px; }
     }
     @media (min-width: 361px) and (max-width: 479px) {
@@ -349,6 +422,7 @@
       .btn-submit { font-size: 16px; }
       .logo-img { height: 56px; }
       footer .logo-img { height: 40px; }
+      .hybrid { grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 1024px) {
       .wrap { max-width: 760px; }
@@ -363,8 +437,8 @@
 
 <header>
   <div class="hdr">
-    <a href="#" class="logo-link" aria-label="Kitto">
-      <img src="kitto-logo.jpg" alt="Kitto" class="logo-img" width="120" height="40" />
+    <a href="#" class="logo-link" aria-label="KittoFam">
+      <img src="kitto-logo.jpg" alt="KittoFam" class="logo-img" width="120" height="40" />
     </a>
     <div class="hdr-right">
       <div class="lang-switch" role="group" aria-label="Language">
@@ -381,15 +455,14 @@
     <div class="badge" data-i18n="badge">Từ khảo sát 40 phụ huynh · Hà Nội & TP.HCM</div>
     <h1 data-i18n-html="hero_title">Con học dùng tiền tốt hơn<br>khi được <span class="hl">thực hành thật</span></h1>
     <p class="hero-lead" data-i18n="hero_lead">
-      Khảo sát cho thấy nhiều gia đình đã nói chuyện với con về tiền,
-      nhưng vẫn thiếu một vòng lặp đơn giản: tự quyết → trải nghiệm → nhìn lại → điều chỉnh.
+      10–15 phút mỗi tuần. Con tự quyết với tiền thật. Bố mẹ chỉ cần hỏi đúng câu hỏi.
     </p>
     <div class="ctas">
       <button class="btn btn-lg btn-main" data-i18n="cta_trial" onclick="go('trial')">Dùng thử kit 4 tuần — miễn phí</button>
       <button class="btn btn-lg btn-ghost" data-i18n="cta_report" onclick="go('report')">Tải báo cáo khảo sát</button>
     </div>
     <div class="trust-line">
-      <span data-i18n="trust1">Không cần thẻ</span>
+      <span data-i18n="trust1">Không cần thẻ ngân hàng</span>
       <span data-i18n="trust2">10–15 phút/tuần</span>
       <span data-i18n="trust3">Dừng bất cứ lúc nào</span>
     </div>
@@ -398,16 +471,17 @@
 
 <div class="wrap">
 
+  <!-- 5 findings -->
   <div class="strip">
     <div class="strip-title" data-i18n="findings_title">5 phát hiện từ báo cáo khảo sát</div>
     <div class="findings">
       <div class="find">
         <div class="dot">1</div>
-        <div data-i18n-html="f1"><b>Có tiền ≠ có cơ hội học quản lý tiền.</b> Tiền lì xì và cho theo dịp vẫn phổ biến hơn tiền tiêu vặt định kỳ — con có tiền nhưng ít chu kỳ ổn định để thực hành.</div>
+        <div data-i18n-html="f1"><b>Có tiền ≠ có cơ hội học quản lý tiền.</b> Tiền lì xì và cho theo dịp vẫn phổ biến hơn tiền tiêu vặt định kỳ.</div>
       </div>
       <div class="find">
         <div class="dot">2</div>
-        <div data-i18n-html="f2"><b>Nói chuyện nhiều, vòng lặp thực hành còn thiếu.</b> Phụ huynh đã nhắc và hỏi, nhưng ít gia đình có chu kỳ: tự quyết → trải nghiệm kết quả → nhìn lại → điều chỉnh.</div>
+        <div data-i18n-html="f2"><b>Nói chuyện nhiều, vòng lặp thực hành còn thiếu.</b> Ít gia đình có chu kỳ: tự quyết → trải nghiệm → nhìn lại → điều chỉnh.</div>
       </div>
       <div class="find">
         <div class="dot">3</div>
@@ -419,7 +493,7 @@
       </div>
       <div class="find">
         <div class="dot">5</div>
-        <div data-i18n-html="f5"><b>63% sẵn sàng dành 15–20 phút/tuần</b> nếu cách làm rõ ràng và đơn giản, trên 32% có thể sắp xếp thời gian cùng con.</div>
+        <div data-i18n-html="f5"><b>63% sẵn sàng dành 15–20 phút/tuần</b> nếu cách làm rõ ràng và đơn giản.</div>
       </div>
     </div>
     <div class="callout" data-i18n-html="callout">
@@ -427,6 +501,7 @@
     </div>
   </div>
 
+  <!-- Report download -->
   <div class="report" id="report">
     <div class="report-label" data-i18n="report_label">Báo cáo miễn phí</div>
     <h3 data-i18n="report_title">Tải báo cáo: Cách trẻ học và sử dụng tiền</h3>
@@ -437,44 +512,115 @@
       <span data-i18n="meta3">📅 Tháng 8/2026</span>
       <span data-i18n="meta4">🔬 Kitto Research</span>
     </div>
-    <button class="btn btn-white" data-i18n="report_btn" onclick="dl()">Tải báo cáo miễn phí</button>
+    <a class="btn btn-white" data-i18n="report_btn" href="Bao-cao-khao-sat-cach-tre-hoc-va-su-dung-tien-danh-cho-phu-huynh.docx" download="Bao-cao-khao-sat-cach-tre-hoc-va-su-dung-tien.docx">Tải báo cáo miễn phí</a>
   </div>
 
+  <!-- Hybrid: Physical + Web -->
   <div class="sec">
-    <div class="sec-label" data-i18n="kit_label">Từ báo cáo đến hành động</div>
-    <h2 data-i18n-html="kit_title">Kit 4 tuần — vòng lặp thực hành đơn giản</h2>
-    <p class="sec-desc" data-i18n="kit_desc">
-      Thiết kế đúng khoảng trống khảo sát chỉ ra: tiền thật quy mô nhỏ, câu hỏi dẫn dắt, nhìn lại đều đặn, tiến bộ nhìn thấy được.
+    <div class="sec-label" data-i18n="hybrid_label">Cách KittoFam hoạt động</div>
+    <h2 data-i18n="hybrid_title">Hai phần, cực nhẹ</h2>
+    <p class="sec-desc" data-i18n="hybrid_desc">
+      Con dùng bảng in (sờ được, nhìn thấy tiền). Bố mẹ mở web (biết hỏi gì, làm gì). Không cần app cho con.
     </p>
+
+    <div class="hybrid">
+      <div class="hybrid-card">
+        <span class="tag tag-kid" data-i18n="tag_kid">Cho con</span>
+        <h4 data-i18n="kid_title">Bảng physical + thẻ mission</h4>
+        <p data-i18n="kid_desc">In ra, dán tường hoặc để bàn. Dùng tiền thật quy mô nhỏ.</p>
+        <ul data-i18n-html="kid_list">
+          <li>Ô “Tuần này mình có”</li>
+          <li>Chọn: Chi / Để dành / Chờ</li>
+          <li>Mục tiêu đang tiết kiệm (thanh tiến độ)</li>
+          <li>Nhìn lại: Đáng / Bình thường / Tiếc</li>
+        </ul>
+      </div>
+      <div class="hybrid-card">
+        <span class="tag tag-parent" data-i18n="tag_parent">Cho bố mẹ</span>
+        <h4 data-i18n="parent_title">Web hướng dẫn ngắn</h4>
+        <p data-i18n="parent_desc">Mỗi tuần mở 1 trang. Biết mục tiêu, câu hỏi nên hỏi, và điều không nên làm.</p>
+        <ul data-i18n-html="parent_list">
+          <li>Mission tuần này (1 nhiệm vụ)</li>
+          <li>2–3 câu hỏi dẫn dắt</li>
+          <li>3 câu nhìn lại cuối tuần</li>
+          <li>Ghi nhận nhanh (xong / chưa)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onboarding đơn giản -->
+  <div class="sec">
+    <div class="sec-label" data-i18n="onboard_label">Bắt đầu trong 15 phút</div>
+    <h2 data-i18n="onboard_title">Onboarding siêu ngắn</h2>
+    <p class="sec-desc" data-i18n="onboard_desc">Không cần chuẩn bị nhiều. Làm lần lượt 4 bước dưới đây.</p>
 
     <div class="steps">
       <div class="step">
         <div class="step-n">1</div>
         <div>
-          <h4 data-i18n="w1_title">Tuần 1 — Có tiền</h4>
-          <p data-i18n="w1_desc">Thiết lập khoản định kỳ nhỏ. Thống nhất vài nguyên tắc đơn giản với con (và giữa bố mẹ).</p>
+          <h4 data-i18n="o1_title">Chọn số tiền định kỳ nhỏ</h4>
+          <p data-i18n="o1_desc">Ví dụ 50.000–150.000đ/tuần (tùy gia đình). Quan trọng là đều đặn và con biết trước.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-n">2</div>
         <div>
-          <h4 data-i18n="w2_title">Tuần 2 — Có lựa chọn</h4>
-          <p data-i18n="w2_desc">Để con tự quyết vài khoản chi trong phạm vi đã thống nhất.</p>
+          <h4 data-i18n="o2_title">In bảng + thẻ tuần 1</h4>
+          <p data-i18n="o2_desc">In PDF chúng tôi gửi. Dán tường hoặc để bàn học. Giải thích nhanh với con: “Đây là sân tập tiền của con.”</p>
         </div>
       </div>
       <div class="step">
         <div class="step-n">3</div>
         <div>
-          <h4 data-i18n="w3_title">Tuần 3 — Nhìn lại</h4>
-          <p data-i18n="w3_desc">Cùng ngồi 10–15 phút: tuần này tiêu gì, còn bao nhiêu, muốn điều chỉnh gì.</p>
+          <h4 data-i18n="o3_title">Thống nhất 2–3 nguyên tắc</h4>
+          <p data-i18n="o3_desc">Ví dụ: Con tự quyết trong số tiền này. Bố mẹ không sửa quyết định. Cuối tuần ngồi nhìn lại 5–10 phút.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-n">4</div>
         <div>
-          <h4 data-i18n="w4_title">Tuần 4 — Đặt mục tiêu</h4>
-          <p data-i18n="w4_desc">Chọn một mục tiêu tiết kiệm nhỏ và theo dõi tiến bộ cùng con.</p>
+          <h4 data-i18n="o4_title">Bắt đầu tuần 1</h4>
+          <p data-i18n="o4_desc">Đưa tiền → con ghi lên bảng → để con tự chọn. Bố mẹ chỉ hỏi theo gợi ý trên web.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 tuần -->
+  <div class="sec">
+    <div class="sec-label" data-i18n="weeks_label">Kit 4 tuần</div>
+    <h2 data-i18n="weeks_title">Mỗi tuần chỉ 1 nhiệm vụ</h2>
+    <p class="sec-desc" data-i18n="weeks_desc">Không dạy hết mọi thứ. Chỉ luyện 1 kỹ năng/tuần.</p>
+
+    <div class="weeks">
+      <div class="week">
+        <div class="week-head">
+          <span class="week-num" data-i18n="w1_num">Tuần 1</span>
+          <h4 data-i18n="w1_title">Tiền của con đi đâu?</h4>
+        </div>
+        <p data-i18n="w1_desc">Con nhận biết mình có bao nhiêu tiền và muốn dùng cho việc gì (chơi, ăn, mua đồ, tiết kiệm).</p>
+      </div>
+      <div class="week">
+        <div class="week-head">
+          <span class="week-num" data-i18n="w2_num">Tuần 2</span>
+          <h4 data-i18n="w2_title">Cần hay muốn?</h4>
+        </div>
+        <p data-i18n="w2_desc">Trước khi mua, con trả lời 3 câu: Cần hay muốn? Nếu không mua hôm nay thì sao? Còn bao nhiêu?</p>
+      </div>
+      <div class="week">
+        <div class="week-head">
+          <span class="week-num" data-i18n="w3_num">Tuần 3</span>
+          <h4 data-i18n="w3_title">Con sẽ chọn gì?</h4>
+        </div>
+        <p data-i18n="w3_desc">Tình huống trade-off đơn giản. Con nói: “Con chọn ___ vì ___.” Không có đáp án đúng/sai.</p>
+      </div>
+      <div class="week">
+        <div class="week-head">
+          <span class="week-num" data-i18n="w4_num">Tuần 4</span>
+          <h4 data-i18n="w4_title">Nếu được chọn lại?</h4>
+        </div>
+        <p data-i18n="w4_desc">Nhìn lại món đã mua: Rất đáng / Bình thường / Hơi tiếc. Đây là vòng Decision → Outcome → Reflection.</p>
       </div>
     </div>
 
@@ -486,10 +632,64 @@
     </div>
   </div>
 
+  <!-- Hướng dẫn bố mẹ ngắn -->
+  <div class="sec">
+    <div class="sec-label" data-i18n="guide_label">Hướng dẫn bố mẹ</div>
+    <h2 data-i18n="guide_title">Chỉ cần nhớ 3 điều</h2>
+
+    <div class="guide-box">
+      <div class="guide-item">
+        <div class="guide-icon">1</div>
+        <div>
+          <strong data-i18n="g1_t">Cho con tự quyết trong phạm vi đã thống nhất</strong>
+          <span data-i18n="g1_d">Không sửa quyết định của con (trừ khi nguy hiểm thật sự).</span>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="guide-icon">2</div>
+        <div>
+          <strong data-i18n="g2_t">Hỏi thay vì giảng</strong>
+          <span data-i18n="g2_d">“Nếu mua thì con còn bao nhiêu?” · “Con muốn món này hơn mục tiêu đang tiết kiệm không?”</span>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="guide-icon">3</div>
+        <div>
+          <strong data-i18n="g3_t">Cuối tuần ngồi 5–10 phút nhìn lại</strong>
+          <span data-i18n="g3_d">Hỏi con: Quyết định nào tốt? Có điều gì muốn làm khác? Tuần sau muốn làm gì với tiền?</span>
+        </div>
+      </div>
+
+      <div class="do-dont">
+        <div class="do">
+          <strong data-i18n="do_title">✓ Nên làm</strong>
+          <ul data-i18n-html="do_list">
+            <li>Để con tự chọn</li>
+            <li>Hỏi câu dẫn dắt</li>
+            <li>Nhìn lại cuối tuần</li>
+            <li>Khen khi con suy nghĩ</li>
+          </ul>
+        </div>
+        <div class="dont">
+          <strong data-i18n="dont_title">✗ Không cần</strong>
+          <ul data-i18n-html="dont_list">
+            <li>Giảng bài dài</li>
+            <li>Bắt con phải tiết kiệm</li>
+            <li>Sửa quyết định của con</li>
+            <li>So sánh với trẻ khác</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trial form -->
   <div class="trial" id="trial">
     <div class="sec-label" data-i18n="trial_label">Dùng thử miễn phí</div>
-    <h2 data-i18n="trial_title">Bắt đầu thử nghiệm 4 tuần</h2>
-    <p class="sec-desc" data-i18n="trial_desc">Để lại thông tin — chúng tôi gửi hướng dẫn và tài liệu trong 24 giờ.</p>
+    <h2 data-i18n="trial_title">Nhận kit 4 tuần + hướng dẫn</h2>
+    <p class="sec-desc" data-i18n="trial_desc">
+      Chúng tôi gửi PDF bảng in + thẻ mission + link web hướng dẫn bố mẹ trong 24 giờ.
+    </p>
 
     <div class="form">
       <div id="fv">
@@ -500,48 +700,48 @@
           </div>
           <div class="fg">
             <label for="contact" data-i18n="l_contact">Email hoặc Zalo</label>
-            <input id="contact" type="text" name="contact" data-i18n-placeholder="ph_contact" placeholder="Để chúng tôi gửi hướng dẫn" required autocomplete="email" />
+            <input id="contact" type="text" name="contact" data-i18n-placeholder="ph_contact" placeholder="Để chúng tôi gửi hướng dẫn" required />
           </div>
           <div class="fg">
-            <label for="age" data-i18n="l_age">Con đang bao nhiêu tuổi?</label>
+            <label for="age" data-i18n="l_age">Con bao nhiêu tuổi?</label>
             <select id="age" name="age" required>
               <option value="" data-i18n="opt_age0">Chọn độ tuổi</option>
               <option value="7-8" data-i18n="opt_age1">7–8 tuổi</option>
               <option value="9-10" data-i18n="opt_age2">9–10 tuổi</option>
               <option value="11-12" data-i18n="opt_age3">11–12 tuổi</option>
               <option value="13-14" data-i18n="opt_age4">13–14 tuổi</option>
-              <option value="15+" data-i18n="opt_age5">15 tuổi trở lên</option>
-              <option value="multi" data-i18n="opt_age6">Có nhiều con trong độ tuổi</option>
+              <option value="15+" data-i18n="opt_age5">15+</option>
+              <option value="multi" data-i18n="opt_age6">Nhiều hơn một con trong độ tuổi</option>
             </select>
           </div>
           <div class="fg">
-            <label for="pain" data-i18n="l_pain">Điều bạn quan tâm nhất hiện nay?</label>
+            <label for="pain" data-i18n="l_pain">Điều bạn quan tâm nhất lúc này?</label>
             <select id="pain" name="pain" required>
               <option value="" data-i18n="opt_pain0">Chọn một</option>
-              <option value="practice" data-i18n="opt_pain1">Muốn con được thực hành nhiều hơn</option>
-              <option value="structure" data-i18n="opt_pain2">Muốn có hoạt động cụ thể làm cùng con</option>
-              <option value="remind" data-i18n="opt_pain3">Đang nhắc nhiều nhưng chưa thấy thói quen</option>
-              <option value="need-want" data-i18n="opt_pain4">Muốn con phân biệt cần – muốn tốt hơn</option>
-              <option value="habit" data-i18n="opt_pain5">Muốn xây thói quen sớm, dù chưa có vấn đề lớn</option>
+              <option value="practice" data-i18n="opt_pain1">Muốn con thực hành nhiều hơn</option>
+              <option value="activities" data-i18n="opt_pain2">Muốn có hoạt động cụ thể làm cùng con</option>
+              <option value="remind" data-i18n="opt_pain3">Hay phải nhắc nhưng thói quen chưa bền</option>
+              <option value="need-want" data-i18n="opt_pain4">Muốn con phân biệt cần vs muốn tốt hơn</option>
+              <option value="early" data-i18n="opt_pain5">Muốn xây thói quen sớm, dù chưa có vấn đề lớn</option>
               <option value="other" data-i18n="opt_pain6">Khác</option>
             </select>
           </div>
           <div class="fg">
-            <label for="report" data-i18n="l_report">Bạn muốn nhận kèm báo cáo khảo sát?</label>
+            <label for="report" data-i18n="l_report">Bạn cũng muốn nhận báo cáo khảo sát?</label>
             <select id="report" name="report">
-              <option value="yes" data-i18n="opt_rep1">Có, gửi kèm báo cáo</option>
-              <option value="no" data-i18n="opt_rep2">Không cần, chỉ dùng thử kit</option>
+              <option value="yes" data-i18n="opt_rep1">Có, gửi luôn báo cáo</option>
+              <option value="no" data-i18n="opt_rep2">Không, chỉ cần kit thử</option>
               <option value="already" data-i18n="opt_rep3">Đã tải rồi</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-submit" data-i18n="submit">Gửi đăng ký — nhận hướng dẫn</button>
-          <p class="form-note" data-i18n-html="form_note">Không spam. Bạn có thể dừng bất cứ lúc nào.<br>MVP đang trong giai đoạn thử nghiệm.</p>
+          <button type="submit" class="btn btn-submit" data-i18n="submit">Đăng ký — nhận hướng dẫn</button>
         </form>
+        <p class="form-note" data-i18n-html="form_note">Không spam. Bạn có thể dừng bất cứ lúc nào.<br>MVP đang ở giai đoạn thử nghiệm.</p>
       </div>
       <div class="ok" id="ok">
-        <div class="ico">✅</div>
+        <div class="ico">🌱</div>
         <h3 data-i18n="ok_title">Cảm ơn bạn!</h3>
-        <p data-i18n="ok_desc">Chúng tôi đã nhận thông tin và sẽ gửi hướng dẫn cùng tài liệu trong vòng 24 giờ.</p>
+        <p data-i18n="ok_desc">Chúng tôi đã nhận thông tin và sẽ gửi hướng dẫn + tài liệu trong vòng 24 giờ.</p>
       </div>
     </div>
   </div>
@@ -550,33 +750,33 @@
 
 <footer>
   <div class="wrap">
-    <img src="kitto-logo.jpg" alt="Kitto" class="logo-img" width="90" height="30" />
-    <p data-i18n="ft1">Giúp con học cách sử dụng tiền qua thực hành</p>
-    <p data-i18n="ft2">Báo cáo thực hiện bởi Nhóm Nghiên cứu Kitto và các cộng sự · Tháng 8/2026</p>
-    <p style="opacity:.7;margin-top:8px" data-i18n="ft3">Nội dung mang tính tham khảo và định hướng thực hành, không phải tư vấn tài chính cá nhân.</p>
+    <img src="kitto-logo.jpg" alt="KittoFam" class="logo-img" width="100" height="36" />
+    <p data-i18n="ft1">Giúp trẻ học dùng tiền qua thực hành thật</p>
+    <p data-i18n="ft2">Báo cáo bởi Nhóm Nghiên cứu KittoFam và cộng sự · Tháng 8/2026</p>
+    <p data-i18n="ft3">Nội dung mang tính tham khảo và định hướng thực hành, không phải tư vấn tài chính cá nhân.</p>
   </div>
 </footer>
 
 <script>
 const I18N = {
   vi: {
-    title: "Kitto — Con học dùng tiền qua thực hành",
-    desc: "Khảo sát 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu vòng lặp thực hành. Tải báo cáo & dùng thử kit 4 tuần.",
+    title: "KittoFam — Con học dùng tiền qua thực hành thật",
+    desc: "Từ khảo sát 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu vòng lặp thực hành. Tải báo cáo & dùng thử kit 4 tuần.",
     hdr_cta: "Dùng thử miễn phí",
     badge: "Từ khảo sát 40 phụ huynh · Hà Nội & TP.HCM",
-    hero_title: 'Con học dùng tiền tốt hơn<br>khi được <span class="hl">thực hành thật</span>',
-    hero_lead: "Khảo sát cho thấy nhiều gia đình đã nói chuyện với con về tiền, nhưng vẫn thiếu một vòng lặp đơn giản: tự quyết → trải nghiệm → nhìn lại → điều chỉnh.",
+    hero_title: "Con học dùng tiền tốt hơn<br>khi được <span class=\"hl\">thực hành thật</span>",
+    hero_lead: "10–15 phút mỗi tuần. Con tự quyết với tiền thật. Bố mẹ chỉ cần hỏi đúng câu hỏi.",
     cta_trial: "Dùng thử kit 4 tuần — miễn phí",
     cta_report: "Tải báo cáo khảo sát",
-    trust1: "Không cần thẻ",
+    trust1: "Không cần thẻ ngân hàng",
     trust2: "10–15 phút/tuần",
     trust3: "Dừng bất cứ lúc nào",
     findings_title: "5 phát hiện từ báo cáo khảo sát",
-    f1: "<b>Có tiền ≠ có cơ hội học quản lý tiền.</b> Tiền lì xì và cho theo dịp vẫn phổ biến hơn tiền tiêu vặt định kỳ — con có tiền nhưng ít chu kỳ ổn định để thực hành.",
-    f2: "<b>Nói chuyện nhiều, vòng lặp thực hành còn thiếu.</b> Phụ huynh đã nhắc và hỏi, nhưng ít gia đình có chu kỳ: tự quyết → trải nghiệm kết quả → nhìn lại → điều chỉnh.",
+    f1: "<b>Có tiền ≠ có cơ hội học quản lý tiền.</b> Tiền lì xì và cho theo dịp vẫn phổ biến hơn tiền tiêu vặt định kỳ.",
+    f2: "<b>Nói chuyện nhiều, vòng lặp thực hành còn thiếu.</b> Ít gia đình có chu kỳ: tự quyết → trải nghiệm → nhìn lại → điều chỉnh.",
     f3: "<b>“Cần hay muốn?” là điểm bắt đầu tự nhiên.</b> Đây là kỹ năng được chọn nhiều nhất nếu chỉ cải thiện được một điều.",
     f4: "<b>Nhu cầu không chỉ xuất hiện khi đã có vấn đề.</b> Nhiều phụ huynh “chưa thấy vấn đề đáng kể” vẫn quan tâm đến cách tiếp cận có cấu trúc.",
-    f5: "<b>63% sẵn sàng dành 15–20 phút/tuần</b> nếu cách làm rõ ràng và đơn giản, trên 32% có thể sắp xếp thời gian cùng con.",
+    f5: "<b>63% sẵn sàng dành 15–20 phút/tuần</b> nếu cách làm rõ ràng và đơn giản.",
     callout: "<strong>Khoảng trống chính:</strong> Không phải thiếu kiến thức, mà thiếu khung đơn giản để lặp lại. Đó là lý do “đã dạy rồi mà vẫn phải nhắc”.",
     report_label: "Báo cáo miễn phí",
     report_title: "Tải báo cáo: Cách trẻ học và sử dụng tiền",
@@ -586,99 +786,174 @@ const I18N = {
     meta3: "📅 Tháng 8/2026",
     meta4: "🔬 Kitto Research",
     report_btn: "Tải báo cáo miễn phí",
-    kit_label: "Từ báo cáo đến hành động",
-    kit_title: "Kit 4 tuần — vòng lặp thực hành đơn giản",
-    kit_desc: "Thiết kế đúng khoảng trống khảo sát chỉ ra: tiền thật quy mô nhỏ, câu hỏi dẫn dắt, nhìn lại đều đặn, tiến bộ nhìn thấy được.",
-    w1_title: "Tuần 1 — Có tiền",
-    w1_desc: "Thiết lập khoản định kỳ nhỏ. Thống nhất vài nguyên tắc đơn giản với con (và giữa bố mẹ).",
-    w2_title: "Tuần 2 — Có lựa chọn",
-    w2_desc: "Để con tự quyết vài khoản chi trong phạm vi đã thống nhất.",
-    w3_title: "Tuần 3 — Nhìn lại",
-    w3_desc: "Cùng ngồi 10–15 phút: tuần này tiêu gì, còn bao nhiêu, muốn điều chỉnh gì.",
-    w4_title: "Tuần 4 — Đặt mục tiêu",
-    w4_desc: "Chọn một mục tiêu tiết kiệm nhỏ và theo dõi tiến bộ cùng con.",
+    hybrid_label: "Cách KittoFam hoạt động",
+    hybrid_title: "Hai phần, cực nhẹ",
+    hybrid_desc: "Con dùng bảng in (sờ được, nhìn thấy tiền). Bố mẹ mở web (biết hỏi gì, làm gì). Không cần app cho con.",
+    tag_kid: "Cho con",
+    kid_title: "Bảng physical + thẻ mission",
+    kid_desc: "In ra, dán tường hoặc để bàn. Dùng tiền thật quy mô nhỏ.",
+    kid_list: "<li>Ô “Tuần này mình có”</li><li>Chọn: Chi / Để dành / Chờ</li><li>Mục tiêu đang tiết kiệm (thanh tiến độ)</li><li>Nhìn lại: Đáng / Bình thường / Tiếc</li>",
+    tag_parent: "Cho bố mẹ",
+    parent_title: "Web hướng dẫn ngắn",
+    parent_desc: "Mỗi tuần mở 1 trang. Biết mục tiêu, câu hỏi nên hỏi, và điều không nên làm.",
+    parent_list: "<li>Mission tuần này (1 nhiệm vụ)</li><li>2–3 câu hỏi dẫn dắt</li><li>3 câu nhìn lại cuối tuần</li><li>Ghi nhận nhanh (xong / chưa)</li>",
+    onboard_label: "Bắt đầu trong 15 phút",
+    onboard_title: "Onboarding siêu ngắn",
+    onboard_desc: "Không cần chuẩn bị nhiều. Làm lần lượt 4 bước dưới đây.",
+    o1_title: "Chọn số tiền định kỳ nhỏ",
+    o1_desc: "Ví dụ 50.000–150.000đ/tuần (tùy gia đình). Quan trọng là đều đặn và con biết trước.",
+    o2_title: "In bảng + thẻ tuần 1",
+    o2_desc: "In PDF chúng tôi gửi. Dán tường hoặc để bàn học. Giải thích nhanh với con: “Đây là sân tập tiền của con.”",
+    o3_title: "Thống nhất 2–3 nguyên tắc",
+    o3_desc: "Ví dụ: Con tự quyết trong số tiền này. Bố mẹ không sửa quyết định. Cuối tuần ngồi nhìn lại 5–10 phút.",
+    o4_title: "Bắt đầu tuần 1",
+    o4_desc: "Đưa tiền → con ghi lên bảng → để con tự chọn. Bố mẹ chỉ hỏi theo gợi ý trên web.",
+    weeks_label: "Kit 4 tuần",
+    weeks_title: "Mỗi tuần chỉ 1 nhiệm vụ",
+    weeks_desc: "Không dạy hết mọi thứ. Chỉ luyện 1 kỹ năng/tuần.",
+    w1_num: "Tuần 1",
+    w1_title: "Tiền của con đi đâu?",
+    w1_desc: "Con nhận biết mình có bao nhiêu tiền và muốn dùng cho việc gì (chơi, ăn, mua đồ, tiết kiệm).",
+    w2_num: "Tuần 2",
+    w2_title: "Cần hay muốn?",
+    w2_desc: "Trước khi mua, con trả lời 3 câu: Cần hay muốn? Nếu không mua hôm nay thì sao? Còn bao nhiêu?",
+    w3_num: "Tuần 3",
+    w3_title: "Con sẽ chọn gì?",
+    w3_desc: "Tình huống trade-off đơn giản. Con nói: “Con chọn ___ vì ___.” Không có đáp án đúng/sai.",
+    w4_num: "Tuần 4",
+    w4_title: "Nếu được chọn lại?",
+    w4_desc: "Nhìn lại món đã mua: Rất đáng / Bình thường / Hơi tiếc. Đây là vòng Decision → Outcome → Reflection.",
     b1_t: "Tiền thật", b1_d: "Con tự quyết trong phạm vi an toàn",
     b2_t: "Câu hỏi dẫn dắt", b2_d: "Thay “không được” bằng vài câu cố định",
     b3_t: "10–15 phút/tuần", b3_d: "Vừa đủ để đóng vòng, không nặng",
     b4_t: "Thấy tiến bộ", b4_d: "Cả con và bố mẹ đều rõ hơn",
+    guide_label: "Hướng dẫn bố mẹ",
+    guide_title: "Chỉ cần nhớ 3 điều",
+    g1_t: "Cho con tự quyết trong phạm vi đã thống nhất",
+    g1_d: "Không sửa quyết định của con (trừ khi nguy hiểm thật sự).",
+    g2_t: "Hỏi thay vì giảng",
+    g2_d: "“Nếu mua thì con còn bao nhiêu?” · “Con muốn món này hơn mục tiêu đang tiết kiệm không?”",
+    g3_t: "Cuối tuần ngồi 5–10 phút nhìn lại",
+    g3_d: "Hỏi con: Quyết định nào tốt? Có điều gì muốn làm khác? Tuần sau muốn làm gì với tiền?",
+    do_title: "✓ Nên làm",
+    do_list: "<li>Để con tự chọn</li><li>Hỏi câu dẫn dắt</li><li>Nhìn lại cuối tuần</li><li>Khen khi con suy nghĩ</li>",
+    dont_title: "✗ Không cần",
+    dont_list: "<li>Giảng bài dài</li><li>Bắt con phải tiết kiệm</li><li>Sửa quyết định của con</li><li>So sánh với trẻ khác</li>",
     trial_label: "Dùng thử miễn phí",
-    trial_title: "Bắt đầu thử nghiệm 4 tuần",
-    trial_desc: "Để lại thông tin — chúng tôi gửi hướng dẫn và tài liệu trong 24 giờ.",
+    trial_title: "Nhận kit 4 tuần + hướng dẫn",
+    trial_desc: "Chúng tôi gửi PDF bảng in + thẻ mission + link web hướng dẫn bố mẹ trong 24 giờ.",
     l_name: "Bạn tên gì?",
     ph_name: "Ví dụ: Chị Lan",
     l_contact: "Email hoặc Zalo",
     ph_contact: "Để chúng tôi gửi hướng dẫn",
-    l_age: "Con đang bao nhiêu tuổi?",
+    l_age: "Con bao nhiêu tuổi?",
     opt_age0: "Chọn độ tuổi",
     opt_age1: "7–8 tuổi", opt_age2: "9–10 tuổi", opt_age3: "11–12 tuổi",
-    opt_age4: "13–14 tuổi", opt_age5: "15 tuổi trở lên", opt_age6: "Có nhiều con trong độ tuổi",
-    l_pain: "Điều bạn quan tâm nhất hiện nay?",
+    opt_age4: "13–14 tuổi", opt_age5: "15+", opt_age6: "Nhiều hơn một con trong độ tuổi",
+    l_pain: "Điều bạn quan tâm nhất lúc này?",
     opt_pain0: "Chọn một",
-    opt_pain1: "Muốn con được thực hành nhiều hơn",
+    opt_pain1: "Muốn con thực hành nhiều hơn",
     opt_pain2: "Muốn có hoạt động cụ thể làm cùng con",
-    opt_pain3: "Đang nhắc nhiều nhưng chưa thấy thói quen",
-    opt_pain4: "Muốn con phân biệt cần – muốn tốt hơn",
+    opt_pain3: "Hay phải nhắc nhưng thói quen chưa bền",
+    opt_pain4: "Muốn con phân biệt cần vs muốn tốt hơn",
     opt_pain5: "Muốn xây thói quen sớm, dù chưa có vấn đề lớn",
     opt_pain6: "Khác",
-    l_report: "Bạn muốn nhận kèm báo cáo khảo sát?",
-    opt_rep1: "Có, gửi kèm báo cáo",
-    opt_rep2: "Không cần, chỉ dùng thử kit",
+    l_report: "Bạn cũng muốn nhận báo cáo khảo sát?",
+    opt_rep1: "Có, gửi luôn báo cáo",
+    opt_rep2: "Không, chỉ cần kit thử",
     opt_rep3: "Đã tải rồi",
-    submit: "Gửi đăng ký — nhận hướng dẫn",
-    form_note: "Không spam. Bạn có thể dừng bất cứ lúc nào.<br>MVP đang trong giai đoạn thử nghiệm.",
+    submit: "Đăng ký — nhận hướng dẫn",
+    form_note: "Không spam. Bạn có thể dừng bất cứ lúc nào.<br>MVP đang ở giai đoạn thử nghiệm.",
     ok_title: "Cảm ơn bạn!",
-    ok_desc: "Chúng tôi đã nhận thông tin và sẽ gửi hướng dẫn cùng tài liệu trong vòng 24 giờ.",
-    ft1: "Giúp con học cách sử dụng tiền qua thực hành",
-    ft2: "Báo cáo thực hiện bởi Nhóm Nghiên cứu Kitto và các cộng sự · Tháng 8/2026",
-    ft3: "Nội dung mang tính tham khảo và định hướng thực hành, không phải tư vấn tài chính cá nhân.",
-    dl_alert: "Báo cáo sẽ được tải xuống.\n\n(Khi lên server thật, nút này sẽ tải file PDF/Word trực tiếp.)"
+    ok_desc: "Chúng tôi đã nhận thông tin và sẽ gửi hướng dẫn + tài liệu trong vòng 24 giờ.",
+    ft1: "Giúp trẻ học dùng tiền qua thực hành thật",
+    ft2: "Báo cáo bởi Nhóm Nghiên cứu KittoFam và cộng sự · Tháng 8/2026",
+    ft3: "Nội dung mang tính tham khảo và định hướng thực hành, không phải tư vấn tài chính cá nhân."
   },
   en: {
-    title: "Kitto — Kids learn money through practice",
-    desc: "Survey of 40 parents: the gap isn't knowledge — it's a simple practice loop. Download the report & try the 4-week kit.",
+    title: "KittoFam — Kids learn money by real practice",
+    desc: "From a survey of 40 parents: the gap is not knowledge, but a simple practice loop. Download the report & try the 4-week kit.",
     hdr_cta: "Try free",
-    badge: "From a survey of 40 parents · Hanoi & Ho Chi Minh City",
-    hero_title: 'Kids learn money better<br>when they get <span class="hl">real practice</span>',
-    hero_lead: "Our survey shows many families already talk with their kids about money — but still lack a simple loop: decide → experience → reflect → adjust.",
+    badge: "From a survey of 40 parents · Hanoi & HCMC",
+    hero_title: "Kids learn money better<br>when they get to <span class=\"hl\">practice for real</span>",
+    hero_lead: "10–15 minutes a week. Real money decisions. Parents just ask the right questions.",
     cta_trial: "Try the 4-week kit — free",
-    cta_report: "Download the survey report",
-    trust1: "No card required",
+    cta_report: "Download survey report",
+    trust1: "No bank card needed",
     trust2: "10–15 min/week",
     trust3: "Stop anytime",
-    findings_title: "5 findings from the survey report",
-    f1: "<b>Having money ≠ learning to manage it.</b> Lucky-money and occasional gifts are more common than a regular allowance — so kids have cash but little steady practice.",
-    f2: "<b>Lots of talk, limited practice loops.</b> Parents already remind and discuss, but few families run a cycle of: decide → experience the result → reflect → adjust.",
-    f3: "<b>“Need or want?” is a natural starting point.</b> It was the top skill parents chose if they could improve only one thing.",
-    f4: "<b>Interest isn't only when there's a problem.</b> Many parents who said “no major issues yet” still wanted a more structured approach.",
-    f5: "<b>63% are ready to spend 15–20 minutes/week</b> if the approach is clear and simple; over 32% can arrange time with their child.",
-    callout: "<strong>The main gap:</strong> Not a lack of knowledge, but a lack of a simple framework to repeat. That's why “we've taught this, but still have to remind.”",
+    findings_title: "5 key findings from the survey",
+    f1: "<b>Having money ≠ learning to manage it.</b> Lucky money and occasional gifts are still more common than regular pocket money.",
+    f2: "<b>Lots of talking, missing practice loop.</b> Few families have the cycle: decide → experience → reflect → adjust.",
+    f3: "<b>“Need or want?” is a natural starting point.</b> The skill parents most want to improve first.",
+    f4: "<b>Interest appears even without big problems.</b> Many parents who “don’t see major issues” still want a structured approach.",
+    f5: "<b>63% are willing to spend 15–20 min/week</b> if the method is clear and simple.",
+    callout: "<strong>Main gap:</strong> Not lack of knowledge, but lack of a simple repeating frame. That’s why “we already taught them but still have to remind”.",
     report_label: "Free report",
     report_title: "Download: How children learn and use money",
-    report_desc: "5 key findings · Detailed analysis · 4-week practice ideas · Links to international research — written for parents, easy to read.",
+    report_desc: "5 key findings · Detailed analysis · 4-week practice suggestions · Links to international research — written for parents, easy to read.",
     meta1: "📍 Hanoi & HCMC",
     meta2: "👨‍👩‍👧 40 parents",
     meta3: "📅 August 2026",
     meta4: "🔬 Kitto Research",
     report_btn: "Download free report",
-    kit_label: "From report to action",
-    kit_title: "4-week kit — a simple practice loop",
-    kit_desc: "Built around the gap the survey found: real money at a small scale, guiding questions, regular reflection, visible progress.",
-    w1_title: "Week 1 — Have money",
-    w1_desc: "Set up a small regular allowance. Agree on a few simple rules with your child (and between parents).",
-    w2_title: "Week 2 — Have choices",
-    w2_desc: "Let your child decide on some spending within the agreed limits.",
-    w3_title: "Week 3 — Reflect",
-    w3_desc: "Sit together for 10–15 minutes: what was spent, what's left, what to adjust.",
-    w4_title: "Week 4 — Set a goal",
-    w4_desc: "Pick a small savings goal and track progress together.",
-    b1_t: "Real money", b1_d: "Child decides within safe limits",
-    b2_t: "Guiding questions", b2_d: "Replace “you can't” with a few fixed prompts",
+    hybrid_label: "How KittoFam works",
+    hybrid_title: "Two light parts",
+    hybrid_desc: "Child uses a printed board (touchable, visible money). Parents open a simple web page (know what to ask and do). No app needed for the child.",
+    tag_kid: "For the child",
+    kid_title: "Physical board + mission cards",
+    kid_desc: "Print, stick on wall or desk. Use small real money.",
+    kid_list: "<li>“This week I have” zone</li><li>Choose: Spend / Save / Wait</li><li>Current saving goal (progress bar)</li><li>Look back: Worth it / OK / Regret</li>",
+    tag_parent: "For parents",
+    parent_title: "Short web guide",
+    parent_desc: "One page per week. Know the goal, questions to ask, and what not to do.",
+    parent_list: "<li>This week’s mission (1 task)</li><li>2–3 guiding questions</li><li>3 end-of-week reflection questions</li><li>Quick check-in (done / not yet)</li>",
+    onboard_label: "Start in 15 minutes",
+    onboard_title: "Super short onboarding",
+    onboard_desc: "Little preparation needed. Do these 4 steps in order.",
+    o1_title: "Choose a small regular amount",
+    o1_desc: "E.g. 50,000–150,000 VND/week (family-dependent). Consistency and the child knowing in advance matter most.",
+    o2_title: "Print the board + Week 1 card",
+    o2_desc: "Print the PDF we send. Stick on wall or desk. Briefly tell your child: “This is your money practice space.”",
+    o3_title: "Agree on 2–3 simple rules",
+    o3_desc: "E.g. Child decides within this money. Parents don’t override. End of week: 5–10 min look-back together.",
+    o4_title: "Start Week 1",
+    o4_desc: "Give the money → child writes on the board → let them choose. Parents only ask the suggested questions.",
+    weeks_label: "4-week kit",
+    weeks_title: "Only one mission per week",
+    weeks_desc: "Don’t teach everything. Practice one skill each week.",
+    w1_num: "Week 1",
+    w1_title: "Where does my money go?",
+    w1_desc: "Child notices how much they have and what they want to use it for (play, food, things, saving).",
+    w2_num: "Week 2",
+    w2_title: "Need or want?",
+    w2_desc: "Before buying, child answers 3 questions: Need or want? What if I don’t buy today? How much left?",
+    w3_num: "Week 3",
+    w3_title: "What will you choose?",
+    w3_desc: "Simple trade-off situation. Child says: “I choose ___ because ___.” No right/wrong answer.",
+    w4_num: "Week 4",
+    w4_title: "If you could choose again?",
+    w4_desc: "Look back at something bought: Worth it / OK / A bit of regret. This is Decision → Outcome → Reflection.",
+    b1_t: "Real money", b1_d: "Child decides within a safe range",
+    b2_t: "Guiding questions", b2_d: "Replace “you can’t” with a few fixed questions",
     b3_t: "10–15 min/week", b3_d: "Enough to close the loop, not heavy",
     b4_t: "See progress", b4_d: "Clearer for both child and parents",
+    guide_label: "Parent guide",
+    guide_title: "Just remember 3 things",
+    g1_t: "Let the child decide within the agreed range",
+    g1_d: "Don’t override (unless truly dangerous).",
+    g2_t: "Ask instead of lecture",
+    g2_d: "“If you buy this, how much is left?” · “Do you want this more than your current saving goal?”",
+    g3_t: "Sit 5–10 minutes at week’s end",
+    g3_d: "Ask: Which decision felt good? Anything you’d do differently? What do you want to do with money next week?",
+    do_title: "✓ Do",
+    do_list: "<li>Let the child choose</li><li>Ask guiding questions</li><li>Look back at week’s end</li><li>Praise thinking, not just saving</li>",
+    dont_title: "✗ Don’t need to",
+    dont_list: "<li>Long lectures</li><li>Force the child to save</li><li>Override their decision</li><li>Compare with other kids</li>",
     trial_label: "Free trial",
-    trial_title: "Start the 4-week trial",
-    trial_desc: "Leave your details — we'll send the guide and materials within 24 hours.",
-    l_name: "What's your name?",
+    trial_title: "Get the 4-week kit + guide",
+    trial_desc: "We send printable board PDF + mission cards + parent web guide link within 24 hours.",
+    l_name: "What’s your name?",
     ph_name: "e.g. Lan",
     l_contact: "Email or Zalo",
     ph_contact: "So we can send the guide",
@@ -690,7 +965,7 @@ const I18N = {
     opt_pain0: "Select one",
     opt_pain1: "Want my child to practice more",
     opt_pain2: "Want concrete activities to do together",
-    opt_pain3: "We remind a lot but habits aren't sticking",
+    opt_pain3: "We remind a lot but habits aren’t sticking",
     opt_pain4: "Want better need vs. want judgment",
     opt_pain5: "Want to build habits early, even without big issues",
     opt_pain6: "Other",
@@ -701,11 +976,10 @@ const I18N = {
     submit: "Sign up — get the guide",
     form_note: "No spam. You can stop anytime.<br>MVP is in trial stage.",
     ok_title: "Thank you!",
-    ok_desc: "We've received your details and will send the guide and materials within 24 hours.",
-    ft1: "Helping kids learn to use money through practice",
+    ok_desc: "We’ve received your details and will send the guide and materials within 24 hours.",
+    ft1: "Helping kids learn to use money through real practice",
     ft2: "Report by the Kitto Research Team and collaborators · August 2026",
-    ft3: "Content is for reference and practice guidance only — not personal financial advice.",
-    dl_alert: "The report will download.\n\n(On a live server, this button will serve the PDF/Word file directly.)"
+    ft3: "Content is for reference and practice guidance only — not personal financial advice."
   }
 };
 
@@ -743,9 +1017,7 @@ function setLang(lang) {
 function go(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-function dl() {
-  alert(I18N[currentLang].dl_alert);
-}
+
 function sub(e) {
   e.preventDefault();
   const f = e.target;
