@@ -45,7 +45,6 @@ select:focus-visible,
   outline-offset:3px;
 }
 .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
-
 /* ========================= HEADER ========================= */
 header{
   height:80px;
@@ -114,7 +113,6 @@ section[id]{scroll-margin-top:100px}
   transition:background .2s, border-color .2s;
 }
 .lang-btn:hover{background:var(--soft);border-color:#d0ddd6}
-
 /* ========================= MOBILE NAV ========================= */
 .mobile-nav-btn{
   display:none;
@@ -177,7 +175,6 @@ section[id]{scroll-margin-top:100px}
   transition:opacity .2s;
 }
 .mobile-cta-bar a:active{opacity:.9}
-
 /* ========================= HERO ========================= */
 .hero{padding:72px 0 88px}
 .hero-grid{
@@ -214,7 +211,7 @@ h1 em{
   font-style: normal;
   position: relative;
   z-index: 0;
-  white-space: nowrap; /* giữ 3 chữ đi liền nhau */
+  white-space: nowrap;
 }
 h1 em:after{
   content: "";
@@ -227,7 +224,6 @@ h1 em:after{
   border-radius: 8px;
   z-index: -1;
   opacity: .9;
-}
 }
 .lead{
   font-size:18px;
@@ -271,102 +267,21 @@ h1 em:after{
 }
 .micro span{display:inline-flex;align-items:center;gap:5px}
 .micro span:before{content:"·";opacity:.4}
-
-/* ========================= HERO PRODUCT ========================= */
+/* ========================= HERO PRODUCT (ảnh thật) ========================= */
 .hero-product{
   position:relative;
-  background:linear-gradient(150deg,#EAF9F4 0%,#F8FDEB 100%);
   border-radius:36px;
-  padding:40px 32px 32px;
-  min-height:420px;
-  box-shadow:var(--shadow-lg);
   overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:linear-gradient(150deg,#EAF9F4 0%,#F8FDEB 100%);
 }
-.hero-product:before{
-  content:"";
-  position:absolute;
-  width:180px;height:180px;
-  border-radius:50%;
-  background:#DDF5A7;
-  right:-60px;top:-60px;
-  opacity:.85;
+.hero-product img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  vertical-align:middle;
 }
-.hero-product:after{
-  content:"";
-  position:absolute;
-  width:110px;height:110px;
-  border-radius:50%;
-  background:#BFEFF0;
-  left:-50px;bottom:-35px;
-}
-.kit-label{
-  text-align:center;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.4px;
-  color:var(--navy);
-  text-transform:uppercase;
-  position:relative;z-index:1;
-  opacity:.85;
-}
-.envelopes{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  margin:36px 0 28px;
-  position:relative;z-index:1;
-}
-.env{
-  width:96px;height:122px;
-  border-radius:8px 8px 14px 14px;
-  display:flex;
-  align-items:flex-end;justify-content:center;
-  padding-bottom:14px;
-  font-weight:800;
-  font-size:12px;
-  color:var(--navy);
-  box-shadow:0 10px 22px rgba(22,75,97,.12);
-  position:relative;
-  transition:transform .25s ease;
-}
-.env:hover{transform:translateY(-4px) scale(1.03)}
-.env:before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:42px;
-  background:rgba(255,255,255,.28);
-  clip-path:polygon(0 0,100% 0,50% 100%);
-}
-.env.save{background:var(--green);transform:rotate(-3.5deg)}
-.env.spend{background:var(--yellow);transform:translateY(-12px)}
-.env.share{background:var(--teal);transform:rotate(3.5deg)}
-.notebook{
-  width:148px;height:108px;
-  background:#fff;
-  border:2.5px solid var(--navy);
-  border-radius:10px;
-  margin:auto;
-  box-shadow:0 10px 22px rgba(22,75,97,.10);
-  padding:16px;
-  position:relative;z-index:1;
-}
-.notebook .line{
-  height:5px;
-  background:#E6F2EF;
-  border-radius:4px;
-  margin:8px 0;
-}
-.notebook .line.short{width:58%}
-.kit-caption{
-  text-align:center;
-  margin-top:20px;
-  font-size:13px;
-  color:var(--muted);
-  position:relative;z-index:1;
-  font-weight:500;
-}
-
 /* ========================= GENERAL ========================= */
 .section{padding:88px 0}
 .section.soft{background:var(--soft)}
@@ -395,7 +310,6 @@ h2{
   font-size:17px;
   line-height:1.6;
 }
-
 /* ========================= KIT ========================= */
 .simple-kit{
   display:grid;
@@ -447,7 +361,101 @@ h2{
   color:var(--muted);
   font-size:13.5px;
 }
-
+/* Visual 3 phong bì chuyển xuống đây */
+.kit-visual{
+  max-width:420px;
+  margin:40px auto 0;
+  background:linear-gradient(150deg,#EAF9F4 0%,#F8FDEB 100%);
+  border-radius:28px;
+  padding:36px 28px 28px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+.kit-visual:before{
+  content:"";
+  position:absolute;
+  width:140px;height:140px;
+  border-radius:50%;
+  background:#DDF5A7;
+  right:-50px;top:-50px;
+  opacity:.85;
+}
+.kit-visual:after{
+  content:"";
+  position:absolute;
+  width:90px;height:90px;
+  border-radius:50%;
+  background:#BFEFF0;
+  left:-40px;bottom:-30px;
+}
+.kit-label{
+  text-align:center;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  color:var(--navy);
+  text-transform:uppercase;
+  position:relative;z-index:1;
+  opacity:.85;
+}
+.envelopes{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:28px 0 22px;
+  position:relative;z-index:1;
+}
+.env{
+  width:86px;height:110px;
+  border-radius:8px 8px 14px 14px;
+  display:flex;
+  align-items:flex-end;justify-content:center;
+  padding-bottom:12px;
+  font-weight:800;
+  font-size:11px;
+  color:var(--navy);
+  box-shadow:0 10px 22px rgba(22,75,97,.12);
+  position:relative;
+  transition:transform .25s ease;
+}
+.env:hover{transform:translateY(-4px) scale(1.03)}
+.env:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:38px;
+  background:rgba(255,255,255,.28);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+.env.save{background:var(--green);transform:rotate(-3.5deg)}
+.env.spend{background:var(--yellow);transform:translateY(-10px)}
+.env.share{background:var(--teal);transform:rotate(3.5deg)}
+.notebook{
+  width:132px;height:96px;
+  background:#fff;
+  border:2.5px solid var(--navy);
+  border-radius:10px;
+  margin:auto;
+  box-shadow:0 10px 22px rgba(22,75,97,.10);
+  padding:14px;
+  position:relative;z-index:1;
+}
+.notebook .line{
+  height:5px;
+  background:#E6F2EF;
+  border-radius:4px;
+  margin:7px 0;
+}
+.notebook .line.short{width:58%}
+.kit-caption{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+  color:var(--muted);
+  position:relative;z-index:1;
+  font-weight:500;
+}
 /* ========================= HOW ========================= */
 .demo{
   display:grid;
@@ -496,7 +504,6 @@ h2{
 .n4{background:#BFE5F6}
 .step strong{display:block;color:var(--navy);font-size:15px;margin-bottom:2px}
 .step span{font-size:13px;color:var(--muted)}
-
 /* ========================= STORY ========================= */
 .story-personas{
   display:grid;
@@ -653,7 +660,6 @@ h2{
 }
 .story-outcome h3{margin:0 0 8px;color:var(--navy);font-size:17px}
 .story-outcome p{margin:0;font-size:14.5px;color:var(--ink);line-height:1.6}
-
 /* ========================= PARENT ========================= */
 .parent{
   display:grid;
@@ -681,7 +687,6 @@ h2{
   color:var(--navy);
   flex-shrink:0;
 }
-
 /* ========================= SURVEY ========================= */
 .survey-section{padding:88px 0}
 .survey-box{
@@ -713,7 +718,6 @@ h2{
   margin:12px auto 0;
   line-height:1.5;
 }
-
 /* ========================= FORM ========================= */
 .final{padding:96px 0 110px}
 .final h2{max-width:600px;margin:0 auto 12px}
@@ -785,7 +789,6 @@ h2{
   max-width:460px;
   line-height:1.5;
 }
-
 /* ========================= FOOTER ========================= */
 footer{
   border-top:1px solid var(--line);
@@ -797,7 +800,6 @@ footer{
   justify-content:space-between;
   gap:20px;
 }
-
 /* ========================= RESPONSIVE ========================= */
 @media(max-width:860px){
   body{padding-bottom:78px}
@@ -825,7 +827,7 @@ footer{
   .demo,
   .parent,
   .survey-box{grid-template-columns:1fr;gap:32px}
-  .hero-product{min-height:380px;padding:32px 20px}
+  .hero-product{border-radius:24px}
   h1{font-size:40px;letter-spacing:-1.8px}
   .lead{font-size:16.5px}
   .section,.survey-section{padding:64px 0}
@@ -838,7 +840,8 @@ footer{
   .actions .btn{width:100%}
   .story-personas{grid-template-columns:1fr;max-width:320px}
   .envelopes{gap:8px}
-  .env{width:86px;height:110px;font-size:11px}
+  .env{width:78px;height:100px;font-size:10.5px}
+  .kit-visual{padding:28px 20px;max-width:100%}
 }
 [hidden]{display:none!important}
 </style>
@@ -868,7 +871,6 @@ footer{
     <a class="cta i18n-en" href="#try" hidden>Try Kitto</a>
   </nav>
 </header>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="#kit" class="i18n-vi">Kitto</a>
   <a href="#kit" class="i18n-en" hidden>The kit</a>
@@ -879,12 +881,10 @@ footer{
   <a href="#survey" class="i18n-vi">Khảo sát</a>
   <a href="#survey" class="i18n-en" hidden>Survey</a>
 </div>
-
 <div class="mobile-cta-bar" id="mobileCtaBar">
   <a href="#try" class="i18n-vi">Thử Kitto miễn phí →</a>
   <a href="#try" class="i18n-en" hidden>Try Kitto for free →</a>
 </div>
-
 <main id="top">
   <!-- HERO -->
   <section class="hero">
@@ -920,7 +920,24 @@ footer{
           <span>Start with money your kid already has</span>
         </div>
       </div>
+      <!-- ẢNH MOCKUP THẬT -->
       <div class="hero-product" role="img" id="heroProduct">
+        <img src="https://mai6162.github.io/kitto/vo-hop.jpg" alt="Kitto starter kit — vỏ hộp">
+      </div>
+    </div>
+  </section>
+  <!-- KIT -->
+  <section class="section soft" id="kit">
+    <div class="wrap center">
+      <div class="kicker i18n-vi">Một bộ kit. Một thói quen.</div>
+      <div class="kicker i18n-en" hidden>One kit. One habit.</div>
+      <h2 class="i18n-vi">Đủ đơn giản để dùng thật.</h2>
+      <h2 class="i18n-en" hidden>Simple enough to actually stick.</h2>
+      <p class="sub i18n-vi">Không bài học. Không lịch học. Chỉ cần dùng Kitto khi con có tiền hoặc muốn tiêu.</p>
+      <p class="sub i18n-en" hidden>No lessons. No schedule. Just use Kitto whenever your kid gets money or wants to spend it.</p>
+
+      <!-- Phần ảnh 3 phong bì chuyển xuống đây -->
+      <div class="kit-visual">
         <div class="kit-label">Kitto starter kit</div>
         <div class="envelopes" aria-hidden="true">
           <div class="env save"><span class="i18n-vi">CẤT</span><span class="i18n-en" hidden>SAVE</span></div>
@@ -939,18 +956,7 @@ footer{
         <div class="kit-caption i18n-vi">3 phong bì + 1 sổ tay nhỏ</div>
         <div class="kit-caption i18n-en" hidden>3 envelopes + 1 small notebook</div>
       </div>
-    </div>
-  </section>
 
-  <!-- KIT -->
-  <section class="section soft" id="kit">
-    <div class="wrap center">
-      <div class="kicker i18n-vi">Một bộ kit. Một thói quen.</div>
-      <div class="kicker i18n-en" hidden>One kit. One habit.</div>
-      <h2 class="i18n-vi">Đủ đơn giản để dùng thật.</h2>
-      <h2 class="i18n-en" hidden>Simple enough to actually stick.</h2>
-      <p class="sub i18n-vi">Không bài học. Không lịch học. Chỉ cần dùng Kitto khi con có tiền hoặc muốn tiêu.</p>
-      <p class="sub i18n-en" hidden>No lessons. No schedule. Just use Kitto whenever your kid gets money or wants to spend it.</p>
       <div class="simple-kit">
         <div class="simple-card">
           <div class="simple-icon"><div class="mini-env g"><span class="i18n-vi">CẤT</span><span class="i18n-en" hidden>SAVE</span></div></div>
@@ -976,7 +982,6 @@ footer{
       </div>
     </div>
   </section>
-
   <!-- HOW -->
   <section class="section" id="how">
     <div class="wrap demo">
@@ -1030,7 +1035,6 @@ footer{
       </div>
     </div>
   </section>
-
   <!-- STORY -->
   <section class="section soft" id="story">
     <div class="wrap center">
@@ -1040,7 +1044,6 @@ footer{
       <h2 class="i18n-en" hidden>One week trying Kitto</h2>
       <p class="sub i18n-vi">Từ lúc nhận kit đến khi bé tự làm quen — không cần mẹ nhắc.</p>
       <p class="sub i18n-en" hidden>From getting the kit to doing it on his own — no reminders needed.</p>
-
       <div class="story-personas">
         <div class="story-persona">
           <div class="emoji">👦</div>
@@ -1057,7 +1060,6 @@ footer{
           <p class="i18n-en" hidden>Wants her kid to think before spending — without the constant nagging.</p>
         </div>
       </div>
-
       <div class="story-loop">
         <span class="i18n-vi">Dừng lại</span><span class="i18n-en" hidden>Pause</span> →
         <span class="i18n-vi">Suy nghĩ</span><span class="i18n-en" hidden>Think</span> →
@@ -1066,7 +1068,6 @@ footer{
       </div>
       <div class="story-swipe-hint i18n-vi">Vuốt ngang để xem từng bước →</div>
       <div class="story-swipe-hint i18n-en" hidden>Swipe to see each step →</div>
-
       <!-- ACT 1 -->
       <div class="story-act">
         <div class="story-act-header">
@@ -1097,7 +1098,6 @@ footer{
           </div>
         </div>
       </div>
-
       <!-- ACT 2 -->
       <div class="story-act">
         <div class="story-act-header">
@@ -1144,7 +1144,6 @@ footer{
           </div>
         </div>
       </div>
-
       <!-- ACT 3 -->
       <div class="story-act">
         <div class="story-act-header">
@@ -1187,7 +1186,6 @@ footer{
           </div>
         </div>
       </div>
-
       <div class="story-outcome">
         <h3 class="i18n-vi">Sau vài tuần</h3>
         <h3 class="i18n-en" hidden>After a few weeks</h3>
@@ -1196,7 +1194,6 @@ footer{
       </div>
     </div>
   </section>
-
   <!-- PARENT -->
   <section class="section soft">
     <div class="wrap center">
@@ -1234,7 +1231,6 @@ footer{
       </div>
     </div>
   </section>
-
   <!-- SURVEY -->
   <section class="survey-section" id="survey">
     <div class="wrap">
@@ -1259,7 +1255,6 @@ footer{
       </div>
     </div>
   </section>
-
   <!-- FORM -->
   <section class="final" id="try">
     <div class="wrap center">
@@ -1301,19 +1296,16 @@ footer{
     </div>
   </section>
 </main>
-
 <footer class="wrap">
   <span>© 2026 Kitto</span>
   <span class="i18n-vi">Giúp trẻ học dùng tiền qua thực hành thật</span>
   <span class="i18n-en" hidden>Helping kids learn to use money through real practice</span>
 </footer>
-
 <script>
 var TITLE_VI = "Kitto — Con tập tự quyết định với tiền";
 var TITLE_EN = "Kitto — Kids practice real money decisions";
 var DESC_VI = "Kitto giúp trẻ tập tự quyết định với tiền thật. 10–15 phút mỗi tuần.";
 var DESC_EN = "Kitto helps kids practice real money decisions in just 10–15 minutes a week.";
-
 function setLang(lang){
   document.documentElement.lang = lang;
   document.querySelectorAll('.i18n-vi').forEach(function(el){ el.hidden = (lang !== 'vi'); });
@@ -1322,23 +1314,20 @@ function setLang(lang){
   document.querySelector('meta[name="description"]').setAttribute('content', lang === 'vi' ? DESC_VI : DESC_EN);
   document.getElementById('heroProduct').setAttribute('aria-label',
     lang === 'vi'
-      ? 'Bộ kit Kitto: 3 phong bì Cất, Chi, Chia sẻ và 1 sổ tay nhỏ để ghi quyết định'
-      : 'The Kitto kit: three envelopes — Save, Spend, Share — plus one small notebook for writing down decisions'
+      ? 'Bộ kit Kitto: vỏ hộp starter kit'
+      : 'The Kitto starter kit packaging'
   );
   document.getElementById('langBtnText').textContent = lang === 'vi' ? 'EN' : 'VI';
   document.getElementById('langBtn').setAttribute('aria-label', lang === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt');
 }
-
 document.getElementById('langBtn').addEventListener('click', function(){
   setLang(document.documentElement.lang === 'vi' ? 'en' : 'vi');
 });
 setLang('vi');
-
 var header = document.querySelector('header');
 addEventListener('scroll', function(){
   header.classList.toggle('scrolled', window.scrollY > 8);
 }, {passive:true});
-
 /* Mobile menu */
 var mobileNavBtn = document.getElementById('mobileNavBtn');
 var mobileMenu = document.getElementById('mobileMenu');
@@ -1355,7 +1344,6 @@ mobileNavBtn.addEventListener('click', function(){
 mobileMenu.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click', closeMobileMenu);
 });
-
 /* Form submit */
 var signupForm = document.querySelector('.signup-form');
 var formStatus = document.getElementById('formStatus');
@@ -1367,7 +1355,6 @@ signupForm.addEventListener('submit', function(e){
   submitBtn.disabled = true;
   submitBtn.textContent = lang === 'vi' ? 'Đang gửi...' : 'Sending...';
   formStatus.hidden = true;
-
   fetch(signupForm.action, {
     method: 'POST',
     body: new FormData(signupForm),
