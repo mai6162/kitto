@@ -211,20 +211,23 @@ h1{
   font-weight:800;
 }
 h1 em{
-  font-style:normal;
-  position:relative;
-  z-index:0;
+  font-style: normal;
+  position: relative;
+  z-index: 0;
+  white-space: nowrap; /* giữ 3 chữ đi liền nhau */
 }
 h1 em:after{
-  content:"";
-  position:absolute;
-  left:0;right:0;
-  bottom:4px;
-  height:14px;
-  background:#DDF5A7;
-  border-radius:8px;
-  z-index:-1;
-  opacity:.9;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 14px;
+  background: #DDF5A7;
+  border-radius: 8px;
+  z-index: -1;
+  opacity: .9;
+}
 }
 .lead{
   font-size:18px;
