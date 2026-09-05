@@ -126,10 +126,84 @@ section[id]{
   padding:8px 14px;
   cursor:pointer;
   line-height:1;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 }
 
 .lang-btn:hover{
   background:var(--soft);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-nav-btn{
+  display:none;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--navy);
+  font-size:17px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:88px;
+  left:0;
+  right:0;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 12px 24px rgba(22,75,97,.10);
+  z-index:19;
+}
+
+.mobile-menu.open{
+  display:block;
+}
+
+.mobile-menu a{
+  display:block;
+  padding:15px 24px;
+  font-weight:600;
+  font-size:15px;
+  color:var(--navy);
+  border-top:1px solid var(--line);
+}
+
+.mobile-menu a:first-child{
+  border-top:0;
+}
+
+.mobile-cta-bar{
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:40;
+  background:#fff;
+  border-top:1px solid var(--line);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  box-shadow:0 -8px 24px rgba(22,75,97,.10);
+}
+
+.mobile-cta-bar a{
+  display:block;
+  text-align:center;
+  background:var(--navy);
+  color:#fff;
+  border-radius:999px;
+  padding:14px;
+  font-weight:700;
+  font-size:15px;
 }
 
 /* =========================
@@ -586,6 +660,14 @@ h2{
   border-radius:999px;
 }
 
+.story-swipe-hint{
+  display:none;
+  font-size:12px;
+  color:var(--muted);
+  margin:0 auto 32px;
+  max-width:640px;
+}
+
 .story-act{
   max-width:920px;
   margin:0 auto 56px;
@@ -929,6 +1011,21 @@ h2{
   margin-top:4px;
 }
 
+.form-status{
+  text-align:center;
+  font-size:13px;
+  font-weight:700;
+  color:var(--navy);
+  margin-top:2px;
+}
+
+.trust-line{
+  font-size:12.5px;
+  color:var(--muted);
+  margin:14px auto 0;
+  max-width:480px;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -950,12 +1047,42 @@ footer{
 
 @media(max-width:800px){
 
+  body{
+    padding-bottom:76px;
+  }
+
   .wrap{
     width:min(100% - 28px,620px);
   }
 
   .navlinks{
     display:none;
+  }
+
+  .mobile-nav-btn{
+    display:inline-flex;
+  }
+
+  .mobile-cta-bar{
+    display:block;
+  }
+
+  .story-swipe-hint{
+    display:block;
+  }
+
+  .story-frames{
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:85%;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:6px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .story-frame{
+    scroll-snap-align:start;
   }
 
   .nav .cta{
@@ -1033,10 +1160,6 @@ footer{
     grid-template-columns:1fr;
     max-width:340px;
   }
-
-  .story-frames{
-    grid-template-columns:1fr;
-  }
 }
 
 [hidden]{
@@ -1068,13 +1191,40 @@ footer{
       <a href="#survey" class="i18n-en" hidden>Survey</a>
     </span>
 
-    <button id="langBtn" class="lang-btn" type="button">EN</button>
+    <button id="mobileNavBtn" class="mobile-nav-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      ☰
+    </button>
+
+    <button id="langBtn" class="lang-btn" type="button">
+      <span aria-hidden="true">🌐</span>
+      <span id="langBtnText">EN</span>
+    </button>
 
     <a class="cta i18n-vi" href="#try">Thử Kitto</a>
     <a class="cta i18n-en" href="#try" hidden>Try Kitto</a>
 
   </nav>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#kit" class="i18n-vi">Kitto</a>
+  <a href="#kit" class="i18n-en" hidden>The kit</a>
+
+  <a href="#how" class="i18n-vi">Cách dùng</a>
+  <a href="#how" class="i18n-en" hidden>How it works</a>
+
+  <a href="#story" class="i18n-vi">Câu chuyện</a>
+  <a href="#story" class="i18n-en" hidden>Story</a>
+
+  <a href="#survey" class="i18n-vi">Khảo sát</a>
+  <a href="#survey" class="i18n-en" hidden>Survey</a>
+</div>
+
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <a href="#try" class="i18n-vi">Thử Kitto miễn phí →</a>
+  <a href="#try" class="i18n-en" hidden>Try Kitto for free →</a>
+</div>
+
 
 
 <main id="top">
@@ -1475,27 +1625,27 @@ footer{
 
   <div class="wrap center">
 
-    <div class="kicker i18n-vi">Một ví dụ thật</div>
-    <div class="kicker i18n-en" hidden>A real example</div>
+    <div class="kicker i18n-vi">Trải nghiệm của bé Xu và mẹ An</div>
+    <div class="kicker i18n-en" hidden>Xu and Mom An's experience</div>
 
-    <h2 class="i18n-vi">Câu chuyện của bé Xu &amp; mẹ An</h2>
-    <h2 class="i18n-en" hidden>The story of Xu &amp; her mom, An</h2>
+    <h2 class="i18n-vi">Một tuần dùng thử Kitto</h2>
+    <h2 class="i18n-en" hidden>One week trying Kitto</h2>
 
     <p class="sub i18n-vi">
-      Từ lúc nhận kit → lần đầu dùng → dần tự làm → mẹ bớt phải nhắc.
+      Từ lúc nhận kit đến khi bé tự làm quen — không cần mẹ nhắc.
     </p>
     <p class="sub i18n-en" hidden>
-      From getting the kit → using it for the first time → doing it on her own → less nagging for Mom.
+      From getting the kit to doing it on his own — no reminders needed.
     </p>
 
     <div class="story-personas">
 
       <div class="story-persona">
-        <div class="emoji">👧</div>
+        <div class="emoji">👦</div>
         <h3 class="i18n-vi">Bé Xu · 8 tuổi</h3>
         <h3 class="i18n-en" hidden>Xu · age 8</h3>
-        <p class="i18n-vi">Hay được tiền lì xì, tiền thưởng. Thường muốn mua ngay khi thích.</p>
-        <p class="i18n-en" hidden>Often gets gift money and rewards. Tends to want to buy things right away.</p>
+        <p class="i18n-vi">Hay được tiền thưởng, thích mua ngay khi thích.</p>
+        <p class="i18n-en" hidden>Often gets reward money, likes to buy things right away.</p>
       </div>
 
       <div class="story-persona">
@@ -1515,14 +1665,17 @@ footer{
       <span class="i18n-vi">Nhìn lại</span><span class="i18n-en" hidden>Reflect</span>
     </div>
 
+    <div class="story-swipe-hint i18n-vi">Vuốt ngang để xem từng bước →</div>
+    <div class="story-swipe-hint i18n-en" hidden>Swipe to see each step →</div>
+
     <!-- ACT 1 -->
     <div class="story-act">
 
       <div class="story-act-header">
         <div class="story-act-num">1</div>
         <div style="text-align:left">
-          <div class="story-act-title i18n-vi">Nhận kit · 5 phút</div>
-          <div class="story-act-title i18n-en" hidden>Getting the kit · 5 minutes</div>
+          <div class="story-act-title i18n-vi">Nhận kit</div>
+          <div class="story-act-title i18n-en" hidden>Getting the kit</div>
           <div class="story-act-sub i18n-vi">Ngày đầu tiên</div>
           <div class="story-act-sub i18n-en" hidden>Day one</div>
         </div>
@@ -1532,55 +1685,26 @@ footer{
 
         <div class="story-frame">
           <div class="story-frame-visual">
-            <div class="story-scene-emoji">📦</div>
-            <div class="story-scene-label i18n-vi">Mở hộp</div>
-            <div class="story-scene-label i18n-en" hidden>Opening the box</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">01</div>
-            <h4 class="i18n-vi">Mẹ An đưa kit cho Xu</h4>
-            <h4 class="i18n-en" hidden>Mom An hands Xu the kit</h4>
-            <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Con ơi, đây là 3 phong bì và sổ tay của con nè. Tiền của con sẽ để ở đây.”
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “Here are your 3 envelopes and notebook. This is where your money goes.”
-            </div>
-            <div class="story-action i18n-vi">
-              Mẹ đặt 3 phong bì (Cất · Chi · Chia sẻ) lên kệ bàn học của Xu.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Mom places the three envelopes (Save · Spend · Share) on Xu's desk shelf.
-            </div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual">
             <div class="story-scene-emoji">🤝</div>
             <div class="story-scene-label i18n-vi">Trao quyền</div>
             <div class="story-scene-label i18n-en" hidden>Handing over control</div>
           </div>
           <div class="story-frame-body">
-            <div class="story-frame-num">02</div>
-            <h4 class="i18n-vi">Mẹ nói một câu quan trọng</h4>
-            <h4 class="i18n-en" hidden>Mom says one important thing</h4>
+            <h4 class="i18n-vi">Mẹ An đưa kit và trao quyền cho Xu</h4>
+            <h4 class="i18n-en" hidden>Mom An hands Xu the kit</h4>
             <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
             <div class="story-dialogue i18n-vi">
-              “Tiền này là của con. Con tự quyết định nhé. Mẹ chỉ hỏi thôi, không bảo con phải làm gì đâu.”
+              “Tiền này là của con. Con tự quyết định nhé — mẹ chỉ hỏi thôi.”
             </div>
             <div class="story-dialogue i18n-en" hidden>
-              “This money is yours. You decide. I'll only ask questions — I won't tell you what to do.”
+              “This money is yours. You decide — I'll only ask questions.”
             </div>
             <div class="story-action i18n-vi">
-              Xu gật đầu. Mẹ không giải thích thêm. Xong.
+              Mẹ đặt 3 phong bì (Cất · Chi · Chia sẻ) lên kệ bàn học của Xu, không giải thích thêm.
             </div>
             <div class="story-action i18n-en" hidden>
-              Xu nods. Mom doesn't explain any further. Done.
+              Mom places the three envelopes (Save · Spend · Share) on Xu's shelf — nothing more said.
             </div>
-            <div class="story-note i18n-vi">Chỉ cần con hiểu: tiền là của mình, mẹ không quyết thay.</div>
-            <div class="story-note i18n-en" hidden>All that matters: Xu understands the money is hers, and Mom won't decide for her.</div>
           </div>
         </div>
 
@@ -1594,94 +1718,14 @@ footer{
       <div class="story-act-header">
         <div class="story-act-num">2</div>
         <div style="text-align:left">
-          <div class="story-act-title i18n-vi">Khi nhận tiền</div>
-          <div class="story-act-title i18n-en" hidden>When money comes in</div>
-          <div class="story-act-sub i18n-vi">Lần đầu tiên dùng</div>
-          <div class="story-act-sub i18n-en" hidden>The first time using it</div>
+          <div class="story-act-title i18n-vi">Lần đầu dùng</div>
+          <div class="story-act-title i18n-en" hidden>First time using it</div>
+          <div class="story-act-sub i18n-vi">Vài ngày sau</div>
+          <div class="story-act-sub i18n-en" hidden>A few days later</div>
         </div>
       </div>
 
       <div class="story-frames">
-
-        <div class="story-frame">
-          <div class="story-frame-visual">
-            <div class="story-scene-emoji">💵</div>
-            <div class="story-scene-label i18n-vi">Nhận tiền</div>
-            <div class="story-scene-label i18n-en" hidden>Money in hand</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">03</div>
-            <h4 class="i18n-vi">Xu được thưởng 100.000đ</h4>
-            <h4 class="i18n-en" hidden>Xu gets a 100,000₫ reward</h4>
-            <div class="story-who">👩→👧 <span class="i18n-vi">Mẹ An → Xu</span><span class="i18n-en" hidden>Mom An → Xu</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Con làm bài tốt quá, mẹ thưởng 100 nghìn. Tiền này con muốn làm gì?”
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “You did great on your test — here's 100k as a reward. What do you want to do with it?”
-            </div>
-            <div class="story-action i18n-vi">
-              Mẹ đưa tiền thật. Không nói gì thêm.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Mom hands over real money. Nothing more is said.
-            </div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual">
-            <div class="story-scene-emoji">👀</div>
-            <div class="story-scene-label i18n-vi">Dừng lại</div>
-            <div class="story-scene-label i18n-en" hidden>Pausing</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">04</div>
-            <h4 class="i18n-vi">Xu nhìn 3 phong bì</h4>
-            <h4 class="i18n-en" hidden>Xu looks at the three envelopes</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Ưm… mình muốn mua sticker, nhưng cũng muốn để dành mua búp bê…”
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “Hmm... I want to buy stickers, but I also want to save up for a doll...”
-            </div>
-            <div class="story-action i18n-vi">
-              Xu cầm tiền, nhìn 3 phong bì trên kệ. Lần đầu có chỗ để “dừng lại”.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Xu holds the money and looks at the envelopes. For the first time, there's a place to pause.
-            </div>
-            <div class="story-note i18n-vi">Nhìn thấy phong bì → nhớ phải quyết định. Không cần mẹ nhắc.</div>
-            <div class="story-note i18n-en" hidden>Seeing the envelopes reminds her to decide — no reminder from Mom needed.</div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual">
-            <div class="story-scene-emoji">💭</div>
-            <div class="story-scene-label i18n-vi">Suy nghĩ</div>
-            <div class="story-scene-label i18n-en" hidden>Thinking it over</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">05</div>
-            <h4 class="i18n-vi">Xu nghĩ một chút</h4>
-            <h4 class="i18n-en" hidden>Xu thinks for a moment</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Mình muốn gì thật sự? Nếu tiêu hết thì không còn tiền mua búp bê nữa.”
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “What do I really want? If I spend it all, I won't have money left for the doll.”
-            </div>
-            <div class="story-action i18n-vi">
-              Có thể mở sổ tay viết, hoặc chỉ nghĩ trong đầu. Không bắt buộc.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              She can write in the notebook, or just think it through in her head. It's optional.
-            </div>
-          </div>
-        </div>
 
         <div class="story-frame">
           <div class="story-frame-visual">
@@ -1690,24 +1734,46 @@ footer{
             <div class="story-scene-label i18n-en" hidden>Splitting the money</div>
           </div>
           <div class="story-frame-body">
-            <div class="story-frame-num">06</div>
-            <h4 class="i18n-vi">Xu tự bỏ tiền vào phong bì</h4>
-            <h4 class="i18n-en" hidden>Xu splits the money herself</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
+            <h4 class="i18n-vi">Xu được thưởng 100k, tự chia vào 3 phong bì</h4>
+            <h4 class="i18n-en" hidden>Xu gets a 100k reward, splits it himself</h4>
+            <div class="story-who">👦 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
             <div class="story-dialogue i18n-vi">
-              “50k vào Cất (mua búp bê sau), 40k vào Chi (mua sticker), 10k vào Chia sẻ.”
+              “50k vào Cất, 40k vào Chi, 10k vào Chia sẻ.”
             </div>
             <div class="story-dialogue i18n-en" hidden>
-              “50k into Save (for the doll later), 40k into Spend (stickers), 10k into Share.”
+              “50k into Save, 40k into Spend, 10k into Share.”
             </div>
             <div class="story-action i18n-vi">
-              Xu bỏ tiền vào 3 phong bì. Không có tỷ lệ đúng sai. Mẹ chỉ đứng nhìn.
+              Không có tỷ lệ đúng sai — Xu tự quyết, mẹ chỉ đứng nhìn.
             </div>
             <div class="story-action i18n-en" hidden>
-              Xu puts the money in. There's no "correct" split. Mom just watches.
+              There's no "correct" split — Xu decides, Mom just watches.
             </div>
-            <div class="story-note i18n-vi">Tiền thật của con → quyết định có ý nghĩa.</div>
-            <div class="story-note i18n-en" hidden>Her own real money makes the decision matter.</div>
+          </div>
+        </div>
+
+        <div class="story-frame">
+          <div class="story-frame-visual spend">
+            <div class="story-scene-emoji">🛍️</div>
+            <div class="story-scene-label i18n-vi">Muốn mua</div>
+            <div class="story-scene-label i18n-en" hidden>Wants to buy</div>
+          </div>
+          <div class="story-frame-body">
+            <h4 class="i18n-vi">Xu muốn mua đồ, mẹ chỉ hỏi một câu</h4>
+            <h4 class="i18n-en" hidden>Xu wants to buy something, Mom asks one question</h4>
+            <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
+            <div class="story-dialogue spend i18n-vi">
+              “Con muốn tự quyết định thế nào?”
+            </div>
+            <div class="story-dialogue spend i18n-en" hidden>
+              “How do you want to decide?”
+            </div>
+            <div class="story-action i18n-vi">
+              Xu kiểm tra phong bì Chi còn 40k, rồi quyết định không mua — để dành thêm.
+            </div>
+            <div class="story-action i18n-en" hidden>
+              Xu checks his Spend envelope — only 40k left — and decides to skip it and save more.
+            </div>
           </div>
         </div>
 
@@ -1721,206 +1787,10 @@ footer{
       <div class="story-act-header">
         <div class="story-act-num">3</div>
         <div style="text-align:left">
-          <div class="story-act-title i18n-vi">Khi muốn tiêu tiền</div>
-          <div class="story-act-title i18n-en" hidden>When she wants to spend</div>
-          <div class="story-act-sub i18n-vi">Vài ngày sau</div>
-          <div class="story-act-sub i18n-en" hidden>A few days later</div>
-        </div>
-      </div>
-
-      <div class="story-frames">
-
-        <div class="story-frame">
-          <div class="story-frame-visual spend">
-            <div class="story-scene-emoji">🛍️</div>
-            <div class="story-scene-label i18n-vi">Muốn mua</div>
-            <div class="story-scene-label i18n-en" hidden>Wants to buy</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">07</div>
-            <h4 class="i18n-vi">Xu thấy món đồ thích</h4>
-            <h4 class="i18n-en" hidden>Xu spots something she likes</h4>
-            <div class="story-who">👧→👩 <span class="i18n-vi">Xu → Mẹ</span><span class="i18n-en" hidden>Xu → Mom</span></div>
-            <div class="story-dialogue spend i18n-vi">
-              “Mẹ ơi, con muốn mua cái này!”
-            </div>
-            <div class="story-dialogue spend i18n-en" hidden>
-              “Mom, I want to buy this!”
-            </div>
-            <div class="story-action i18n-vi">
-              Xu chỉ món đồ khoảng 80 nghìn. Mẹ không đồng ý cũng không từ chối ngay.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Xu points to something around 80k. Mom doesn't agree or refuse right away.
-            </div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual spend">
-            <div class="story-scene-emoji">🗣️</div>
-            <div class="story-scene-label i18n-vi">Mẹ chỉ hỏi</div>
-            <div class="story-scene-label i18n-en" hidden>Mom just asks</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">08</div>
-            <h4 class="i18n-vi">Mẹ hỏi đúng một câu</h4>
-            <h4 class="i18n-en" hidden>Mom asks just one question</h4>
-            <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
-            <div class="story-dialogue spend i18n-vi">
-              “Con muốn tự quyết định thế nào?”
-            </div>
-            <div class="story-dialogue spend i18n-en" hidden>
-              “How do you want to decide?”
-            </div>
-            <div class="story-action i18n-vi">
-              Mẹ không thuyết phục, không nhắc “con còn bao nhiêu tiền”. Chỉ hỏi rồi chờ.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Mom doesn't persuade or bring up her balance. She just asks, then waits.
-            </div>
-            <div class="story-note i18n-vi">Đây là tất cả những gì mẹ cần làm.</div>
-            <div class="story-note i18n-en" hidden>That's all Mom needs to do.</div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual spend">
-            <div class="story-scene-emoji">📓</div>
-            <div class="story-scene-label i18n-vi">Nghĩ thêm</div>
-            <div class="story-scene-label i18n-en" hidden>Thinking it through</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">09</div>
-            <h4 class="i18n-vi">Xu mở sổ (nếu muốn)</h4>
-            <h4 class="i18n-en" hidden>Xu opens the notebook (if she wants)</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
-            <div class="story-dialogue spend i18n-vi">
-              Mình muốn gì?<br>Mình chọn gì?<br>Vì sao?
-            </div>
-            <div class="story-dialogue spend i18n-en" hidden>
-              What do I want?<br>What do I choose?<br>Why?
-            </div>
-            <div class="story-action i18n-vi">
-              Xu kiểm tra phong bì Chi còn 40k. Nghĩ một chút.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Xu checks — her Spend envelope has 40k left. She thinks for a moment.
-            </div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual spend">
-            <div class="story-scene-emoji">✅</div>
-            <div class="story-scene-label i18n-vi">Tự quyết</div>
-            <div class="story-scene-label i18n-en" hidden>Deciding</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">10</div>
-            <h4 class="i18n-vi">Xu tự đưa ra quyết định</h4>
-            <h4 class="i18n-en" hidden>Xu makes her own call</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
-            <div class="story-dialogue spend i18n-vi">
-              “Con không mua. Phong bì Chi chỉ còn 40k. Con để dành thêm.”
-            </div>
-            <div class="story-dialogue spend i18n-en" hidden>
-              “I'm not buying it. My Spend envelope only has 40k left. I'll save more.”
-            </div>
-            <div class="story-action i18n-vi">
-              Xu có thể mua, không mua, hoặc chọn món rẻ hơn. Không có đáp án đúng.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              She might buy it, skip it, or pick something cheaper. There's no right answer.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- ACT 4 -->
-    <div class="story-act">
-
-      <div class="story-act-header">
-        <div class="story-act-num">4</div>
-        <div style="text-align:left">
-          <div class="story-act-title i18n-vi">Nhìn lại</div>
-          <div class="story-act-title i18n-en" hidden>Reflecting</div>
-          <div class="story-act-sub i18n-vi">Sau quyết định</div>
-          <div class="story-act-sub i18n-en" hidden>After the decision</div>
-        </div>
-      </div>
-
-      <div class="story-frames">
-
-        <div class="story-frame">
-          <div class="story-frame-visual reflect">
-            <div class="story-scene-emoji">😊😐😕</div>
-            <div class="story-scene-label i18n-vi">Cảm xúc</div>
-            <div class="story-scene-label i18n-en" hidden>How it felt</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">11</div>
-            <h4 class="i18n-vi">Xu ghi cảm xúc (nếu muốn)</h4>
-            <h4 class="i18n-en" hidden>Xu notes how she feels (optional)</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Quyết định này có làm mình thấy ổn không?” → chọn 😊 / 😐 / 😕
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “Does this decision feel okay?” → picks 😊 / 😐 / 😕
-            </div>
-            <div class="story-action i18n-vi">
-              Không bắt buộc mỗi lần. Chỉ khi Xu muốn ghi lại.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              Not required every time — only when Xu feels like recording it.
-            </div>
-          </div>
-        </div>
-
-        <div class="story-frame">
-          <div class="story-frame-visual reflect">
-            <div class="story-scene-emoji">💬</div>
-            <div class="story-scene-label i18n-vi">Nói chuyện nhẹ</div>
-            <div class="story-scene-label i18n-en" hidden>A light check-in</div>
-          </div>
-          <div class="story-frame-body">
-            <div class="story-frame-num">12</div>
-            <h4 class="i18n-vi">Mẹ hỏi sau vài tuần</h4>
-            <h4 class="i18n-en" hidden>Mom checks in weeks later</h4>
-            <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
-            <div class="story-dialogue i18n-vi">
-              “Con thấy lần nào gần đây quyết định ổn nhất?”
-            </div>
-            <div class="story-dialogue i18n-en" hidden>
-              “Which recent decision do you think worked out best?”
-            </div>
-            <div class="story-action i18n-vi">
-              Không phán xét. Chỉ lắng nghe. Không biến thành bài học.
-            </div>
-            <div class="story-action i18n-en" hidden>
-              No judgment. Just listening — never turning it into a lesson.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- ACT 5 -->
-    <div class="story-act">
-
-      <div class="story-act-header">
-        <div class="story-act-num">5</div>
-        <div style="text-align:left">
-          <div class="story-act-title i18n-vi">Dần thành thói quen</div>
+          <div class="story-act-title i18n-vi">Thành thói quen</div>
           <div class="story-act-title i18n-en" hidden>Becoming a habit</div>
-          <div class="story-act-sub i18n-vi">Sau 2–4 tuần</div>
-          <div class="story-act-sub i18n-en" hidden>After 2–4 weeks</div>
+          <div class="story-act-sub i18n-vi">Sau vài tuần</div>
+          <div class="story-act-sub i18n-en" hidden>A few weeks later</div>
         </div>
       </div>
 
@@ -1930,43 +1800,37 @@ footer{
           <div class="story-frame-visual">
             <div class="story-scene-emoji">🔁</div>
             <div class="story-scene-label i18n-vi">Tự làm</div>
-            <div class="story-scene-label i18n-en" hidden>Doing it herself</div>
+            <div class="story-scene-label i18n-en" hidden>Doing it himself</div>
           </div>
           <div class="story-frame-body">
-            <div class="story-frame-num">13</div>
-            <h4 class="i18n-vi">Xu tự đến lấy phong bì</h4>
-            <h4 class="i18n-en" hidden>Xu goes to the envelopes on her own</h4>
-            <div class="story-who">👧 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
+            <h4 class="i18n-vi">Xu tự đến lấy phong bì, không cần nhắc</h4>
+            <h4 class="i18n-en" hidden>Xu goes to the envelopes on his own</h4>
+            <div class="story-who">👦 <span class="i18n-vi">Xu</span><span class="i18n-en" hidden>Xu</span></div>
             <div class="story-action i18n-vi">
-              Khi nhận tiền hoặc muốn mua gì, Xu <strong>tự</strong> đến kệ phong bì mà không cần mẹ nhắc.
+              Khi có tiền hoặc muốn mua gì, Xu <strong>tự</strong> dừng lại và suy nghĩ trước khi quyết định.
             </div>
             <div class="story-action i18n-en" hidden>
-              Whenever money comes in or she wants to buy something, Xu goes to the envelope shelf <strong>on her own</strong> — no reminder needed.
+              Whenever money comes in or he wants to buy something, Xu <strong>pauses and thinks</strong> it through on his own.
             </div>
-            <div class="story-note i18n-vi">Tín hiệu tốt: con bắt đầu tự dùng.</div>
-            <div class="story-note i18n-en" hidden>A good sign: she's starting to use it on her own.</div>
           </div>
         </div>
 
         <div class="story-frame">
-          <div class="story-frame-visual">
+          <div class="story-frame-visual reflect">
             <div class="story-scene-emoji">🌱</div>
             <div class="story-scene-label i18n-vi">Mẹ bớt nhắc</div>
             <div class="story-scene-label i18n-en" hidden>Less nagging</div>
           </div>
           <div class="story-frame-body">
-            <div class="story-frame-num">14</div>
-            <h4 class="i18n-vi">Mẹ An nhận ra</h4>
-            <h4 class="i18n-en" hidden>Mom An notices</h4>
+            <h4 class="i18n-vi">Mẹ An gần như không còn phải hỏi</h4>
+            <h4 class="i18n-en" hidden>Mom An barely has to ask anymore</h4>
             <div class="story-who">👩 <span class="i18n-vi">Mẹ An</span><span class="i18n-en" hidden>Mom An</span></div>
             <div class="story-action i18n-vi">
-              Mẹ gần như không còn phải hỏi nữa. Xu tự dừng lại và suy nghĩ trước khi quyết định.
+              Đây mới là thành công thật: mẹ nhắc ít đi, con tự quyết định nhiều hơn.
             </div>
             <div class="story-action i18n-en" hidden>
-              Mom barely has to ask anymore. Xu pauses and thinks it through on her own before deciding.
+              This is the real success: less reminding from Mom, more deciding on his own.
             </div>
-            <div class="story-note i18n-vi">Đây mới là thành công: mẹ nhắc ít đi.</div>
-            <div class="story-note i18n-en" hidden>This is the real success: less reminding.</div>
           </div>
         </div>
 
@@ -1976,23 +1840,20 @@ footer{
 
     <!-- OUTCOME -->
     <div class="story-outcome">
-      <h3 class="i18n-vi">Sau 4 tuần</h3>
-      <h3 class="i18n-en" hidden>After 4 weeks</h3>
+      <h3 class="i18n-vi">Sau vài tuần</h3>
+      <h3 class="i18n-en" hidden>After a few weeks</h3>
       <p class="i18n-vi">
-        Bé Xu bắt đầu có thói quen dừng lại và nghĩ trước khi quyết định về tiền.<br>
-        Mẹ An không còn phải nhắc liên tục hay trở thành “cô giáo tài chính”.<br>
-        Vòng lặp nhỏ đã trở thành việc tự nhiên.
+        Xu bắt đầu tự dừng lại và nghĩ trước khi quyết định về tiền — mà mẹ không cần nhắc.
       </p>
       <p class="i18n-en" hidden>
-        Xu has started pausing and thinking before money decisions.<br>
-        Mom An no longer has to keep reminding her, or play "finance teacher."<br>
-        The small loop has become second nature.
+        Xu starts pausing to think before money decisions — without Mom having to remind him.
       </p>
     </div>
 
   </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -2181,6 +2042,14 @@ footer{
       Get the Kitto trial kit
     </h2>
 
+    <p class="trust-line i18n-vi">
+      🔒 Thông tin của bạn chỉ dùng để gửi hướng dẫn Kitto — không chia sẻ cho bên thứ ba.
+    </p>
+
+    <p class="trust-line i18n-en" hidden>
+      🔒 We'll only use your info to send the Kitto guide — never shared with third parties.
+    </p>
+
 
     <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
@@ -2194,9 +2063,9 @@ footer{
           required>
 
         <input
-          type="text"
-          name="child_age"
-          placeholder="Tuổi của con"
+          type="email"
+          name="email"
+          placeholder="Email của bạn"
           class="i18n-vi"
           required>
 
@@ -2208,70 +2077,70 @@ footer{
           hidden>
 
         <input
-          type="text"
-          name="child_age_en"
-          placeholder="Child's age"
+          type="email"
+          name="email_en"
+          placeholder="Your email"
           class="i18n-en"
           hidden>
 
       </div>
 
+      <div class="form-row">
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email của bạn"
-        class="i18n-vi"
-        required>
+        <input
+          type="text"
+          name="child_age"
+          placeholder="Tuổi của con (không bắt buộc)"
+          class="i18n-vi">
 
-      <input
-        type="email"
-        name="email_en"
-        placeholder="Your email"
-        class="i18n-en"
-        hidden>
+        <select name="money_experience" class="i18n-vi">
 
+          <option value="">
+            Con đã có tiền tiêu vặt? (không bắt buộc)
+          </option>
 
-      <select name="money_experience" class="i18n-vi">
+          <option>
+            Có, thường xuyên
+          </option>
 
-        <option value="">
-          Con hiện đã có tiền tiêu vặt chưa?
-        </option>
+          <option>
+            Có, nhưng không cố định
+          </option>
 
-        <option>
-          Có, thường xuyên
-        </option>
+          <option>
+            Chưa
+          </option>
 
-        <option>
-          Có, nhưng không cố định
-        </option>
+        </select>
 
-        <option>
-          Chưa
-        </option>
+        <input
+          type="text"
+          name="child_age_en"
+          placeholder="Child's age (optional)"
+          class="i18n-en"
+          hidden>
 
-      </select>
+        <select name="money_experience_en" class="i18n-en" hidden>
 
+          <option value="">
+            Does your child get allowance? (optional)
+          </option>
 
-      <select name="money_experience_en" class="i18n-en" hidden>
+          <option>
+            Yes, regularly
+          </option>
 
-        <option value="">
-          Does your child currently receive allowance?
-        </option>
+          <option>
+            Yes, but not regularly
+          </option>
 
-        <option>
-          Yes, regularly
-        </option>
+          <option>
+            Not yet
+          </option>
 
-        <option>
-          Yes, but not regularly
-        </option>
+        </select>
 
-        <option>
-          Not yet
-        </option>
-
-      </select>
+      </div>
 
 
       <button type="submit" class="i18n-vi">
@@ -2282,6 +2151,7 @@ footer{
         Sign up for free →
       </button>
 
+      <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
 
       <div class="form-note i18n-vi">
         MVP đang thử nghiệm · Không spam · Bạn có thể rời danh sách bất cứ lúc nào
@@ -2382,7 +2252,7 @@ function setLang(lang){
   var btn =
     document.getElementById('langBtn');
 
-  btn.textContent =
+  document.getElementById('langBtnText').textContent =
     lang === 'vi'
       ? 'EN'
       : 'VI';
@@ -2431,6 +2301,123 @@ addEventListener(
 
   },
   {passive:true}
+);
+
+
+/* Mobile hamburger menu */
+
+var mobileNavBtn =
+  document.getElementById('mobileNavBtn');
+
+var mobileMenu =
+  document.getElementById('mobileMenu');
+
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  mobileNavBtn.setAttribute('aria-expanded', 'false');
+  mobileNavBtn.textContent = '☰';
+}
+
+mobileNavBtn.addEventListener(
+  'click',
+  function(){
+
+    var isOpen =
+      mobileMenu.classList.toggle('open');
+
+    mobileNavBtn.setAttribute(
+      'aria-expanded',
+      isOpen ? 'true' : 'false'
+    );
+
+    mobileNavBtn.textContent =
+      isOpen ? '✕' : '☰';
+
+  }
+);
+
+mobileMenu
+  .querySelectorAll('a')
+  .forEach(function(a){
+    a.addEventListener('click', closeMobileMenu);
+  });
+
+
+/* Signup form: inline submit feedback */
+
+var signupForm =
+  document.querySelector('.signup-form');
+
+var formStatus =
+  document.getElementById('formStatus');
+
+signupForm.addEventListener(
+  'submit',
+  function(e){
+
+    e.preventDefault();
+
+    var lang =
+      document.documentElement.lang;
+
+    var submitBtn =
+      signupForm.querySelector('button[type="submit"]:not([hidden])');
+
+    var originalLabel =
+      submitBtn.textContent;
+
+    submitBtn.disabled = true;
+
+    submitBtn.textContent =
+      lang === 'vi'
+        ? 'Đang gửi...'
+        : 'Sending...';
+
+    formStatus.hidden = true;
+
+    fetch(
+      signupForm.action,
+      {
+        method: 'POST',
+        body: new FormData(signupForm),
+        headers: {'Accept': 'application/json'}
+      }
+    )
+      .then(function(res){
+
+        if(res.ok){
+
+          formStatus.textContent =
+            lang === 'vi'
+              ? '✓ Đã gửi! Kiểm tra email của bạn nhé.'
+              : '✓ Sent! Check your email.';
+
+          signupForm.reset();
+
+        } else {
+
+          throw new Error('request failed');
+
+        }
+
+      })
+      .catch(function(){
+
+        formStatus.textContent =
+          lang === 'vi'
+            ? 'Có lỗi xảy ra, vui lòng thử lại hoặc email cho chúng tôi.'
+            : 'Something went wrong — please try again or email us.';
+
+      })
+      .finally(function(){
+
+        formStatus.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+
+      });
+
+  }
 );
 
 </script>
