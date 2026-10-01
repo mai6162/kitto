@@ -773,6 +773,69 @@ h2{
   color:var(--muted);
   margin-top:2px;
 }
+/* Price offer + guarantee */
+.price-offer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  margin:20px auto 8px;
+  max-width:520px;
+}
+.price-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:linear-gradient(135deg,#FFF8E6,#FFF1C2);
+  border:1.5px solid #F5D76E;
+  border-radius:999px;
+  padding:10px 18px 10px 14px;
+  box-shadow:0 6px 20px rgba(255,197,27,.18);
+}
+.price-badge .price-icon{
+  font-size:22px;
+  line-height:1;
+}
+.price-badge .old-price{
+  font-size:15px;
+  color:var(--muted);
+  text-decoration:line-through;
+  font-weight:500;
+}
+.price-badge .new-price{
+  font-size:20px;
+  font-weight:800;
+  color:var(--navy);
+  letter-spacing:-0.02em;
+}
+.price-badge .discount-tag{
+  font-size:11px;
+  font-weight:700;
+  background:var(--green);
+  color:#0f3d1a;
+  padding:3px 8px;
+  border-radius:999px;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+.guarantee-line{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--ink);
+  background:var(--soft);
+  border:1.5px solid var(--line);
+  border-radius:14px;
+  padding:10px 16px;
+  text-align:center;
+  line-height:1.4;
+}
+.guarantee-line .g-icon{
+  font-size:18px;
+  flex-shrink:0;
+}
 .form-status{
   text-align:center;
   font-size:14px;
@@ -1264,6 +1327,27 @@ footer{
       <h2 class="i18n-en" hidden>Get the Kitto trial kit</h2>
       <p class="trust-line i18n-vi">🔒 Thông tin của bạn chỉ dùng để gửi hướng dẫn Kitto — không chia sẻ cho bên thứ ba.</p>
       <p class="trust-line i18n-en" hidden>🔒 We'll only use your info to send the Kitto guide — never shared with third parties.</p>
+
+      <div class="price-offer">
+        <div class="price-badge">
+          <span class="price-icon">💰</span>
+          <span class="old-price i18n-vi">249.000đ</span>
+          <span class="old-price i18n-en" hidden>249,000đ</span>
+          <span class="new-price i18n-vi">99.000đ</span>
+          <span class="new-price i18n-en" hidden>99,000đ</span>
+          <span class="discount-tag i18n-vi">-60%</span>
+          <span class="discount-tag i18n-en" hidden>-60%</span>
+        </div>
+        <div class="guarantee-line i18n-vi">
+          <span class="g-icon">✅</span>
+          <span>Chỉ thanh toán nếu thấy kết quả sau 4 tuần thử</span>
+        </div>
+        <div class="guarantee-line i18n-en" hidden>
+          <span class="g-icon">✅</span>
+          <span>Only pay if you see results after 4 weeks of trial</span>
+        </div>
+      </div>
+
       <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-row">
           <input type="text" name="parent_name" placeholder="Tên bố / mẹ" class="i18n-vi" required>
