@@ -863,6 +863,36 @@ footer{
   justify-content:space-between;
   gap:20px;
 }
+/* ========================= BACK TO TOP ========================= */
+.back-top{
+  position:fixed;
+  bottom:calc(24px + env(safe-area-inset-bottom,0px));
+  right:20px;
+  width:44px;height:44px;
+  background:var(--navy);
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(22,75,97,.22);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s, transform .2s, box-shadow .2s;
+  z-index:45;
+  display:grid;
+  place-items:center;
+  line-height:1;
+}
+.back-top.show{opacity:1;pointer-events:auto}
+.back-top:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(22,75,97,.28);
+}
+@media(max-width:860px){
+  .back-top{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+}
 /* ========================= RESPONSIVE ========================= */
 @media(max-width:860px){
   body{padding-bottom:78px}
@@ -1304,8 +1334,8 @@ footer{
           <p class="i18n-vi">Khảo sát 40 phụ huynh tại Hà Nội và TP.HCM, tháng 8/2026.</p>
           <p class="i18n-en" hidden>Survey of 40 parents in Hanoi and Ho Chi Minh City, August 2026.</p>
           <div class="actions" style="margin-top:22px">
-            <a class="btn secondary i18n-vi" href="bao-cao-khao-sat.html">Đọc báo cáo khảo sát ↓</a>
-            <a class="btn secondary i18n-en" href="bao-cao-khao-sat.html" hidden>Read the survey report ↓</a>
+            <a class="btn secondary i18n-vi" href="bao-cao-khao-sat.html">Đọc báo cáo khảo sát →</a>
+            <a class="btn secondary i18n-en" href="bao-cao-khao-sat.html" hidden>Read the survey report →</a>
           </div>
         </div>
         <div class="survey-stat">
@@ -1381,6 +1411,7 @@ footer{
   <span class="i18n-vi">Giúp trẻ học dùng tiền qua thực hành thật</span>
   <span class="i18n-en" hidden>Helping kids learn to use money through real practice</span>
 </footer>
+<button type="button" class="back-top" id="backTop" aria-label="Lên đầu trang">↑</button>
 <script>
 var TITLE_VI = "Kitto — Con tập tự quyết định với tiền";
 var TITLE_EN = "Kitto — Kids practice real money decisions";
@@ -1424,6 +1455,16 @@ mobileNavBtn.addEventListener('click', function(){
 mobileMenu.querySelectorAll('a').forEach(function(a){
   a.addEventListener('click', closeMobileMenu);
 });
+/* Back to top */
+var backTop = document.getElementById('backTop');
+if(backTop){
+  addEventListener('scroll', function(){
+    backTop.classList.toggle('show', window.scrollY > 400);
+  }, {passive:true});
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+}
 /* Form submit */
 var signupForm = document.querySelector('.signup-form');
 var formStatus = document.getElementById('formStatus');
