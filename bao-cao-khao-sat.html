@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Báo cáo khảo sát — Cách trẻ học và sử dụng tiền | Kitto</title>
+  <meta name="description" content="Khảo sát 40 phụ huynh tại Hà Nội & TP.HCM: trẻ đã có tiền nhưng thiếu vòng lặp thực hành đều đặn. 3 phát hiện chính + gợi ý thực hành cho phụ huynh. Đọc nhanh 3–5 phút hoặc đọc sâu." />
+  <meta name="theme-color" content="#0D9B8A" />
+  <meta property="og:title" content="Cách trẻ học và sử dụng tiền — Báo cáo khảo sát Kitto" />
+  <meta property="og:description" content="Từ 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu cơ hội thực hành lặp lại. Đọc nhanh 3–5 phút hoặc đọc sâu." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://mai6162.github.io/kitto/bao-cao-khao-sat.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #45D0BF;
+      --primary-dark: #164B61;
+      --primary-light: #EAF9F4;
+      --blue: #419DD5;
+      --gold: #FFC51B;
+      --gold-soft: #FFF8E6;
+      --navy: #164B61;
+      --bg: #FFFDF7;
+      --card: #ffffff;
+      --text: #173845;
+      --muted: #5F7380;
+      --border: #E4EDE8;
+      --radius: 16px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 20px rgba(22,75,97,.08);
+      --shadow-lg: 0 12px 32px rgba(22,75,97,.12);
+      --grad-btn: linear-gradient(135deg, #164B61 0%, #245F75 100%);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 720px; margin: 0 auto; padding: 10px 20px; gap: 10px;
+    }
+    .logo-link { display: flex; align-items: center; text-decoration: none; }
+    .logo-text {
+      font-weight: 700; font-size: 18px; color: var(--text);
+      letter-spacing: -.02em;
+    }
+    .logo-text span { color: var(--primary); }
+    .hdr-tag {
+      font-size: 12px; font-weight: 600; color: var(--navy);
+      background: var(--primary-light); padding: 5px 10px; border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .hero { padding: 36px 0 28px; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12.5px; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 16px; border: 1px solid #B8E8E1;
+    }
+    .hero h1 {
+      font-size: 26px; font-weight: 700; line-height: 1.3;
+      color: var(--navy); margin-bottom: 12px; letter-spacing: -.02em;
+    }
+    .hero-sub {
+      font-size: 15.5px; color: var(--muted); max-width: 520px;
+      margin: 0 auto 18px; line-height: 1.55;
+    }
+    .meta-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px;
+      font-size: 13px; color: var(--muted); margin-bottom: 8px;
+    }
+    .meta-row strong { color: var(--text); font-weight: 600; }
+
+    .layer-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+    }
+    .layer-bar p { font-size: 13.5px; color: var(--muted); margin: 0; }
+    .layer-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .layer-btn {
+      font-family: inherit; font-size: 13px; font-weight: 600;
+      padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border);
+      background: #fff; color: var(--muted); cursor: pointer;
+      transition: .15s; min-height: 40px;
+    }
+    .layer-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
+    .layer-btn.active {
+      background: var(--grad-btn); color: #fff; border-color: transparent;
+      box-shadow: 0 2px 10px rgba(13,155,138,.22);
+    }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .04em; color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+    .findings { margin-bottom: 32px; }
+    .findings h2 {
+      font-size: 20px; font-weight: 700; color: var(--navy);
+      margin-bottom: 18px; letter-spacing: -.01em;
+    }
+    .finding-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 18px 16px;
+      margin-bottom: 12px;
+      display: flex; gap: 14px; align-items: flex-start;
+      box-shadow: var(--shadow);
+    }
+    .finding-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 700; font-size: 15px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .finding-card h3 {
+      font-size: 15.5px; font-weight: 600; color: var(--navy);
+      margin-bottom: 6px; line-height: 1.35;
+    }
+    .finding-card p {
+      font-size: 14.5px; color: var(--muted); margin: 0; line-height: 1.55;
+    }
+
+    .key-msg {
+      background: linear-gradient(135deg, #E6F7F5 0%, #F0FBFA 100%);
+      border: 1px solid #B8E8E1;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+    .key-msg p {
+      font-size: 15px; font-weight: 500; color: var(--navy);
+      margin: 0; line-height: 1.55;
+    }
+
+    .card-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .card-box.highlight {
+      background: var(--gold-soft);
+      border-color: #F5E6B8;
+    }
+    .card-box p { font-size: 14.5px; color: var(--text); margin-bottom: 8px; }
+    .card-box p:last-child, .card-box .mb-0 { margin-bottom: 0; }
+
+    /* Deep sections */
+    .deep-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 80px;
+    }
+    .deep-section h2 {
+      font-size: 20px; font-weight: 700; color: var(--navy);
+      margin-bottom: 14px; letter-spacing: -.01em;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+    .deep-section .lead {
+      font-size: 15.5px; color: var(--muted); margin-bottom: 16px; line-height: 1.6;
+    }
+    .deep-section h3 {
+      font-size: 16px; font-weight: 600; color: var(--navy);
+      margin: 22px 0 10px;
+    }
+    .deep-section p {
+      font-size: 15px; margin-bottom: 12px; color: var(--text);
+    }
+    .deep-section ul, .deep-section ol {
+      margin: 0 0 14px 1.2em; font-size: 15px;
+    }
+    .deep-section li { margin-bottom: 6px; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    @media (min-width: 480px) {
+      .stat-row { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    }
+    .stat {
+      background: var(--primary-light);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 13px; color: var(--navy);
+    }
+    .stat strong { display: block; font-size: 15px; margin-bottom: 2px; }
+
+    .disclaimer {
+      background: #FFF8F0;
+      border: 1px solid #F5E0C8;
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 13.5px; color: var(--muted);
+      margin-top: 14px;
+    }
+    .disclaimer strong { color: var(--text); }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .toc h3 {
+      font-size: 14px; font-weight: 600; color: var(--muted);
+      margin-bottom: 12px; text-transform: uppercase; letter-spacing: .03em;
+    }
+    .toc-list {
+      list-style: none; margin: 0; padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 10px;
+    }
+    @media (max-width: 520px) {
+      .toc-list { grid-template-columns: 1fr; }
+    }
+    .toc-list a {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-size: 14.5px; font-weight: 500;
+      padding: 8px 10px; border-radius: 10px;
+      transition: .12s;
+    }
+    .toc-list a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .toc-list span {
+      width: 24px; height: 24px;
+      background: var(--primary-light); color: var(--primary-dark);
+      border-radius: 7px; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .loop-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 14.5px;
+      text-align: center;
+      color: var(--navy);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .principle {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .principle strong {
+      display: block; font-size: 14.5px; color: var(--navy); margin-bottom: 4px;
+    }
+    .principle p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    @media (min-width: 520px) {
+      .week-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .week-card {
+      background: var(--primary-light);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .week-card strong {
+      display: block; font-size: 13.5px; color: var(--primary-dark); margin-bottom: 4px;
+    }
+    .week-card p { font-size: 13.5px; color: var(--navy); margin: 0; }
+
+    /* Kitto CTA */
+    /* —— Kitto CTA —— */
+    .kit-cta {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      margin: 32px 0 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      text-align: left;
+    }
+    .kit-cta-top {
+      background: linear-gradient(135deg, #E6F7F5 0%, #F0F9F8 50%, #FFF8E6 100%);
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .kit-cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--primary-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      border: 1px solid #B8E8E1;
+      letter-spacing: .01em;
+    }
+    .kit-cta-badge .dot {
+      width: 7px; height: 7px;
+      background: #2ECC71;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(46,204,113,.25);
+    }
+    .kit-cta h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px;
+      line-height: 1.3;
+    }
+    .kit-cta-lead {
+      font-size: 14.5px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .kit-cta-body {
+      padding: 20px 24px 24px;
+    }
+    .kit-cta-benefits {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .kit-cta-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .kit-cta-benefits .ico {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+    .kit-cta-benefits strong {
+      display: block;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1px;
+    }
+    .kit-cta-benefits span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .kit-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .kit-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--grad-btn);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15.5px;
+      padding: 15px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(13,155,138,.28);
+      min-height: 52px;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .kit-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13,155,138,.35);
+    }
+    
+    .kit-cta--compact .kit-cta-body {
+      padding: 16px 24px 20px;
+    }
+    .kit-cta--compact .kit-cta-top {
+      padding: 18px 24px 14px;
+    }
+    .kit-cta--compact h3 {
+      font-size: 18px;
+    }
+
+    .kit-cta-trust {
+      font-size: 12.5px;
+      color: var(--muted);
+      text-align: center;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 28px 0 calc(28px + var(--safe-bottom));
+      margin-top: 20px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px; color: var(--muted); margin-bottom: 6px;
+    }
+    footer a { color: var(--primary-dark); text-decoration: none; font-weight: 500; }
+    footer a:hover { text-decoration: underline; }
+
+    .back-top {
+      position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px;
+      width: 44px; height: 44px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 12px;
+      font-size: 18px; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(13,155,138,.3);
+      opacity: 0; pointer-events: none; transition: .2s;
+      z-index: 40;
+    }
+    .back-top.show { opacity: 1; pointer-events: auto; }
+
+    .refs ol { font-size: 13.5px; color: var(--muted); padding-left: 1.3em; }
+    .refs li { margin-bottom: 8px; line-height: 1.5; }
+    .refs em { font-style: italic; }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 22px; }
+      .hero { padding: 28px 0 22px; }
+      .finding-card { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hdr">
+      <a href="index.html" class="logo-link" aria-label="Kitto — Trang chủ">
+        <img src="https://mai6162.github.io/kitto/kitto-logo.jpg" alt="Kitto" style="display:block;width:112px;height:38px;object-fit:contain;">
+      </a>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="hdr-tag">Báo cáo khảo sát</span>
+        <a href="index.html" style="font-size:13px;font-weight:600;color:var(--navy);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:999px;background:#fff;">← Trang chủ</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge">Kết quả khảo sát · Phân tích · Gợi ý thực hành</div>
+      <h1>Cách trẻ học và sử dụng tiền</h1>
+      <p class="hero-sub">Báo cáo tổng hợp kết quả khảo sát 40 phụ huynh tại Hà Nội và TP. Hồ Chí Minh, kết hợp tham khảo các nghiên cứu liên quan đến giáo dục tài chính và quá trình trẻ hình thành kỹ năng, thói quen về tiền.</p>
+      <div class="meta-row">
+        <span><strong>40</strong> phụ huynh</span>
+        <span>·</span>
+        <span>Hà Nội &amp; TP.HCM</span>
+        <span>·</span>
+        <span>Trẻ chủ yếu <strong>7–14 tuổi</strong></span>
+        <span>·</span>
+        <span>Tháng 8/2026</span>
+      </div>
+      <p style="font-size:13px; color:var(--muted); margin-top:8px;">Thực hiện bởi Nhóm Nghiên cứu Kitto và các cộng sự</p>
+    </section>
+
+    <!-- LAYER SWITCHER -->
+    <div class="layer-bar" id="layerBar">
+      <p>Chọn cách đọc phù hợp với thời gian của bạn</p>
+      <div class="layer-btns">
+        <button type="button" class="layer-btn active" data-layer="quick" id="btnQuick">Đọc nhanh 3–5 phút</button>
+        <button type="button" class="layer-btn" data-layer="deep" id="btnDeep">Đọc sâu</button>
+      </div>
+    </div>
+
+    <!-- ========== LỚP 1: ĐỌC NHANH ========== -->
+    <div id="layerQuick" style="display:block;">
+      <section class="findings" id="findings">
+        <div class="section-label">Đọc nhanh</div>
+        <h2>3 phát hiện chính</h2>
+
+        <div class="finding-card">
+          <div class="finding-num">1</div>
+          <div>
+            <h3>Trẻ đã có tiền, nhưng cơ hội thực hành chưa hẳn đều đặn</h3>
+            <p>Tiền lì xì và tiền được bố mẹ cho theo dịp hoặc theo yêu cầu vẫn phổ biến hơn tiền tiêu vặt định kỳ. Trẻ có thể đã tiếp xúc với tiền, nhưng chưa phải lúc nào cũng có chu kỳ ổn định để tập quyết định chi tiêu, tiết kiệm và điều chỉnh kế hoạch.</p>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">2</div>
+          <div>
+            <h3>Bố mẹ đã hướng dẫn, nhưng việc thực hành có thể chưa thành một vòng lặp</h3>
+            <p>“Trò chuyện với con” và “nhắc nhở con” hiện là cách phổ biến nhất; sau đó là cùng con suy nghĩ khi có tình huống. Việc biến tình huống thực tế thành chuỗi: con tự quyết → trải nghiệm → nhìn lại → điều chỉnh lần sau, có vẻ chưa được nhiều gia đình sử dụng.</p>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-num">3</div>
+          <div>
+            <h3>“Cần hay muốn?” là điểm bắt đầu gần gũi</h3>
+            <p>Phân biệt nhu cầu và mong muốn là kỹ năng được phụ huynh lựa chọn nhiều nhất khi chỉ cải thiện một điều. Đây cũng là câu hỏi có thể áp dụng ngay trong quyết định mua sắm hằng ngày.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="key-msg">
+        <p>Trẻ không chỉ học về tiền qua những điều bố mẹ giải thích. Trẻ còn cần cơ hội sử dụng tiền, đưa ra lựa chọn và học từ kết quả trong những tình huống thực tế, phù hợp với độ tuổi và hoàn cảnh gia đình.</p>
+      </div>
+
+<div class="card-box" style="text-align:center; margin-bottom:36px;">
+        <p class="mb-0" style="font-size:14.5px;">Muốn hiểu sâu hơn về khảo sát, nghiên cứu tham khảo, gợi ý thực hành 4 tuần và kết quả chi tiết?</p>
+        <button type="button" class="layer-btn" style="margin-top:12px;" onclick="switchLayer('deep')">Chuyển sang Đọc sâu →</button>
+      </div>
+
+      <div class="kit-cta kit-cta--compact">
+        <div class="kit-cta-top">
+          <div class="kit-cta-badge"><span class="dot" aria-hidden="true"></span> Đang mở đăng ký thử nghiệm</div>
+          <h3>Cùng con thử một vòng lặp thực hành nhỏ</h3>
+          <p class="kit-cta-lead">Bộ kit 3 phong bì + sổ tay — setup 5 phút, bố mẹ chỉ hỏi, con tự quyết với tiền thật.</p>
+        </div>
+        <div class="kit-cta-body">
+          <div class="kit-cta-actions">
+            <a class="kit-cta-btn" href="index.html#try" >Đăng ký trải nghiệm Kitto →</a>
+            <p class="kit-cta-trust">Tham khảo hướng dẫn của Bộ Tài chính Hoa Kỳ · Điều chỉnh cho gia đình Việt Nam</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========== LỚP 2: ĐỌC SÂU ========== -->
+    <div id="layerDeep" style="display:none;">
+      <nav class="toc" aria-label="Mục lục">
+        <h3>Mục lục — nhảy tới phần quan tâm</h3>
+        <ul class="toc-list">
+          <li><a href="#ve-khao-sat" onclick="event.preventDefault();try{history.replaceState(null,'','#ve-khao-sat')}catch(e){}goToDeepSection('ve-khao-sat');return false;"><span>1</span> Về khảo sát</a></li>
+          <li><a href="#phan-tich" onclick="event.preventDefault();try{history.replaceState(null,'','#phan-tich')}catch(e){}goToDeepSection('phan-tich');return false;"><span>2</span> Phân tích khảo sát</a></li>
+          <li><a href="#nghien-cuu" onclick="event.preventDefault();try{history.replaceState(null,'','#nghien-cuu')}catch(e){}goToDeepSection('nghien-cuu');return false;"><span>3</span> Nghiên cứu tham khảo</a></li>
+          <li><a href="#goi-y" onclick="event.preventDefault();try{history.replaceState(null,'','#goi-y')}catch(e){}goToDeepSection('goi-y');return false;"><span>4</span> Gợi ý thực hành</a></li>
+          <li><a href="#mo-rong" onclick="event.preventDefault();try{history.replaceState(null,'','#mo-rong')}catch(e){}goToDeepSection('mo-rong');return false;"><span>5</span> Mở rộng: tiết kiệm → đầu tư</a></li>
+          <li><a href="#ket-qua" onclick="event.preventDefault();try{history.replaceState(null,'','#ket-qua')}catch(e){}goToDeepSection('ket-qua');return false;"><span>6</span> Kết quả chi tiết</a></li>
+          <li><a href="#ket-luan" onclick="event.preventDefault();try{history.replaceState(null,'','#ket-luan')}catch(e){}goToDeepSection('ket-luan');return false;"><span>7</span> Kết luận &amp; Kitto</a></li>
+          <li><a href="#tai-lieu" onclick="event.preventDefault();try{history.replaceState(null,'','#tai-lieu')}catch(e){}goToDeepSection('tai-lieu');return false;"><span>8</span> Tài liệu tham khảo</a></li>
+        </ul>
+      </nav>
+
+      <!-- 1. Về khảo sát -->
+      <section class="deep-section" id="ve-khao-sat">
+        <h2>1. Về khảo sát</h2>
+        <p class="lead">Khảo sát tìm hiểu trải nghiệm của phụ huynh trong việc đồng hành cùng con học cách sử dụng tiền, bao gồm nguồn tiền của trẻ, mức độ tự quyết định, tình huống thường gặp, cách bố mẹ hướng dẫn và nhu cầu đối với những phương pháp có cấu trúc hơn.</p>
+        <div class="stat-row">
+          <div class="stat"><strong>40</strong> phụ huynh</div>
+          <div class="stat"><strong>HN &amp; HCM</strong> địa bàn</div>
+          <div class="stat">Trẻ chủ yếu <strong>7–14 tuổi</strong></div>
+          <div class="stat">Tự nguyện, phản hồi phụ huynh</div>
+        </div>
+        
+      </section>
+
+      <!-- 2. Phân tích -->
+      <section class="deep-section" id="phan-tich">
+        <h2>2. Phân tích: Khảo sát cho thấy điều gì?</h2>
+
+        <h3>1. Trẻ đã có tiền, nhưng cơ hội thực hành chưa hẳn đều đặn</h3>
+        <p>Tiền lì xì, tiền bố mẹ cho theo dịp hoặc theo yêu cầu là những nguồn tiền phổ biến trong nhóm khảo sát. Tiền tiêu vặt định kỳ cũng xuất hiện, nhưng chưa phải hình thức phổ biến nhất. Bên cạnh đó, một số trẻ gần như chưa có tiền riêng, trong khi một số trẻ đã tự quản lý tiền thường xuyên hơn.</p>
+        <p><strong>Điểm cần lưu ý:</strong> Có tiền và có cơ hội học cách quản lý tiền không hoàn toàn giống nhau.</p>
+        <p>Khi tiền đến không đều, trẻ vẫn có thể thực hành lựa chọn trong những dịp cụ thể. Tuy nhiên, trẻ có thể ít có cơ hội lặp lại một chu kỳ gồm xác định mình có bao nhiêu tiền, quyết định cách sử dụng, theo dõi kết quả và điều chỉnh kế hoạch.</p>
+        <div class="card-box highlight">
+          <p class="mb-0">Một khoản tiền định kỳ nhỏ, nếu phù hợp với khả năng của gia đình, có thể tạo điều kiện để trẻ thực hành những bước này thường xuyên hơn. Điều quan trọng không phải là số tiền lớn hay nhỏ, mà là trẻ có cơ hội đưa ra quyết định và nhìn lại quyết định của mình.</p>
+        </div>
+
+        <h3>2. Bố mẹ đã trò chuyện về tiền — bước tiếp theo là tạo cơ hội thực hành</h3>
+        <p>Khi gặp tình huống liên quan đến tiền, nhiều phụ huynh chọn hỏi và cùng con suy nghĩ trước khi quyết định. Những cách làm khác gồm giải thích, đưa ra lời khuyên, nhắc con cân nhắc trước khi mua, cho con tham gia quyết định mua sắm hoặc sử dụng tiền tiêu vặt để con tự quản lý.</p>
+        <p>Đây đều là những hình thức đồng hành có thể hữu ích. Tuy nhiên, một cuộc trò chuyện riêng lẻ chưa chắc tạo ra đủ cơ hội để trẻ luyện tập và điều chỉnh hành vi qua thời gian so với một cách tiếp cận có cấu trúc và chủ đích hơn.</p>
+        <p>Có thể hình dung hai cách tiếp cận:</p>
+        <div class="card-box">
+          <p><strong>Khi tình huống phát sinh:</strong> Bố mẹ hỏi hoặc giải thích → con đưa ra lựa chọn → tình huống kết thúc.</p>
+          <p class="mb-0" style="margin-top:10px;"><strong>Khi có cơ hội thực hành lặp lại:</strong> Con cân nhắc → tự quyết định → trải nghiệm kết quả → cùng nhìn lại → thử điều chỉnh ở lần sau.</p>
+        </div>
+        <p>Đối với phụ huynh đã có những cuộc trò chuyện về tiền nhưng muốn con chủ động thực hành nhiều hơn, cách thứ hai là một hướng đáng thử nghiệm.</p>
+
+        <h3>3. “Cần hay muốn?” là một điểm bắt đầu tự nhiên</h3>
+        <p>Khi được hỏi nếu chỉ có thể cải thiện một điều trong cách con sử dụng tiền, phân biệt giữa “cần” và “muốn” là lựa chọn nổi bật nhất của phụ huynh.</p>
+        <p>Đây là một điểm bắt đầu gần gũi vì trẻ thường xuyên gặp những quyết định như có nên mua một món đồ mình thích, có nên mua ngay hay chờ thêm, hoặc nên dành tiền cho việc gì trước.</p>
+        <p>Thay vì chỉ nói “Không được mua”, bố mẹ có thể thử hỏi:</p>
+        <ul>
+          <li>“Con nghĩ đây là thứ con cần hay muốn?”</li>
+          <li>“Nếu mua món này, con còn bao nhiêu tiền?”</li>
+          <li>“Con muốn món này đến mức nào?”</li>
+          <li>“Nếu chờ thêm một tuần, con có còn muốn mua không?”</li>
+        </ul>
+        <p>Mục tiêu không phải khiến trẻ luôn đưa ra câu trả lời mà người lớn cho là đúng. Điều quan trọng là giúp trẻ tập dừng lại, cân nhắc các lựa chọn và hiểu rằng mỗi quyết định đều đi kèm những đánh đổi nhất định.</p>
+      </section>
+
+      <!-- 3. Nghiên cứu tham khảo -->
+      <section class="deep-section" id="nghien-cuu">
+        <h2>3. Nghiên cứu tham khảo gợi ý gì?</h2>
+        <p class="lead">Trẻ không chỉ học lý thuyết về tiền — trẻ còn cần học thông qua trải nghiệm với tiền.</p>
+
+        <h3>1. Tuổi quan trọng, nhưng trải nghiệm với tiền cũng đáng được xem xét</h3>
+        <p>Trẻ trong cùng một độ tuổi có thể có những trải nghiệm rất khác nhau: có trẻ thường xuyên được tự quyết định chi tiêu, có trẻ chỉ thỉnh thoảng được cầm tiền, và có trẻ mới bắt đầu làm quen với việc sử dụng tiền riêng.</p>
+        <p>Vì vậy, ngoài độ tuổi, phụ huynh có thể xem xét trẻ đang ở đâu trong quá trình trải nghiệm với tiền:</p>
+        <ul>
+          <li><strong>Chưa có tiền riêng:</strong> Làm quen với việc lựa chọn, so sánh và hiểu sự đánh đổi.</li>
+          <li><strong>Đã có tiền nhưng không đều:</strong> Bắt đầu thực hành quyết định chi tiêu và để dành.</li>
+          <li><strong>Đã có tiền định kỳ:</strong> Tập lập kế hoạch và theo dõi việc sử dụng tiền.</li>
+          <li><strong>Đã tự quản lý tương đối thường xuyên:</strong> Mở rộng sang mục tiêu dài hạn, trách nhiệm và điều chỉnh quyết định.</li>
+        </ul>
+        <p>Đây là khung gợi ý để phụ huynh tham khảo, không phải các giai đoạn phát triển cố định. Hoạt động phù hợp còn phụ thuộc vào khả năng của trẻ, mục tiêu học tập và hoàn cảnh gia đình.</p>
+
+        <h3>2. Xây dựng thói quen không nhất thiết phải bắt đầu từ khi thấy có vấn đề</h3>
+        <p>Một số phụ huynh cho biết chưa thấy vấn đề đáng kể trong cách con sử dụng tiền nhưng vẫn quan tâm đến một cách tiếp cận đơn giản và có cấu trúc hơn.</p>
+        <p>Điều này gợi ý rằng bố mẹ đồng hành cùng con không chỉ xuất hiện khi trẻ tiêu hết tiền, thường xuyên xin thêm hoặc mua đồ rồi hối tiếc. Với một số gia đình, mục tiêu có thể đơn giản là giúp con làm quen với việc cân nhắc trước khi mua, biết dành tiền cho một mục tiêu hoặc chủ động hơn trong những quyết định nhỏ.</p>
+        <p>Nói cách khác, giáo dục tài chính có thể là một quá trình xây dựng thói quen từng bước, thay vì chỉ là cách xử lý những tình huống chưa như mong muốn.</p>
+
+        <h3>3. Các nghiên cứu nổi bật nói gì?</h3>
+        <p>Các nghiên cứu về giáo dục tài chính và quá trình trẻ học cách sử dụng tiền gợi ý rằng kiến thức là một phần quan trọng, nhưng việc biết một nguyên tắc không đồng nghĩa với việc trẻ luôn áp dụng được nguyên tắc đó trong thực tế.</p>
+        <p>Tổng quan của Amagir và cộng sự (2018) về các chương trình giáo dục tài chính cho trẻ em và thanh thiếu niên cho thấy giáo dục tài chính có tiềm năng cải thiện kiến thức và thái độ. Tuy nhiên, việc chuyển những điều đã học thành hành vi thực tế vẫn là một vấn đề cần được quan tâm khi thiết kế chương trình.</p>
+        <p>Nghiên cứu về <em>financial socialization</em> — quá trình trẻ tiếp thu kiến thức, giá trị, thái độ và hành vi liên quan đến tiền — cũng nhấn mạnh vai trò của gia đình. Trẻ có thể học qua việc bố mẹ chủ động hướng dẫn, quan sát cách gia đình sử dụng tiền, trò chuyện về các quyết định và trực tiếp trải nghiệm với tiền (LeBaron &amp; Kelley, 2021).</p>
+        <p>Khung năng lực tài chính dành cho người trẻ của Cục Bảo vệ Tài chính Người tiêu dùng Hoa Kỳ (CFPB) cũng đề cập đến sự kết hợp giữa năng lực lập kế hoạch và tự điều chỉnh, thói quen và chuẩn mực về tiền, cùng kiến thức và kỹ năng ra quyết định.</p>
+        <p>Dữ liệu PISA 2022 của OECD cho thấy việc học sinh thường xuyên thảo luận với cha mẹ về tiền bạc có mối liên hệ với kiến thức tài chính cao hơn. Đây là mối liên hệ quan sát được, không phải bằng chứng rằng riêng việc trò chuyện sẽ trực tiếp tạo ra kết quả đó.</p>
+        <p>Một tổng quan hệ thống và phân tích gộp về xã hội hóa tài chính từ cha mẹ (LeBaron-Black et al., 2026) cũng tiếp tục xem xét mối liên hệ giữa sự tham gia của cha mẹ và các kết quả tài chính ở trẻ em, thanh thiếu niên.</p>
+
+        <h3>Điều này có ý nghĩa gì đối với gia đình?</h3>
+        <p>Những nghiên cứu trên không chứng minh rằng một vòng lặp thực hành cụ thể sẽ hiệu quả với mọi trẻ. Tuy nhiên, chúng cung cấp cơ sở để xem xét một hướng tiếp cận kết hợp việc trò chuyện với cơ hội trải nghiệm thực tế.</p>
+        <div class="loop-box">
+          Dừng lại → Cân nhắc → Quyết định → Trải nghiệm → Nhìn lại → Điều chỉnh
+        </div>
+        <p>Đó có thể là khi trẻ lựa chọn giữa hai món đồ, dành tiền cho một mục tiêu, quyết định có nên mua ngay hay chờ thêm, hoặc nhìn lại một khoản chi mà trẻ chưa thực sự hài lòng.</p>
+        <p>Trẻ không nhất thiết phải bắt đầu bằng các thuật ngữ tài chính phức tạp. Những quyết định nhỏ, lặp lại trong phạm vi phù hợp, có thể là điểm khởi đầu. Và quan trọng hơn nữa: không cần một chương trình đồ sộ — mỗi tình huống thực tế hàng ngày, hàng tuần đã là thêm một cơ hội để trẻ rèn luyện.</p>
+      </section>
+
+      <!-- 4. Gợi ý thực hành -->
+      <section class="deep-section" id="goi-y">
+        <h2>4. Gợi ý thực hành cho phụ huynh</h2>
+        <p class="lead">Một vòng lặp nhỏ có thể bắt đầu như thế nào? Gia đình không nhất thiết phải xây dựng một chương trình học riêng hoặc dành quá nhiều thời gian cho những bài học về tiền.</p>
+        <div class="loop-box">
+          Có cơ hội tiêu tiền → Có lựa chọn → Con tự quyết → Trải nghiệm kết quả → Cùng nhìn lại → Điều chỉnh, rút kinh nghiệm → Lặp lại
+        </div>
+        <p>Mục tiêu không phải để con luôn đưa ra quyết định đúng ngay từ đầu. Điều quan trọng là trẻ có cơ hội thực hành, hiểu kết quả lựa chọn và dần chủ động hơn. Nên bắt đầu càng sớm càng tốt — càng rèn luyện nhiều, kỹ năng càng được tích lũy tốt.</p>
+
+        <h3>5 nguyên tắc có thể thử</h3>
+
+        <div class="principle">
+          <strong>1. Bắt đầu với khoản tiền nhỏ, trong phạm vi an toàn</strong>
+          <p>Nếu phù hợp với hoàn cảnh gia đình, bố mẹ có thể cho con một khoản tiền vừa sức để con tự quản lý. Khoản tiền không cần lớn, nhưng nên đủ để trẻ có một vài lựa chọn thực tế. Trước khi bắt đầu, gia đình có thể thống nhất những khoản nào con được tự quyết, khoản nào cần hỏi ý kiến và những giới hạn cần tuân thủ.</p>
+        </div>
+        <div class="principle">
+          <strong>2. Tạo một nhịp thực hành đều đặn</strong>
+          <p>Có thể dành khoảng 10–15 phút mỗi tuần để cùng con xem lại: tuần này con đã sử dụng tiền như thế nào? Hiện con còn bao nhiêu? Có quyết định nào con thấy hài lòng hoặc muốn làm khác đi? Tuần tới con muốn dành tiền cho điều gì? Không cần biến thành buổi học chính thức — chỉ cần duy trì nhịp đủ đơn giản để tiếp tục.</p>
+        </div>
+        <div class="principle">
+          <strong>3. Hỏi để con tự suy nghĩ, thay vì quyết định thay con</strong>
+          <p>Khi con muốn mua một món đồ: “Con đang muốn mua món này vì điều gì?”, “Nếu mua, con sẽ phải bỏ qua điều gì khác?”, “Con có muốn chờ thêm một chút trước khi quyết định không?”, “Con đang dành tiền cho mục tiêu nào?” Trong nhiều tình huống người lớn vẫn cần đặt giới hạn; điểm khác biệt là trong phạm vi an toàn, trẻ vẫn có cơ hội tham gia suy nghĩ và đưa ra lựa chọn.</p>
+        </div>
+        <div class="principle">
+          <strong>4. Giúp con nhìn thấy tiến bộ</strong>
+          <p>Một mục tiêu cụ thể thường dễ theo dõi hơn mong muốn chung chung. Ví dụ: dành 300.000 đồng để mua bộ lego — xác định số tiền, thời gian và cách theo dõi. Ống heo, phong bì, bảng ghi chép đơn giản đều được. Ưu tiên tiền mặt: với trẻ nhỏ, tiền mặt tạo cảm giác thật — nhìn thấy, cầm nắm, đếm trước khi mua tạo “khoảng dừng” giúp cân nhắc thêm.</p>
+        </div>
+        <div class="principle">
+          <strong>5. Xem kết quả chưa như mong muốn là cơ hội để nhìn lại</strong>
+          <p>Nếu con mua rồi thấy tiếc: “Con thấy thế nào về quyết định vừa rồi?”, “Nếu được chọn lại, con có muốn làm khác đi không?”, “Lần sau con thấy có cần suy nghĩ kỹ hơn không?” Không phải mọi quyết định đều cần sửa ngay. Điều quan trọng là tạo không gian để trẻ nhìn lại mà không bị phán xét.</p>
+        </div>
+
+        <h3>Thử trong 4 tuần: một khung khởi đầu</h3>
+        <p>Đây là gợi ý thực hành để gia đình tự điều chỉnh.</p>
+        <div class="week-grid">
+          <div class="week-card">
+            <strong>Tuần 1 — Làm quen</strong>
+            <p>Thống nhất khoản tiền nhỏ và cách sử dụng. Giúp con biết mình có bao nhiêu và những giới hạn đã thống nhất.</p>
+          </div>
+          <div class="week-card">
+            <strong>Tuần 2 — Tự lựa chọn</strong>
+            <p>Cho con tự quyết một số khoản chi phù hợp. Bố mẹ đặt câu hỏi gợi mở, không cần can thiệp vào mọi quyết định.</p>
+          </div>
+          <div class="week-card">
+            <strong>Tuần 3 — Cùng nhìn lại</strong>
+            <p>Xem con đã sử dụng tiền như thế nào, điều gì diễn ra như dự kiến và điều gì con muốn thay đổi.</p>
+          </div>
+          <div class="week-card">
+            <strong>Tuần 4 — Mục tiêu nhỏ</strong>
+            <p>Cùng con đặt một mục tiêu tiết kiệm phù hợp, xác định số tiền cần để dành và cách theo dõi tiến độ.</p>
+          </div>
+        </div>
+        <p>Sau bốn tuần, phụ huynh có thể tự hỏi:</p>
+        <ul>
+          <li>Con có bắt đầu cân nhắc trước khi chi tiêu không?</li>
+          <li>Con có chủ động nói về mục tiêu tiết kiệm không?</li>
+          <li>Con có giải thích được lý do cho lựa chọn của mình không?</li>
+          <li>Bố mẹ có thể giảm bớt việc nhắc nhở trong những tình huống phù hợp không?</li>
+          <li>Cách thực hành này có đủ đơn giản để gia đình tiếp tục không?</li>
+        </ul>
+        <p>Không nhất thiết phải có thay đổi rõ rệt sau bốn tuần. Đây là khoảng thời gian để gia đình quan sát, điều chỉnh và xem cách làm nào thực sự phù hợp.</p>
+      </section>
+
+      <!-- 5. Mở rộng -->
+            <section class="deep-section" id="mo-rong">
+        <h2>5. Mở rộng: Từ tiết kiệm đến đầu tư</h2>
+        <p class="lead">Dạy con về đầu tư và đầu tư cho con là hai việc khác nhau — nhưng đều nên bắt đầu sớm.</p>
+        <p><strong>Dạy con về đầu tư</strong> giúp trẻ dần hiểu các khái niệm như thời gian, lợi nhuận, rủi ro và sự không chắc chắn.</p>
+        <p><strong>Bố mẹ đầu tư cho con</strong> là quyết định tài chính của gia đình (học phí, nhu cầu dài hạn…).</p>
+        <p>Hai việc này nên bắt đầu từ sớm, lý tưởng là song song. Điều quan trọng không phải tạo áp lực rằng trẻ phải đầu tư từ sớm mới thành công về tài chính — mà là xây nền tảng để hiểu giá trị của tiền, biết cân nhắc lựa chọn và nhận thức rằng quyết định tài chính luôn cần được xem xét trong bối cảnh cụ thể.</p>
+      </section>
+
+      <!-- 6. Kết quả chi tiết -->
+      <section class="deep-section" id="ket-qua">
+        <h2>6. Kết quả khảo sát chi tiết</h2>
+        <p class="lead">Phần này cung cấp thêm thông tin về các chủ đề được khảo sát. Các kết quả phản ánh câu trả lời của nhóm 40 phụ huynh tham gia, không đại diện cho toàn bộ phụ huynh Việt Nam.</p>
+
+        <h3>1. Bức tranh chung</h3>
+        <p><strong>Độ tuổi và giai đoạn:</strong> Phản hồi chủ yếu từ phụ huynh có con khoảng 7–14 tuổi (cuối tiểu học và THCS). Đây là nhóm tuổi mà việc sử dụng tiền, nhu cầu mua sắm và mức độ tự quyết có thể khác nhau đáng kể giữa từng trẻ.</p>
+        <p><strong>Nguồn tiền:</strong> Tiền lì xì và tiền bố mẹ cho theo dịp/theo yêu cầu phổ biến. Tiền tiêu vặt định kỳ xuất hiện nhưng chưa phải hình thức phổ biến nhất. Một số trẻ chưa có tiền riêng; một số đã có trải nghiệm quản lý thường xuyên hơn.</p>
+        <p><strong>Mức độ tự quyết:</strong> Đa số trẻ đã có ít nhất một số lần tự quyết định chi tiêu trong vài tháng gần đây. Tần suất và mức độ tự chủ khác nhau giữa các gia đình. Mức độ hỗ trợ mà phụ huynh cảm nhận không cho thấy xu hướng đơn giản theo mức độ tự quyết — nhu cầu đồng hành có thể xuất hiện ở nhiều hoàn cảnh, không chỉ khi trẻ đã gặp khó khăn.</p>
+
+        <h3>2. Những tình huống phụ huynh thường gặp</h3>
+        <ul>
+          <li>Con muốn mua món đồ bố mẹ chưa đồng ý hoặc muốn mua ngay, chưa quen chờ đợi.</li>
+          <li>Con tiêu hết tiền rồi xin thêm, hoặc mua xong nhanh chóng thấy tiếc.</li>
+          <li>Con đang học cách phân biệt “cần” và “muốn”, trong khi bố mẹ vẫn phải nhắc lại nhiều lần.</li>
+        </ul>
+        <p>Bên cạnh đó, một bộ phận phụ huynh cho biết gần như không phát sinh tình huống đáng kể — cần đọc trong bối cảnh mức độ tiếp xúc với tiền và cơ hội tự quyết cũng khác nhau.</p>
+
+        <h3>3. Phụ huynh đang hướng dẫn con như thế nào?</h3>
+        <p>Khi có tình huống liên quan đến tiền, cách phản ứng phổ biến nhất là hỏi và cùng con suy nghĩ trước khi quyết định. Các cách khác gồm giải thích, khuyên nên hoặc không nên, và linh hoạt theo từng tình huống. Một số phụ huynh đã cho con tự quyết định rồi cùng nhìn lại sau đó.</p>
+        <p>Những phương pháp đang được sử dụng gồm nhắc con cân nhắc trước khi mua, trò chuyện về tiền khi có tình huống thực tế, cho con tham gia quyết định mua sắm, cho tiền tiêu vặt để tự quản lý, sử dụng ống heo hoặc phong bì và nhắc con tiết kiệm.</p>
+        <p>Các hình thức có cấu trúc hơn (cùng đặt mục tiêu tiết kiệm, dùng ứng dụng, sách, trò chơi về tiền) xuất hiện ít hơn trong phản hồi. Gợi ý thực hành: làm thế nào để những cách hướng dẫn sẵn có trở thành hoạt động gia đình có thể duy trì và trẻ chủ động tham gia?</p>
+
+        <h3>4. Điều phụ huynh muốn cải thiện</h3>
+        <p>Những chủ đề được lựa chọn gồm phân biệt “cần” và “muốn”, cân nhắc trước khi mua, hiểu giá trị của tiền, tiết kiệm cho mục tiêu, lập kế hoạch, kiểm soát chi tiêu và chịu trách nhiệm với quyết định. Nếu chỉ chọn một điều cần cải thiện, phân biệt nhu cầu và mong muốn là ưu tiên nổi bật nhất — điểm bắt đầu phù hợp vì có thể đưa vào nhiều tình huống mua sắm hằng ngày.</p>
+
+        <h3>5. Những khó khăn khi duy trì cách làm hiện tại</h3>
+        <p>Trong số gia đình đã thử các phương pháp, khó khăn được phản ánh gồm: biến hoạt động thành điều trẻ hứng thú, duy trì thực hành, giảm việc bố mẹ phải nhắc, tìm hướng dẫn cụ thể và nhận biết tiến bộ. Ngay cả một số phụ huynh tương đối hài lòng với cách hiện tại cũng cởi mở với cách tiếp cận khác nếu đơn giản, lợi ích rõ ràng và không đòi hỏi quá nhiều thời gian.</p>
+
+        <h3>6. Điều gì khiến phụ huynh muốn thử một giải pháp mới?</h3>
+        <p>Hai động lực nổi bật nhất: mong muốn con được tự thực hành nhiều hơn, và mong muốn có hoạt động cụ thể để làm cùng con. Các yếu tố tiếp theo gồm tính đơn giản, thời gian cần bỏ ra, mức độ phù hợp với độ tuổi, việc trẻ nhanh chán và tình trạng bố mẹ phải nhắc nhiều. Phụ huynh muốn hoạt động giúp con tự thực hành, đồng thời có hướng dẫn đủ rõ để đồng hành tiện lợi hơn mà không phải tự xây dựng mọi thứ từ đầu.</p>
+      </section>
+
+      <!-- 7. Hạn chế -->
+
+      <!-- 8. Kết luận + Kitto -->
+      <section class="deep-section" id="ket-luan">
+        <h2>7. Kết luận</h2>
+        <p>Dạy con về tiền không nhất thiết phải bắt đầu bằng những khái niệm tài chính phức tạp.</p>
+        <p>Từ phản hồi của 40 phụ huynh và các nghiên cứu được tham khảo, một hướng đáng cân nhắc là tạo cho trẻ cơ hội đưa ra những quyết định tiền bạc thực tế, trong phạm vi phù hợp, sau đó cùng nhìn lại và tiếp tục thực hành.</p>
+        <div class="key-msg" style="margin:16px 0;">
+          <p style="font-size:15px;">Cần hay muốn? → Con chọn gì? → Điều gì xảy ra? → Lần sau con muốn làm khác đi không?</p>
+        </div>
+        <p>Không phải mọi trẻ đều cần cùng một cách tiếp cận. Một số trẻ cần bắt đầu bằng việc làm quen với tiền và những lựa chọn đơn giản; những trẻ đã có trải nghiệm có thể sẵn sàng hơn với việc lập kế hoạch, theo dõi mục tiêu và chịu trách nhiệm với quyết định của mình. Điều quan trọng là tìm được cách thực hành phù hợp với trẻ và đủ đơn giản để gia đình duy trì.</p>
+
+        <!-- KITTO CTA -->
+                <div class="kit-cta">
+          <div class="kit-cta-top">
+            <div class="kit-cta-badge"><span class="dot" aria-hidden="true"></span> Đang mở đăng ký thử nghiệm</div>
+            <h3>Cho con tự quyết với tiền thật — bố mẹ chỉ cần hỏi</h3>
+            <p class="kit-cta-lead">Bộ kit vật lý giúp biến quyết định tiền bạc hằng ngày thành vòng lặp thực hành nhỏ, đủ đơn giản để gia đình duy trì.</p>
+          </div>
+          <div class="kit-cta-body">
+            <ul class="kit-cta-benefits">
+              <li>
+                <span class="ico" aria-hidden="true">📦</span>
+                <div>
+                  <strong>3 phong bì Cất · Chi · Chia sẻ + sổ tay</strong>
+                  <span>Tiền mặt thật — con cầm, đếm, quyết định</span>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true">⏱</span>
+                <div>
+                  <strong>Setup 5 phút · 10–15 phút/tuần</strong>
+                  <span>Không app, không bài học dài, không lịch cứng</span>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true">💬</span>
+                <div>
+                  <strong>Bố mẹ hỏi — không quyết định hộ</strong>
+                  <span>Con tự chọn → trải nghiệm → cùng nhìn lại</span>
+                </div>
+              </li>
+              <li>
+                <span class="ico" aria-hidden="true">🔬</span>
+                <div>
+                  <strong>Theo hướng dẫn Bộ Tài chính Hoa Kỳ + nghiên cứu quốc tế</strong>
+                  <span>Điều chỉnh cho lối sống gia đình Việt Nam</span>
+                </div>
+              </li>
+            </ul>
+            <div class="kit-cta-actions">
+              <a class="kit-cta-btn" href="index.html#try" >Đăng ký trải nghiệm Kitto →</a>
+              <p class="kit-cta-trust">Giai đoạn thử nghiệm · Phản hồi của bạn giúp hoàn thiện sản phẩm</p>
+            </div>
+          </div>
+        </div>
+        </section>
+
+      <!-- 9. Tài liệu tham khảo -->
+      <section class="deep-section refs" id="tai-lieu">
+        <h2>8. Tài liệu tham khảo</h2>
+        <ol>
+          <li>Amagir, A., Groot, W., Maassen van den Brink, H., &amp; Wilschut, A. (2018). A review of financial-literacy education programs for children and adolescents. <em>Citizenship, Social and Economics Education, 17</em>(1), 56–80.</li>
+          <li>LeBaron, A. B., &amp; Kelley, H. H. (2021). Financial Socialization: A Decade in Review. <em>Journal of Family and Economic Issues, 42</em>, 195–206.</li>
+          <li>LeBaron-Black, A. B., et al. (2026). Parent Financial Socialization and Financial Outcomes: A Systematic Review and Meta-Analysis. <em>Journal of Family Theory &amp; Review</em>.</li>
+          <li>Consumer Financial Protection Bureau (CFPB). (2016). Building Blocks to Help Youth Achieve Financial Capability: A New Model and Recommendations.</li>
+          <li>Consumer Financial Protection Bureau (CFPB). Building Blocks to Help Youth Achieve Financial Capability: Measurement Guide.</li>
+          <li>OECD. (2024). PISA 2022 Results (Volume IV): How Financially Smart Are Students?</li>
+        </ol>
+      </section>
+
+      <div class="disclaimer" style="margin-top: 8px; margin-bottom: 24px;">
+        <strong>Lưu ý:</strong> Khảo sát không đo lường trực tiếp kiến thức tài chính của trẻ, không quan sát hành vi của trẻ và không đánh giá hiệu quả của một phương pháp giáo dục cụ thể. Do quy mô và cách thức tuyển chọn người tham gia, kết quả không đại diện cho toàn bộ phụ huynh Việt Nam. Các phát hiện nên được hiểu là những gợi ý từ nhóm gia đình tham gia khảo sát, hữu ích cho việc đặt câu hỏi và thiết kế các thử nghiệm tiếp theo. Báo cáo không nhằm đánh giá từng gia đình, xác định một phương pháp duy nhất hay cung cấp tư vấn tài chính cá nhân.
+      </div>
+
+
+      <div class="card-box" style="text-align:center; margin:24px 0 20px;">
+        <button type="button" class="layer-btn active" onclick="switchLayer('quick')">← Quay lại Đọc nhanh</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Báo cáo dành cho phụ huynh</strong> · Phân tích từ khảo sát phụ huynh và tham khảo bằng chứng nghiên cứu · Tháng 8/2026</p>
+      <p>Thực hiện bởi Nhóm Nghiên cứu Kitto và các cộng sự</p>
+      <p><a href="index.html#try">Trang chủ Kitto → Đăng ký trải nghiệm</a></p>
+    </div>
+  </footer>
+
+  <button type="button" class="back-top" id="backTop" aria-label="Lên đầu trang">↑</button>
+
+    <script>
+    (function () {
+      var HEADER_OFFSET = 80;
+
+      function switchLayer(layer, opts) {
+        opts = opts || {};
+        var quick = document.getElementById('layerQuick');
+        var deep = document.getElementById('layerDeep');
+        var btnQ = document.getElementById('btnQuick');
+        var btnD = document.getElementById('btnDeep');
+        if (!quick || !deep) return;
+        if (layer === 'quick') {
+          quick.style.display = 'block';
+          deep.style.display = 'none';
+          if (btnQ) btnQ.classList.add('active');
+          if (btnD) btnD.classList.remove('active');
+          if (!opts.skipScroll) window.scrollTo(0, 0);
+        } else {
+          quick.style.display = 'none';
+          deep.style.display = 'block';
+          if (btnQ) btnQ.classList.remove('active');
+          if (btnD) btnD.classList.add('active');
+          if (!opts.skipScroll) {
+            var bar = document.getElementById('layerBar');
+            if (bar) {
+              var top = bar.getBoundingClientRect().top + window.pageYOffset - 10;
+              window.scrollTo(0, Math.max(0, top));
+            }
+          }
+        }
+      }
+
+      // Expose for inline onclick buttons
+      window.switchLayer = switchLayer;
+
+      function scrollToId(id) {
+        var el = document.getElementById(id);
+        if (!el) return false;
+        // force reflow after display change
+        void el.offsetHeight;
+        var y = el.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+        window.scrollTo(0, Math.max(0, Math.round(y)));
+        return true;
+      }
+
+      function goToDeepSection(id) {
+        if (!id) return;
+        var deep = document.getElementById('layerDeep');
+        var wasHidden = deep && deep.style.display === 'none';
+        switchLayer('deep', { skipScroll: true });
+        // If layer was hidden, wait for layout; if already visible, scroll immediately
+        var delay = wasHidden ? 60 : 0;
+        setTimeout(function () {
+          if (!scrollToId(id)) {
+            console.warn('TOC: section not found:', id);
+            return;
+          }
+          if (wasHidden) {
+            setTimeout(function () { scrollToId(id); }, 120);
+          }
+        }, delay);
+      }
+
+      window.goToDeepSection = goToDeepSection;
+
+      function initFromHash() {
+        var hash = (location.hash || '').replace(/^#/, '');
+        if (!hash) return;
+        var el = document.getElementById(hash);
+        var deep = document.getElementById('layerDeep');
+        if (el && deep && deep.contains(el)) {
+          goToDeepSection(hash);
+        }
+      }
+
+      function bindLayers() {
+        var btnQuick = document.getElementById('btnQuick');
+        var btnDeep = document.getElementById('btnDeep');
+        if (btnQuick) btnQuick.addEventListener('click', function () { switchLayer('quick'); });
+        if (btnDeep) btnDeep.addEventListener('click', function () { switchLayer('deep'); });
+      }
+
+      function bindBackTop() {
+        var backTop = document.getElementById('backTop');
+        if (!backTop) return;
+        window.addEventListener('scroll', function () {
+          if (window.pageYOffset > 400) backTop.classList.add('show');
+          else backTop.classList.remove('show');
+        });
+        backTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      function ready(fn) {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', fn);
+        } else {
+          fn();
+        }
+      }
+
+      ready(function () {
+        bindLayers();
+        bindBackTop();
+        initFromHash();
+      });
+    })();
+  </script>
+</body>
+</html>
