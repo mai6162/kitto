@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Báo cáo khảo sát — Cách trẻ học và sử dụng tiền | Kitto</title>
   <meta name="description" content="Khảo sát 40 phụ huynh tại Hà Nội & TP.HCM: trẻ đã có tiền nhưng thiếu vòng lặp thực hành đều đặn. 3 phát hiện chính + gợi ý thực hành cho phụ huynh. Đọc nhanh 3–5 phút hoặc đọc sâu." />
-  <meta name="theme-color" content="#0D9B8A" />
+  <meta name="theme-color" content="#164B61" />
   <meta property="og:title" content="Cách trẻ học và sử dụng tiền — Báo cáo khảo sát Kitto" />
   <meta property="og:description" content="Từ 40 phụ huynh: khoảng trống không phải kiến thức, mà thiếu cơ hội thực hành lặp lại. Đọc nhanh 3–5 phút hoặc đọc sâu." />
   <meta property="og:type" content="article" />
@@ -110,7 +110,7 @@
     .layer-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
     .layer-btn.active {
       background: var(--grad-btn); color: #fff; border-color: transparent;
-      box-shadow: 0 2px 10px rgba(13,155,138,.22);
+      box-shadow: 0 2px 10px rgba(22,75,97,.22);
     }
 
     .section-label {
@@ -201,6 +201,101 @@
       margin: 0 0 14px 1.2em; font-size: 15px;
     }
     .deep-section li { margin-bottom: 6px; }
+
+    /* Collapsible section (phần 6) */
+    .collapse-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+    }
+    .collapse-toggle h2 {
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      flex: 1;
+    }
+    .collapse-toggle .chevron {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s;
+    }
+    .collapse-toggle[aria-expanded="true"] .chevron {
+      transform: rotate(180deg);
+    }
+    .collapse-panel {
+      overflow: hidden;
+      transition: max-height .35s ease, opacity .25s ease;
+    }
+    .collapse-panel[hidden] {
+      display: none;
+    }
+    .collapse-hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 8px 0 0;
+      font-weight: 500;
+    }
+
+    /* Research cards — dễ quét hơn đoạn văn dài */
+    .research-grid {
+      display: grid;
+      gap: 12px;
+      margin: 16px 0 8px;
+    }
+    .research-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+    }
+    .research-card .src {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .research-card .takeaway {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0 6px;
+      line-height: 1.4;
+    }
+    .research-card .detail {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .research-intro {
+      font-size: 14.5px;
+      color: var(--text);
+      margin: 0 0 4px;
+      line-height: 1.55;
+    }
 
     .stat-row {
       display: grid;
@@ -423,13 +518,13 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 16px rgba(13,155,138,.28);
+      box-shadow: 0 4px 16px rgba(22,75,97,.22);
       min-height: 52px;
       transition: transform .18s, box-shadow .18s;
     }
     .kit-cta-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(13,155,138,.35);
+      box-shadow: 0 8px 24px rgba(22,75,97,.28);
     }
     
     .kit-cta--compact .kit-cta-body {
@@ -466,14 +561,19 @@
     .back-top {
       position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px;
       width: 44px; height: 44px;
-      background: var(--primary); color: #fff;
-      border: none; border-radius: 12px;
-      font-size: 18px; cursor: pointer;
-      box-shadow: 0 4px 16px rgba(13,155,138,.3);
-      opacity: 0; pointer-events: none; transition: .2s;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 14px;
+      font-size: 18px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 8px 24px rgba(22,75,97,.22);
+      opacity: 0; pointer-events: none; transition: opacity .25s, transform .2s, box-shadow .2s;
       z-index: 40;
+      display: grid; place-items: center; line-height: 1;
     }
     .back-top.show { opacity: 1; pointer-events: auto; }
+    .back-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(22,75,97,.28);
+    }
 
     .refs ol { font-size: 13.5px; color: var(--muted); padding-left: 1.3em; }
     .refs li { margin-bottom: 8px; line-height: 1.5; }
@@ -668,20 +768,46 @@
         <p>Nói cách khác, giáo dục tài chính có thể là một quá trình xây dựng thói quen từng bước, thay vì chỉ là cách xử lý những tình huống chưa như mong muốn.</p>
 
         <h3>3. Các nghiên cứu nổi bật nói gì?</h3>
-        <p>Các nghiên cứu về giáo dục tài chính và quá trình trẻ học cách sử dụng tiền gợi ý rằng kiến thức là một phần quan trọng, nhưng việc biết một nguyên tắc không đồng nghĩa với việc trẻ luôn áp dụng được nguyên tắc đó trong thực tế.</p>
-        <p>Tổng quan của Amagir và cộng sự (2018) về các chương trình giáo dục tài chính cho trẻ em và thanh thiếu niên cho thấy giáo dục tài chính có tiềm năng cải thiện kiến thức và thái độ. Tuy nhiên, việc chuyển những điều đã học thành hành vi thực tế vẫn là một vấn đề cần được quan tâm khi thiết kế chương trình.</p>
-        <p>Nghiên cứu về <em>financial socialization</em> — quá trình trẻ tiếp thu kiến thức, giá trị, thái độ và hành vi liên quan đến tiền — cũng nhấn mạnh vai trò của gia đình. Trẻ có thể học qua việc bố mẹ chủ động hướng dẫn, quan sát cách gia đình sử dụng tiền, trò chuyện về các quyết định và trực tiếp trải nghiệm với tiền (LeBaron &amp; Kelley, 2021).</p>
-        <p>Khung năng lực tài chính dành cho người trẻ của Cục Bảo vệ Tài chính Người tiêu dùng Hoa Kỳ (CFPB) cũng đề cập đến sự kết hợp giữa năng lực lập kế hoạch và tự điều chỉnh, thói quen và chuẩn mực về tiền, cùng kiến thức và kỹ năng ra quyết định.</p>
-        <p>Dữ liệu PISA 2022 của OECD cho thấy việc học sinh thường xuyên thảo luận với cha mẹ về tiền bạc có mối liên hệ với kiến thức tài chính cao hơn. Đây là mối liên hệ quan sát được, không phải bằng chứng rằng riêng việc trò chuyện sẽ trực tiếp tạo ra kết quả đó.</p>
-        <p>Một tổng quan hệ thống và phân tích gộp về xã hội hóa tài chính từ cha mẹ (LeBaron-Black et al., 2026) cũng tiếp tục xem xét mối liên hệ giữa sự tham gia của cha mẹ và các kết quả tài chính ở trẻ em, thanh thiếu niên.</p>
+        <p class="research-intro">Kiến thức quan trọng — nhưng biết nguyên tắc chưa đủ để trẻ áp dụng trong thực tế. Dưới đây là điểm chính từ các nguồn thường được trích dẫn:</p>
+
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="src">Amagir et al., 2018</div>
+            <p class="takeaway">Dạy về tiền có thể giúp trẻ hiểu hơn và có thái độ tích cực hơn — nhưng đưa kiến thức vào hành vi thực tế vẫn khó.</p>
+            <p class="detail">Khi thiết kế cách dạy, cần quan tâm đến việc trẻ có cơ hội áp dụng những gì đã học, không chỉ dừng ở giải thích.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="src">LeBaron &amp; Kelley, 2021</div>
+            <p class="takeaway">Gia đình đóng vai trò quan trọng trong cách trẻ học về tiền.</p>
+            <p class="detail">Trẻ có thể học khi bố mẹ hướng dẫn, khi quan sát cách gia đình dùng tiền, khi được trò chuyện về các quyết định, và khi tự trải nghiệm với tiền.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="src">CFPB (Cục Bảo vệ Tài chính Người tiêu dùng Hoa Kỳ)</div>
+            <p class="takeaway">Trẻ cần cả thói quen về tiền, khả năng tự điều chỉnh, lẫn kiến thức để ra quyết định.</p>
+            <p class="detail">Khung hướng dẫn cho người trẻ nhấn mạnh sự kết hợp này — không chỉ dừng ở việc biết khái niệm.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="src">OECD · PISA 2022</div>
+            <p class="takeaway">Học sinh thường xuyên nói chuyện với cha mẹ về tiền thường có kiến thức tài chính cao hơn.</p>
+            <p class="detail">Đây là mối liên hệ quan sát được trong dữ liệu, không phải bằng chứng rằng riêng việc trò chuyện sẽ trực tiếp tạo ra kết quả đó.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="src">LeBaron-Black et al., 2026</div>
+            <p class="takeaway">Khi bố mẹ tham gia nhiều hơn, trẻ thường có kết quả tốt hơn về cách dùng tiền.</p>
+            <p class="detail">Tổng hợp nhiều nghiên cứu tiếp tục cho thấy vai trò của bố mẹ trong việc trẻ học và hình thành thói quen về tiền.</p>
+          </div>
+        </div>
 
         <h3>Điều này có ý nghĩa gì đối với gia đình?</h3>
-        <p>Những nghiên cứu trên không chứng minh rằng một vòng lặp thực hành cụ thể sẽ hiệu quả với mọi trẻ. Tuy nhiên, chúng cung cấp cơ sở để xem xét một hướng tiếp cận kết hợp việc trò chuyện với cơ hội trải nghiệm thực tế.</p>
+        <p>Các nghiên cứu trên <strong>không</strong> chứng minh một vòng lặp cụ thể hiệu quả với mọi trẻ. Chúng gợi ý hướng kết hợp <strong>trò chuyện + trải nghiệm thực tế</strong>.</p>
         <div class="loop-box">
           Dừng lại → Cân nhắc → Quyết định → Trải nghiệm → Nhìn lại → Điều chỉnh
         </div>
-        <p>Đó có thể là khi trẻ lựa chọn giữa hai món đồ, dành tiền cho một mục tiêu, quyết định có nên mua ngay hay chờ thêm, hoặc nhìn lại một khoản chi mà trẻ chưa thực sự hài lòng.</p>
-        <p>Trẻ không nhất thiết phải bắt đầu bằng các thuật ngữ tài chính phức tạp. Những quyết định nhỏ, lặp lại trong phạm vi phù hợp, có thể là điểm khởi đầu. Và quan trọng hơn nữa: không cần một chương trình đồ sộ — mỗi tình huống thực tế hàng ngày, hàng tuần đã là thêm một cơ hội để trẻ rèn luyện.</p>
+        <p>Bắt đầu từ quyết định nhỏ, lặp lại (chọn món đồ, để dành mục tiêu, chờ thêm một tuần…) — không cần chương trình đồ sộ hay thuật ngữ phức tạp.</p>
       </section>
 
       <!-- 4. Gợi ý thực hành -->
@@ -717,34 +843,34 @@
         </div>
 
         <h3>Thử trong 4 tuần: một khung khởi đầu</h3>
-        <p>Đây là gợi ý thực hành để gia đình tự điều chỉnh.</p>
+        <p>Đây là gợi ý thực hành để gia đình tự điều chỉnh. Có thể bắt đầu với tiền mặt và vài chỗ để tiền rõ ràng (ví dụ phong bì hoặc hộp nhỏ), để con nhìn thấy mình đang có bao nhiêu.</p>
         <div class="week-grid">
           <div class="week-card">
             <strong>Tuần 1 — Làm quen</strong>
-            <p>Thống nhất khoản tiền nhỏ và cách sử dụng. Giúp con biết mình có bao nhiêu và những giới hạn đã thống nhất.</p>
+            <p>Thống nhất khoản tiền nhỏ và giới hạn. Giúp con biết mình có bao nhiêu, phần nào được tự quyết, và đặt tiền ở chỗ con tự quản được.</p>
           </div>
           <div class="week-card">
             <strong>Tuần 2 — Tự lựa chọn</strong>
-            <p>Cho con tự quyết một số khoản chi phù hợp. Bố mẹ đặt câu hỏi gợi mở, không cần can thiệp vào mọi quyết định.</p>
+            <p>Khi con nhận tiền hoặc muốn mua gì: để con dừng lại, nghĩ rồi tự quyết trong phạm vi đã thống nhất. Bố mẹ chỉ hỏi, không quyết thay.</p>
           </div>
           <div class="week-card">
             <strong>Tuần 3 — Cùng nhìn lại</strong>
-            <p>Xem con đã sử dụng tiền như thế nào, điều gì diễn ra như dự kiến và điều gì con muốn thay đổi.</p>
+            <p>Xem lại vài quyết định gần đây: điều gì ổn? Điều gì con muốn làm khác lần sau? Giữ ngắn — vài câu hỏi mở là đủ.</p>
           </div>
           <div class="week-card">
             <strong>Tuần 4 — Mục tiêu nhỏ</strong>
-            <p>Cùng con đặt một mục tiêu tiết kiệm phù hợp, xác định số tiền cần để dành và cách theo dõi tiến độ.</p>
+            <p>Cùng con chọn một mục tiêu nhỏ (ví dụ để dành mua một món). Xác định số tiền và cách con tự theo dõi tiến độ.</p>
           </div>
         </div>
         <p>Sau bốn tuần, phụ huynh có thể tự hỏi:</p>
         <ul>
-          <li>Con có bắt đầu cân nhắc trước khi chi tiêu không?</li>
-          <li>Con có chủ động nói về mục tiêu tiết kiệm không?</li>
-          <li>Con có giải thích được lý do cho lựa chọn của mình không?</li>
-          <li>Bố mẹ có thể giảm bớt việc nhắc nhở trong những tình huống phù hợp không?</li>
-          <li>Cách thực hành này có đủ đơn giản để gia đình tiếp tục không?</li>
+          <li>Con có bắt đầu dừng lại và nghĩ trước khi chi tiêu không?</li>
+          <li>Con có tự giải thích được lý do cho lựa chọn của mình không?</li>
+          <li>Bố mẹ có thể giảm bớt việc nhắc trong những tình huống phù hợp không?</li>
+          <li>Con có chủ động hơn với mục tiêu nhỏ của mình không?</li>
+          <li>Cách làm này có đủ đơn giản để gia đình tiếp tục không?</li>
         </ul>
-        <p>Không nhất thiết phải có thay đổi rõ rệt sau bốn tuần. Đây là khoảng thời gian để gia đình quan sát, điều chỉnh và xem cách làm nào thực sự phù hợp.</p>
+        <p>Không nhất thiết phải có thay đổi rõ rệt sau bốn tuần. Đây là khoảng thời gian để quan sát, điều chỉnh và xem cách nào thực sự phù hợp với gia đình.</p>
       </section>
 
       <!-- 5. Mở rộng -->
@@ -758,35 +884,41 @@
 
       <!-- 6. Kết quả chi tiết -->
       <section class="deep-section" id="ket-qua">
-        <h2>6. Kết quả khảo sát chi tiết</h2>
-        <p class="lead">Phần này cung cấp thêm thông tin về các chủ đề được khảo sát. Các kết quả phản ánh câu trả lời của nhóm 40 phụ huynh tham gia, không đại diện cho toàn bộ phụ huynh Việt Nam.</p>
+        <button type="button" class="collapse-toggle" id="ketQuaToggle" aria-expanded="false" aria-controls="ketQuaPanel">
+          <h2>6. Kết quả khảo sát chi tiết</h2>
+          <span class="chevron" aria-hidden="true">▼</span>
+        </button>
+        <p class="collapse-hint" id="ketQuaHint">Nhấn để xem chi tiết câu trả lời từ 40 phụ huynh →</p>
+        <div class="collapse-panel" id="ketQuaPanel" hidden>
+          <p class="lead">Phần này cung cấp thêm thông tin về các chủ đề được khảo sát. Các kết quả phản ánh câu trả lời của nhóm 40 phụ huynh tham gia, không đại diện cho toàn bộ phụ huynh Việt Nam.</p>
 
-        <h3>1. Bức tranh chung</h3>
-        <p><strong>Độ tuổi và giai đoạn:</strong> Phản hồi chủ yếu từ phụ huynh có con khoảng 7–14 tuổi (cuối tiểu học và THCS). Đây là nhóm tuổi mà việc sử dụng tiền, nhu cầu mua sắm và mức độ tự quyết có thể khác nhau đáng kể giữa từng trẻ.</p>
-        <p><strong>Nguồn tiền:</strong> Tiền lì xì và tiền bố mẹ cho theo dịp/theo yêu cầu phổ biến. Tiền tiêu vặt định kỳ xuất hiện nhưng chưa phải hình thức phổ biến nhất. Một số trẻ chưa có tiền riêng; một số đã có trải nghiệm quản lý thường xuyên hơn.</p>
-        <p><strong>Mức độ tự quyết:</strong> Đa số trẻ đã có ít nhất một số lần tự quyết định chi tiêu trong vài tháng gần đây. Tần suất và mức độ tự chủ khác nhau giữa các gia đình. Mức độ hỗ trợ mà phụ huynh cảm nhận không cho thấy xu hướng đơn giản theo mức độ tự quyết — nhu cầu đồng hành có thể xuất hiện ở nhiều hoàn cảnh, không chỉ khi trẻ đã gặp khó khăn.</p>
+          <h3>1. Bức tranh chung</h3>
+          <p><strong>Độ tuổi và giai đoạn:</strong> Phản hồi chủ yếu từ phụ huynh có con khoảng 7–14 tuổi (cuối tiểu học và THCS). Đây là nhóm tuổi mà việc sử dụng tiền, nhu cầu mua sắm và mức độ tự quyết có thể khác nhau đáng kể giữa từng trẻ.</p>
+          <p><strong>Nguồn tiền:</strong> Tiền lì xì và tiền bố mẹ cho theo dịp/theo yêu cầu phổ biến. Tiền tiêu vặt định kỳ xuất hiện nhưng chưa phải hình thức phổ biến nhất. Một số trẻ chưa có tiền riêng; một số đã có trải nghiệm quản lý thường xuyên hơn.</p>
+          <p><strong>Mức độ tự quyết:</strong> Đa số trẻ đã có ít nhất một số lần tự quyết định chi tiêu trong vài tháng gần đây. Tần suất và mức độ tự chủ khác nhau giữa các gia đình. Mức độ hỗ trợ mà phụ huynh cảm nhận không cho thấy xu hướng đơn giản theo mức độ tự quyết — nhu cầu đồng hành có thể xuất hiện ở nhiều hoàn cảnh, không chỉ khi trẻ đã gặp khó khăn.</p>
 
-        <h3>2. Những tình huống phụ huynh thường gặp</h3>
-        <ul>
-          <li>Con muốn mua món đồ bố mẹ chưa đồng ý hoặc muốn mua ngay, chưa quen chờ đợi.</li>
-          <li>Con tiêu hết tiền rồi xin thêm, hoặc mua xong nhanh chóng thấy tiếc.</li>
-          <li>Con đang học cách phân biệt “cần” và “muốn”, trong khi bố mẹ vẫn phải nhắc lại nhiều lần.</li>
-        </ul>
-        <p>Bên cạnh đó, một bộ phận phụ huynh cho biết gần như không phát sinh tình huống đáng kể — cần đọc trong bối cảnh mức độ tiếp xúc với tiền và cơ hội tự quyết cũng khác nhau.</p>
+          <h3>2. Những tình huống phụ huynh thường gặp</h3>
+          <ul>
+            <li>Con muốn mua món đồ bố mẹ chưa đồng ý hoặc muốn mua ngay, chưa quen chờ đợi.</li>
+            <li>Con tiêu hết tiền rồi xin thêm, hoặc mua xong nhanh chóng thấy tiếc.</li>
+            <li>Con đang học cách phân biệt “cần” và “muốn”, trong khi bố mẹ vẫn phải nhắc lại nhiều lần.</li>
+          </ul>
+          <p>Bên cạnh đó, một bộ phận phụ huynh cho biết gần như không phát sinh tình huống đáng kể — cần đọc trong bối cảnh mức độ tiếp xúc với tiền và cơ hội tự quyết cũng khác nhau.</p>
 
-        <h3>3. Phụ huynh đang hướng dẫn con như thế nào?</h3>
-        <p>Khi có tình huống liên quan đến tiền, cách phản ứng phổ biến nhất là hỏi và cùng con suy nghĩ trước khi quyết định. Các cách khác gồm giải thích, khuyên nên hoặc không nên, và linh hoạt theo từng tình huống. Một số phụ huynh đã cho con tự quyết định rồi cùng nhìn lại sau đó.</p>
-        <p>Những phương pháp đang được sử dụng gồm nhắc con cân nhắc trước khi mua, trò chuyện về tiền khi có tình huống thực tế, cho con tham gia quyết định mua sắm, cho tiền tiêu vặt để tự quản lý, sử dụng ống heo hoặc phong bì và nhắc con tiết kiệm.</p>
-        <p>Các hình thức có cấu trúc hơn (cùng đặt mục tiêu tiết kiệm, dùng ứng dụng, sách, trò chơi về tiền) xuất hiện ít hơn trong phản hồi. Gợi ý thực hành: làm thế nào để những cách hướng dẫn sẵn có trở thành hoạt động gia đình có thể duy trì và trẻ chủ động tham gia?</p>
+          <h3>3. Phụ huynh đang hướng dẫn con như thế nào?</h3>
+          <p>Khi có tình huống liên quan đến tiền, cách phản ứng phổ biến nhất là hỏi và cùng con suy nghĩ trước khi quyết định. Các cách khác gồm giải thích, khuyên nên hoặc không nên, và linh hoạt theo từng tình huống. Một số phụ huynh đã cho con tự quyết định rồi cùng nhìn lại sau đó.</p>
+          <p>Những phương pháp đang được sử dụng gồm nhắc con cân nhắc trước khi mua, trò chuyện về tiền khi có tình huống thực tế, cho con tham gia quyết định mua sắm, cho tiền tiêu vặt để tự quản lý, sử dụng ống heo hoặc phong bì và nhắc con tiết kiệm.</p>
+          <p>Các hình thức có cấu trúc hơn (cùng đặt mục tiêu tiết kiệm, dùng ứng dụng, sách, trò chơi về tiền) xuất hiện ít hơn trong phản hồi. Gợi ý thực hành: làm thế nào để những cách hướng dẫn sẵn có trở thành hoạt động gia đình có thể duy trì và trẻ chủ động tham gia?</p>
 
-        <h3>4. Điều phụ huynh muốn cải thiện</h3>
-        <p>Những chủ đề được lựa chọn gồm phân biệt “cần” và “muốn”, cân nhắc trước khi mua, hiểu giá trị của tiền, tiết kiệm cho mục tiêu, lập kế hoạch, kiểm soát chi tiêu và chịu trách nhiệm với quyết định. Nếu chỉ chọn một điều cần cải thiện, phân biệt nhu cầu và mong muốn là ưu tiên nổi bật nhất — điểm bắt đầu phù hợp vì có thể đưa vào nhiều tình huống mua sắm hằng ngày.</p>
+          <h3>4. Điều phụ huynh muốn cải thiện</h3>
+          <p>Những chủ đề được lựa chọn gồm phân biệt “cần” và “muốn”, cân nhắc trước khi mua, hiểu giá trị của tiền, tiết kiệm cho mục tiêu, lập kế hoạch, kiểm soát chi tiêu và chịu trách nhiệm với quyết định. Nếu chỉ chọn một điều cần cải thiện, phân biệt nhu cầu và mong muốn là ưu tiên nổi bật nhất — điểm bắt đầu phù hợp vì có thể đưa vào nhiều tình huống mua sắm hằng ngày.</p>
 
-        <h3>5. Những khó khăn khi duy trì cách làm hiện tại</h3>
-        <p>Trong số gia đình đã thử các phương pháp, khó khăn được phản ánh gồm: biến hoạt động thành điều trẻ hứng thú, duy trì thực hành, giảm việc bố mẹ phải nhắc, tìm hướng dẫn cụ thể và nhận biết tiến bộ. Ngay cả một số phụ huynh tương đối hài lòng với cách hiện tại cũng cởi mở với cách tiếp cận khác nếu đơn giản, lợi ích rõ ràng và không đòi hỏi quá nhiều thời gian.</p>
+          <h3>5. Những khó khăn khi duy trì cách làm hiện tại</h3>
+          <p>Trong số gia đình đã thử các phương pháp, khó khăn được phản ánh gồm: biến hoạt động thành điều trẻ hứng thú, duy trì thực hành, giảm việc bố mẹ phải nhắc, tìm hướng dẫn cụ thể và nhận biết tiến bộ. Ngay cả một số phụ huynh tương đối hài lòng với cách hiện tại cũng cởi mở với cách tiếp cận khác nếu đơn giản, lợi ích rõ ràng và không đòi hỏi quá nhiều thời gian.</p>
 
-        <h3>6. Điều gì khiến phụ huynh muốn thử một giải pháp mới?</h3>
-        <p>Hai động lực nổi bật nhất: mong muốn con được tự thực hành nhiều hơn, và mong muốn có hoạt động cụ thể để làm cùng con. Các yếu tố tiếp theo gồm tính đơn giản, thời gian cần bỏ ra, mức độ phù hợp với độ tuổi, việc trẻ nhanh chán và tình trạng bố mẹ phải nhắc nhiều. Phụ huynh muốn hoạt động giúp con tự thực hành, đồng thời có hướng dẫn đủ rõ để đồng hành tiện lợi hơn mà không phải tự xây dựng mọi thứ từ đầu.</p>
+          <h3>6. Điều gì khiến phụ huynh muốn thử một giải pháp mới?</h3>
+          <p>Hai động lực nổi bật nhất: mong muốn con được tự thực hành nhiều hơn, và mong muốn có hoạt động cụ thể để làm cùng con. Các yếu tố tiếp theo gồm tính đơn giản, thời gian cần bỏ ra, mức độ phù hợp với độ tuổi, việc trẻ nhanh chán và tình trạng bố mẹ phải nhắc nhiều. Phụ huynh muốn hoạt động giúp con tự thực hành, đồng thời có hướng dẫn đủ rõ để đồng hành tiện lợi hơn mà không phải tự xây dựng mọi thứ từ đầu.</p>
+        </div>
       </section>
 
       <!-- 7. Hạn chế -->
@@ -975,6 +1107,37 @@
         });
       }
 
+      function setKetQuaOpen(open) {
+        var toggle = document.getElementById('ketQuaToggle');
+        var panel = document.getElementById('ketQuaPanel');
+        var hint = document.getElementById('ketQuaHint');
+        if (!toggle || !panel) return;
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+          panel.hidden = false;
+          if (hint) hint.hidden = true;
+        } else {
+          panel.hidden = true;
+          if (hint) hint.hidden = false;
+        }
+      }
+
+      function bindKetQuaCollapse() {
+        var toggle = document.getElementById('ketQuaToggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') !== 'true';
+          setKetQuaOpen(open);
+        });
+      }
+
+      // When navigating to #ket-qua from TOC, expand the panel
+      var _origGoToDeep = window.goToDeepSection;
+      window.goToDeepSection = function (id) {
+        if (id === 'ket-qua') setKetQuaOpen(true);
+        if (typeof _origGoToDeep === 'function') _origGoToDeep(id);
+      };
+
       function ready(fn) {
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', fn);
@@ -986,6 +1149,7 @@
       ready(function () {
         bindLayers();
         bindBackTop();
+        bindKetQuaCollapse();
         initFromHash();
       });
     })();
