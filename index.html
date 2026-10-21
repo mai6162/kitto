@@ -80,13 +80,21 @@ section[id]{scroll-margin-top:100px}
   font-weight:600;
   color:var(--navy);
 }
-.navlinks{display:flex;align-items:center;gap:28px}
+.navlinks{display:flex;align-items:center;gap:8px}
 .navlinks a{
   position:relative;
-  padding:6px 0;
-  transition:color .2s;
+  padding:8px 14px;
+  border-radius:999px;
+  transition:color .2s, background .2s, box-shadow .2s;
 }
-.navlinks a:hover{color:var(--blue)}
+.navlinks a:hover{
+  color:var(--navy);
+  background:var(--soft);
+  box-shadow:inset 0 0 0 1.5px var(--line);
+}
+.navlinks a:active{
+  background:#e5f3ee;
+}
 .nav .cta{
   background:var(--navy);
   color:#fff;
