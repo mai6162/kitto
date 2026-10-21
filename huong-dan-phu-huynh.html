@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hướng dẫn phụ huynh — Kitto</title>
+<meta name="description" content="Hướng dẫn phụ huynh đồng hành cùng con thực hành Cất giữ – Chi tiêu – Chia sẻ trong 4 tuần với Kitto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#112F58;
+  --blue:#1CA8B8;
+  --green:#A0D32E;
+  --teal:#1CA8B8;
+  --yellow:#FFC51B;
+  --cream:#F8F5EC;
+  --paper:#FFFFFF;
+  --ink:#112F58;
+  --muted:#5A6B7A;
+  --line:#E5E0D4;
+  --soft:#EEF7F8;
+  --r:20px;
+  --shadow:0 16px 48px rgba(17,47,88,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Nunito Sans",system-ui,sans-serif;
+  font-size:17.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+a:focus-visible,button:focus-visible{
+  outline:2.5px solid var(--navy);
+  outline-offset:3px;
+}
+.wrap{width:min(860px,calc(100% - 36px));margin:auto}
+header{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  background:rgba(248,245,236,.96);
+  backdrop-filter:blur(12px);
+  z-index:50;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{border-bottom-color:var(--line)}
+.brand img{width:100px;height:32px;object-fit:contain;display:block}
+.nav{display:flex;align-items:center;gap:10px}
+.nav a.back{
+  font-size:14px;font-weight:700;color:var(--navy);
+  padding:8px 14px;border-radius:999px;
+  border:1.5px solid var(--line);background:#fff;
+}
+.nav a.back:hover{background:var(--soft)}
+.nav a.cta{
+  background:var(--navy);color:#fff;
+  padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;
+}
+.nav a.cta:hover{opacity:.92}
+
+.hero-guide{
+  padding:48px 0 36px;
+  text-align:center;
+}
+.kicker{
+  font-size:12px;font-weight:800;text-transform:uppercase;
+  letter-spacing:1.3px;color:var(--navy);opacity:.85;margin-bottom:12px;
+}
+h1{
+  font-size:clamp(28px,4vw,40px);
+  line-height:1.15;letter-spacing:-1px;
+  color:var(--navy);margin:0 0 12px;font-weight:800;
+}
+.lead{color:var(--muted);max-width:520px;margin:0 auto;font-size:17px}
+
+.toc{
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:0 auto 40px;max-width:560px;
+}
+.toc h2{margin:0 0 12px;font-size:15px;color:var(--navy)}
+.toc ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.toc a{color:var(--navy);font-weight:600;font-size:15px}
+.toc a:hover{color:var(--teal)}
+
+section.block{padding:8px 0 40px;scroll-margin-top:90px}
+section.block h2{
+  font-size:clamp(22px,3vw,28px);
+  color:var(--navy);margin:0 0 16px;font-weight:800;letter-spacing:-.5px;
+}
+section.block h3{
+  font-size:18px;color:var(--navy);margin:28px 0 10px;font-weight:800;
+}
+section.block p{margin:0 0 14px;color:var(--ink)}
+section.block ul,section.block ol{margin:0 0 16px;padding-left:22px}
+section.block li{margin-bottom:8px}
+
+.card{
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:16px 0;
+}
+.card.soft{background:var(--soft)}
+.card.yellow{background:#FFF9EA;border-color:#F5D76E}
+.card h3{margin-top:0}
+.tag{
+  display:inline-block;font-size:12px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  background:var(--green);color:var(--navy);
+  padding:4px 10px;border-radius:999px;margin-bottom:10px;
+}
+.tag.t2{background:var(--yellow)}
+.tag.t3{background:var(--teal);color:#fff}
+.tag.t4{background:var(--navy);color:#fff}
+
+.env-list{display:grid;gap:10px;margin:16px 0}
+.env-item{
+  display:flex;gap:12px;align-items:flex-start;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;
+}
+.env-dot{
+  width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:6px;
+}
+.env-dot.g{background:var(--green)}
+.env-dot.y{background:var(--yellow)}
+.env-dot.t{background:var(--teal)}
+.env-item strong{display:block;color:var(--navy);font-size:16px}
+.env-item span{font-size:15px;color:var(--muted)}
+
+.week{
+  border:1.5px solid var(--line);border-radius:var(--r);
+  background:#fff;margin:18px 0;overflow:hidden;
+}
+.week summary{
+  list-style:none;cursor:pointer;padding:18px 20px;
+  display:flex;gap:14px;align-items:flex-start;user-select:none;
+}
+.week summary::-webkit-details-marker{display:none}
+.week summary::marker{content:""}
+.week-num{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;font-weight:800;font-size:15px;color:var(--navy);
+  background:var(--green);margin-top:2px;
+}
+.week-num.w2{background:var(--yellow)}
+.week-num.w3{background:var(--teal);color:#fff}
+.week-num.w4{background:var(--navy);color:#fff}
+.week-head{flex:1;min-width:0}
+.week-title{font-size:17px;font-weight:800;color:var(--navy);margin:0 0 4px}
+.week-theme{font-size:14.5px;color:var(--muted);margin:0}
+.week-toggle{
+  font-size:13px;font-weight:700;color:var(--navy);
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;white-space:nowrap;margin-top:4px;
+}
+.week[open] .week-toggle-open{display:none}
+.week:not([open]) .week-toggle-close{display:none}
+.week[open]{box-shadow:var(--shadow);border-color:#c8d9d0}
+.week-body{padding:0 20px 22px}
+.week-body h4{font-size:15.5px;color:var(--navy);margin:18px 0 8px}
+.week-body ol,.week-body ul{margin:0 0 12px}
+.ask-box{
+  background:var(--soft);border-left:3px solid var(--teal);
+  padding:12px 14px;border-radius:0 12px 12px 0;margin:12px 0;
+}
+.ask-box li{margin-bottom:6px}
+.remember{
+  background:#FFF9EA;border:1px solid #F5D76E;
+  border-radius:14px;padding:12px 14px;margin:14px 0 0;
+  font-size:15px;
+}
+.remember strong{color:var(--navy)}
+
+.situation{margin:16px 0;padding:16px 18px;background:#fff;border:1.5px solid var(--line);border-radius:14px}
+.situation h4{margin:0 0 8px;color:var(--navy);font-size:16px}
+.situation p{margin:0;font-size:15.5px}
+
+.qa details{
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;
+  margin:10px 0;overflow:hidden;
+}
+.qa summary{
+  list-style:none;cursor:pointer;padding:14px 18px;
+  font-weight:700;color:var(--navy);font-size:16px;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::marker{content:""}
+.qa summary span.chev{color:var(--muted);font-size:14px;flex-shrink:0}
+.qa[open] summary span.chev{transform:rotate(180deg)}
+.qa .ans{padding:0 18px 16px;color:var(--ink);font-size:15.5px;line-height:1.6}
+.qa[open]{border-color:#c8d9d0}
+
+.cta-box{
+  text-align:center;padding:40px 24px;margin:20px 0 48px;
+  background:var(--soft);border:1.5px solid var(--line);border-radius:24px;
+}
+.cta-box h2{margin:0 0 10px;color:var(--navy);font-size:24px}
+.cta-box p{margin:0 0 18px;color:var(--muted)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--navy);color:#fff;font-weight:700;
+  padding:14px 24px;border-radius:999px;font-size:15.5px;
+}
+.btn:hover{opacity:.93}
+
+footer{
+  border-top:1px solid var(--line);padding:20px 0 28px;
+  font-size:13px;color:var(--muted);text-align:center;
+}
+.back-top{
+  position:fixed;bottom:24px;right:20px;width:44px;height:44px;
+  background:var(--navy);color:#fff;border:none;border-radius:14px;
+  font-size:18px;cursor:pointer;opacity:0;pointer-events:none;
+  transition:opacity .25s;z-index:40;display:grid;place-items:center;
+}
+.back-top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:640px){
+  body{font-size:16.5px}
+  .week summary{flex-wrap:wrap}
+  .week-toggle{margin-left:50px}
+  .nav a.cta{padding:9px 14px;font-size:13px}
+}
+</style>
+</head>
+<body>
+<header class="wrap" id="top">
+  <a class="brand" href="index.html">
+    <img src="https://mai6162.github.io/kitto/kitto-logo.jpg" alt="Kitto">
+  </a>
+  <nav class="nav">
+    <a class="back" href="index.html">← Trang chủ</a>
+    <a class="cta" href="index.html#try">Thử Kitto</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero-guide wrap">
+    <div class="kicker">Hướng dẫn phụ huynh</div>
+    <h1>Đồng hành cùng con thực hành Cất giữ – Chi tiêu – Chia sẻ</h1>
+    <p class="lead">Gợi ý thực hành trong 4 tuần — không phải chương trình bắt buộc. Trẻ tự đề xuất, phụ huynh đồng hành.</p>
+  </div>
+
+  <nav class="toc wrap" aria-label="Mục lục">
+    <h2>Mục lục</h2>
+    <ol>
+      <li><a href="#la-gi">Kitto là gì?</a></li>
+      <li><a href="#chuan-bi">Chuẩn bị trước khi bắt đầu</a></li>
+      <li><a href="#4-tuan">Hành trình thực hành 4 tuần</a></li>
+      <li><a href="#tinh-huong">Khi con gặp tình huống khó</a></li>
+      <li><a href="#danh-gia">Đánh giá sau bốn tuần</a></li>
+      <li><a href="#tiep-tuc">Tiếp tục sau chương trình</a></li>
+      <li><a href="#qa">Câu hỏi thường gặp (Q&amp;A)</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section class="block wrap" id="la-gi">
+    <h2>1. Kitto là gì?</h2>
+    <p>Kitto giúp trẻ từng bước hình thành thói quen sử dụng tiền có suy nghĩ thông qua những quyết định nhỏ trong đời sống hằng ngày.</p>
+    <p><strong>Ba cách sử dụng tiền:</strong></p>
+    <div class="env-list">
+      <div class="env-item">
+        <span class="env-dot g"></span>
+        <div><strong>Cất giữ (Save)</strong><span>Dành tiền cho những mục tiêu trong tương lai.</span></div>
+      </div>
+      <div class="env-item">
+        <span class="env-dot y"></span>
+        <div><strong>Chi tiêu (Spend)</strong><span>Sử dụng tiền cho những điều trẻ cần hoặc mong muốn.</span></div>
+      </div>
+      <div class="env-item">
+        <span class="env-dot t"></span>
+        <div><strong>Chia sẻ (Share)</strong><span>Tự nguyện dùng một phần tiền để chia sẻ với người khác hoặc một mục đích trẻ quan tâm.</span></div>
+      </div>
+    </div>
+    <div class="card yellow">
+      <p style="margin:0"><strong>Mục tiêu không phải</strong> dạy trẻ chia tiền theo tỷ lệ cố định hay tiết kiệm càng nhiều càng tốt. Điều quan trọng là giúp trẻ biết cân nhắc, tự đưa ra quyết định và học hỏi từ trải nghiệm của mình.</p>
+    </div>
+    <p><strong>Nguyên tắc cốt lõi:</strong> Trẻ tự đề xuất, phụ huynh đồng hành.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="block wrap" id="chuan-bi">
+    <h2>2. Chuẩn bị trước khi bắt đầu</h2>
+    <div class="card">
+      <h3 style="margin-top:0">Gia đình chuẩn bị</h3>
+      <ul>
+        <li>Ba phong bì hoặc hộp nhỏ ghi <strong>Cất giữ</strong>, <strong>Chi tiêu</strong> và <strong>Chia sẻ</strong>.</li>
+        <li>Sổ ghi chép Kitto dành cho trẻ.</li>
+        <li>Một khoản tiền phù hợp với độ tuổi và điều kiện gia đình.</li>
+      </ul>
+      <p style="margin:0">Gia đình chủ động quyết định mức tiền, thời điểm trẻ nhận tiền và những giới hạn phù hợp.</p>
+    </div>
+    <p>Nên duy trì <strong>một buổi phân bổ tiền chính mỗi tuần</strong>, khoảng 5 phút, vào thời điểm trẻ nhận tiền. Gia đình có thể trò chuyện thêm khi phát sinh tình huống thực tế — không cần tổ chức một buổi học riêng.</p>
+    <p>Không cần chuẩn bị bài tập ngoài những hoạt động trong bộ kit. Bốn tuần dưới đây là <strong>gợi ý để bắt đầu</strong>, không phải chương trình bắt buộc phải hoàn thành đầy đủ từng bước.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="block wrap" id="4-tuan">
+    <h2>3. Hành trình thực hành 4 tuần</h2>
+    <p>Bấm vào từng tuần để xem chi tiết thực hành, câu hỏi gợi mở và điều cần nhớ.</p>
+
+    <!-- Week 1 -->
+    <details class="week">
+      <summary>
+        <div class="week-num">1</div>
+        <div class="week-head">
+          <p class="week-title">Tuần 1 — Làm quen với ba cách sử dụng tiền</p>
+          <p class="week-theme">Chủ đề: Ba chiếc phong bì · Mục tiêu: Hiểu 3 mục đích và bắt đầu tự đề xuất cách phân bổ.</p>
+        </div>
+        <span class="week-toggle week-toggle-open">Xem chi tiết</span>
+        <span class="week-toggle week-toggle-close">Thu gọn</span>
+      </summary>
+      <div class="week-body">
+        <h4>Bố mẹ cùng con thực hành</h4>
+        <ol>
+          <li>Giới thiệu ba phong bì bằng những ví dụ gần gũi.</li>
+          <li>Đưa cho con khoản tiền gia đình đã thống nhất.</li>
+          <li>Mời con tự đề xuất số tiền dành cho mỗi phong bì.</li>
+          <li>Cùng con đếm tiền, thực hiện phân bổ và ghi lại bên ngoài mỗi phong bì.</li>
+          <li>Con ghi cảm nghĩ vào sổ Kitto.</li>
+        </ol>
+        <p>Không cần yêu cầu con chia đều hoặc theo tỷ lệ định sẵn. Nếu con muốn dành nhiều tiền để chi tiêu, hãy tìm hiểu lý do trước khi đưa ra lời khuyên.</p>
+        <h4>Bố mẹ có thể hỏi</h4>
+        <ul class="ask-box">
+          <li>“Nếu được tự quyết, con muốn chia số tiền này thế nào?”</li>
+          <li>“Vì sao con chọn cách chia như vậy?”</li>
+          <li>“Con có muốn dành tiền cho điều gì trong tương lai không?”</li>
+        </ul>
+        <p><strong>Cùng con nhìn lại:</strong> “Con thích điều gì nhất khi tự chia tiền? Có điều gì khiến con phân vân?”</p>
+        <div class="remember"><strong>Điều cần nhớ:</strong> Tuần đầu là để con làm quen và thử đưa ra quyết định — không phải để đạt cách phân bổ hoàn hảo.</div>
+      </div>
+    </details>
+
+    <!-- Week 2 -->
+    <details class="week">
+      <summary>
+        <div class="week-num w2">2</div>
+        <div class="week-head">
+          <p class="week-title">Tuần 2 — Học cách lựa chọn</p>
+          <p class="week-theme">Chủ đề: Điều gì quan trọng với con? · Mục tiêu: Cân nhắc giữa mong muốn hiện tại và mục tiêu tương lai.</p>
+        </div>
+        <span class="week-toggle week-toggle-open">Xem chi tiết</span>
+        <span class="week-toggle week-toggle-close">Thu gọn</span>
+      </summary>
+      <div class="week-body">
+        <h4>Bố mẹ cùng con thực hành</h4>
+        <ol>
+          <li>Duy trì buổi phân bổ tiền như thường lệ.</li>
+          <li>Mời con kể về một món đồ muốn mua hoặc một mục tiêu muốn đạt được.</li>
+          <li>Trong buổi phân bổ, khuyến khích con cân nhắc điều mình muốn ưu tiên.</li>
+          <li>Nếu con muốn mua một món đồ, cùng con xem giá và tính số tiền còn lại sau khi mua.</li>
+          <li>Để con tự quyết định sẽ chi tiêu, cất giữ hay kết hợp cả hai.</li>
+          <li>Con ghi cảm nghĩ vào sổ Kitto.</li>
+        </ol>
+        <p>Nếu con chọn mua món đồ mình thích thay vì tiết kiệm, không cần vội kết luận rằng con thiếu kiên nhẫn. Đây là cơ hội để con trải nghiệm sự đánh đổi giữa các lựa chọn.</p>
+        <h4>Bố mẹ có thể hỏi</h4>
+        <ul class="ask-box">
+          <li>“Nếu mua món này hôm nay, con sẽ còn bao nhiêu tiền?”</li>
+          <li>“Con muốn có món đồ này ngay hay dành tiền cho mục tiêu kia hơn?”</li>
+          <li>“Có cách nào để con thực hiện cả hai điều không?”</li>
+        </ul>
+        <p><strong>Cùng con nhìn lại:</strong> “Con có hài lòng với lựa chọn của mình không? Nếu được chọn lại, con có muốn làm gì khác không?”</p>
+        <div class="remember"><strong>Điều cần nhớ:</strong> Hãy giúp con nhìn thấy các lựa chọn và hệ quả, thay vì quyết định điều gì quan trọng thay con.</div>
+      </div>
+    </details>
+
+    <!-- Week 3 -->
+    <details class="week">
+      <summary>
+        <div class="week-num w3">3</div>
+        <div class="week-head">
+          <p class="week-title">Tuần 3 — Học từ trải nghiệm</p>
+          <p class="week-theme">Chủ đề: Kế hoạch có thể thay đổi · Mục tiêu: Nhận ra kế hoạch có thể điều chỉnh; mỗi lựa chọn là cơ hội học hỏi.</p>
+        </div>
+        <span class="week-toggle week-toggle-open">Xem chi tiết</span>
+        <span class="week-toggle week-toggle-close">Thu gọn</span>
+      </summary>
+      <div class="week-body">
+        <h4>Bố mẹ cùng con thực hành</h4>
+        <ol>
+          <li>Duy trì buổi phân bổ tiền như thường lệ.</li>
+          <li>Trong tuần, để con tự sử dụng khoản tiền phù hợp với kế hoạch.</li>
+          <li>Khi con muốn thay đổi kế hoạch, cùng con xem xét số tiền còn lại và những lựa chọn có thể thực hiện.</li>
+          <li>Khi có dịp, cùng con nhìn lại dự định ban đầu và những gì thực sự đã diễn ra.</li>
+          <li>Con ghi cảm nghĩ vào sổ Kitto.</li>
+        </ol>
+        <p>Nếu con tiêu hết tiền dành cho chi tiêu sớm hơn dự kiến, bố mẹ có thể giúp con nhìn lại nguyên nhân. Không nên bổ sung tiền ngay để con tránh mọi bất tiện, nhưng cũng không nên dùng tình huống này để trách phạt hoặc làm con xấu hổ.</p>
+        <h4>Bố mẹ có thể hỏi</h4>
+        <ul class="ask-box">
+          <li>“Điều gì đã diễn ra khác với dự định của con?”</li>
+          <li>“Lựa chọn vừa rồi ảnh hưởng thế nào đến số tiền còn lại?”</li>
+          <li>“Lần tới, con muốn thử cách nào khác?”</li>
+        </ul>
+        <p><strong>Cùng con nhìn lại:</strong> “Con đã học được điều gì từ tuần này? Có điều gì con muốn thay đổi trong kế hoạch tiếp theo?”</p>
+        <div class="remember"><strong>Điều cần nhớ:</strong> Một kế hoạch không diễn ra như mong đợi vẫn có thể là trải nghiệm có ích nếu trẻ được suy nghĩ và rút ra bài học của riêng mình.</div>
+      </div>
+    </details>
+
+    <!-- Week 4 -->
+    <details class="week">
+      <summary>
+        <div class="week-num w4">4</div>
+        <div class="week-head">
+          <p class="week-title">Tuần 4 — Tự tin quyết định</p>
+          <p class="week-theme">Chủ đề: Con đã học được gì? · Mục tiêu: Chủ động hơn trong phân bổ, theo dõi và nhìn lại.</p>
+        </div>
+        <span class="week-toggle week-toggle-open">Xem chi tiết</span>
+        <span class="week-toggle week-toggle-close">Thu gọn</span>
+      </summary>
+      <div class="week-body">
+        <h4>Bố mẹ cùng con thực hành</h4>
+        <ol>
+          <li>Để con chủ động dẫn dắt buổi phân bổ tiền: đề xuất cách chia, đếm tiền và ghi chép.</li>
+          <li>Quan sát xem con có tự cân nhắc các mục tiêu và lựa chọn của mình không.</li>
+          <li>Khi con cần giúp đỡ, đặt câu hỏi gợi mở trước khi đưa ra lời khuyên.</li>
+          <li>Cùng con nhìn lại những trải nghiệm trong bốn tuần và chọn một thói quen muốn tiếp tục duy trì.</li>
+        </ol>
+        <h4>Bố mẹ có thể hỏi</h4>
+        <ul class="ask-box">
+          <li>“So với tuần đầu tiên, con thấy mình đã làm được điều gì?”</li>
+          <li>“Điều gì vẫn còn khó với con?”</li>
+          <li>“Con muốn tiếp tục thói quen nào trong những tuần tới?”</li>
+        </ul>
+        <p><strong>Cùng con nhìn lại:</strong> Mời con chia sẻ một điều mình tự hào, một điều muốn cải thiện và một mục tiêu muốn tiếp tục thực hiện.</p>
+        <div class="remember"><strong>Điều cần nhớ:</strong> Tiến bộ không nhất thiết nghĩa là con tiết kiệm được nhiều hơn. Đó có thể là việc con chủ động đề xuất, biết cân nhắc hoặc sẵn sàng nhìn lại một quyết định chưa như mong muốn.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 4 -->
+  <section class="block wrap" id="tinh-huong">
+    <h2>4. Khi con gặp những tình huống khó</h2>
+
+    <div class="situation">
+      <h4>Khi con muốn mua ngay một món đồ</h4>
+      <p>Thay vì nói “Không được mua, phải tiết kiệm”, hãy hỏi: “Con muốn mua món này vì điều gì? Nếu mua, con sẽ còn bao nhiêu tiền?”</p>
+    </div>
+    <div class="situation">
+      <h4>Khi con thay đổi quyết định</h4>
+      <p>Hãy hỏi: “Điều gì khiến con đổi ý? Con muốn điều chỉnh kế hoạch thế nào?” Không cần xem việc thay đổi là thất bại.</p>
+    </div>
+    <div class="situation">
+      <h4>Khi con tiêu hết tiền</h4>
+      <p>Cùng con nhìn lại các khoản đã chi và tìm hiểu điều gì đã xảy ra. Hạn chế trách móc hoặc tự động bổ sung tiền để bù lại mọi khoản đã dùng.</p>
+    </div>
+    <div class="situation">
+      <h4>Khi con không muốn chia sẻ</h4>
+      <p>Tôn trọng cảm xúc và quyết định của con. Có thể trò chuyện về ý nghĩa của việc chia sẻ, nhưng không ép con phải cho tiền hoặc quy định một tỷ lệ bắt buộc.</p>
+    </div>
+    <div class="situation">
+      <h4>Khi con đưa ra lựa chọn khác với bố mẹ</h4>
+      <p>Nếu lựa chọn nằm trong giới hạn gia đình đã thống nhất và phù hợp với độ tuổi, hãy để con có cơ hội trải nghiệm. Phụ huynh vẫn chịu trách nhiệm về các giới hạn an toàn và những quyết định vượt quá khả năng tự chủ của trẻ.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="block wrap" id="danh-gia">
+    <h2>5. Đánh giá hành trình sau bốn tuần</h2>
+    <p>Trước khi bắt đầu, phụ huynh hoàn thành phiếu đánh giá đầu kỳ. Sau tuần thứ tư, hoàn thành phiếu cuối kỳ về mức độ chủ động, khả năng cân nhắc, cách sử dụng tiền và khả năng nhìn lại trải nghiệm của trẻ.</p>
+    <p>Khi đánh giá, hãy dựa trên <strong>hành vi thực tế đã quan sát</strong>, thay vì chỉ dựa vào cảm nhận chung. Một tình huống cụ thể thường hữu ích hơn nhận xét như “con ngoan hơn” hoặc “con biết tiết kiệm hơn”.</p>
+    <p>Kết quả đánh giá giúp gia đình và nhóm Kitto hiểu điều gì đang có tiến triển, điều gì còn khó và cần điều chỉnh cách thực hành ra sao.</p>
+    <div class="card soft">
+      <p style="margin:0">Bốn tuần là bước khởi đầu để quan sát và hình thành thói quen — không phải thời hạn để trẻ phải thành thạo mọi kỹ năng.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="block wrap" id="tiep-tuc">
+    <h2>6. Tiếp tục sau chương trình</h2>
+    <p>Sau bốn tuần, gia đình có thể tiếp tục duy trì một buổi phân bổ tiền mỗi tuần và những cuộc trò chuyện ngắn khi trẻ có tình huống thực tế.</p>
+    <p>Không cần thực hiện mọi hoạt động một cách hoàn hảo. Điều quan trọng là duy trì cơ hội để trẻ được lựa chọn, trải nghiệm, nhìn lại và từng bước chịu trách nhiệm phù hợp với độ tuổi.</p>
+    <div class="card yellow">
+      <p style="margin:0;text-align:center;font-weight:700;color:var(--navy)">Kitto — Không quyết định thay con, mà đồng hành để con học cách quyết định.</p>
+    </div>
+  </section>
+
+  <!-- Q&A -->
+  <section class="block wrap qa" id="qa">
+    <h2>Câu hỏi thường gặp (Q&amp;A)</h2>
+
+    <details>
+      <summary>1. Kitto phù hợp với trẻ ở độ tuổi nào? <span class="chev">▼</span></summary>
+      <div class="ans">Kitto hướng đến những trẻ đã bắt đầu nhận tiền và có cơ hội tham gia các quyết định sử dụng tiền. Mức độ sẵn sàng và trải nghiệm thực tế của trẻ quan trọng không kém độ tuổi. Phụ huynh có thể điều chỉnh cách trò chuyện và hỗ trợ cho phù hợp với con.</div>
+    </details>
+    <details>
+      <summary>2. Gia đình không cho con tiền tiêu vặt đều đặn thì có tham gia được không? <span class="chev">▼</span></summary>
+      <div class="ans">Có. Gia đình có thể thực hành với tiền lì xì, tiền thưởng hoặc những khoản tiền trẻ nhận được trong những dịp phù hợp. Không cần tạo một khoản trợ cấp mới chỉ để theo lịch Kitto. Nếu trẻ chưa nhận tiền trong tuần, gia đình có thể tiếp tục trò chuyện từ trải nghiệm trước đó.</div>
+    </details>
+    <details>
+      <summary>3. Nếu con còn nhỏ, chưa biết tính toán hoặc ghi chép thì sao? <span class="chev">▼</span></summary>
+      <div class="ans">Phụ huynh có thể hỗ trợ con đếm tiền, ghi số tiền hoặc dùng ký hiệu đơn giản. Trẻ không cần làm mọi việc một mình ngay từ đầu. Điều quan trọng là trẻ vẫn được tham gia đề xuất và đưa ra lựa chọn.</div>
+    </details>
+    <details>
+      <summary>4. Kitto có phải là một khóa học tài chính cho trẻ không? <span class="chev">▼</span></summary>
+      <div class="ans">Không. Kitto tập trung vào thực hành trong đời sống gia đình, thay vì học lý thuyết hoặc làm bài tập. Trẻ có cơ hội đưa ra quyết định, quan sát kết quả và rút kinh nghiệm qua những tình huống thực tế.</div>
+    </details>
+    <details>
+      <summary>5. Nội dung của Kitto được xây dựng dựa trên cơ sở nào? <span class="chev">▼</span></summary>
+      <div class="ans">Nội dung kiến thức và kỹ năng của Kitto tham khảo tài liệu giáo dục tài chính cho trẻ của Bộ Tài chính Hoa Kỳ, chọn lọc phương pháp từ các nghiên cứu quốc tế và điều chỉnh cho phù hợp với lối sống gia đình Việt Nam.</div>
+    </details>
+    <details>
+      <summary>6. Gia đình cần cam kết những gì trong 4 tuần? <span class="chev">▼</span></summary>
+      <div class="ans">Gia đình dành thời gian thực hành ngắn gọn, đồng hành cùng trẻ trong các quyết định phù hợp, hoàn thành phiếu đánh giá đầu kỳ và cuối kỳ, đồng thời chia sẻ phản hồi trung thực. Không yêu cầu gia đình phải đạt một kết quả định trước.</div>
+    </details>
+    <details>
+      <summary>7. Chi phí tham gia thử nghiệm là bao nhiêu? <span class="chev">▼</span></summary>
+      <div class="ans">Chi phí dự kiến là <strong>99.000 đồng</strong> cho bộ Kitto dùng thử. Gia đình chỉ thanh toán sau 4 tuần nếu nhận thấy trải nghiệm mang lại thay đổi có ý nghĩa cho con. Nếu chưa nhận thấy giá trị phù hợp, gia đình không phải thanh toán. (Chi phí này chỉ để trả cho phí in ấn và vận chuyển.)</div>
+    </details>
+    <details>
+      <summary>8. Nếu sau 4 tuần chưa nhận thấy thay đổi rõ rệt thì sao? <span class="chev">▼</span></summary>
+      <div class="ans">Đó vẫn là phản hồi có giá trị. Mục đích của thử nghiệm là tìm hiểu cách Kitto phù hợp với đời sống gia đình, điều gì hữu ích và điều gì cần cải thiện. Không phải trẻ nào cũng thay đổi giống nhau sau bốn tuần.</div>
+    </details>
+    <details>
+      <summary>9. Phản hồi của gia đình được sử dụng như thế nào? <span class="chev">▼</span></summary>
+      <div class="ans">Phản hồi được sử dụng để đánh giá và cải thiện Kitto. Nếu muốn sử dụng nhận xét hoặc câu chuyện của gia đình cho mục đích truyền thông, nhóm Kitto sẽ xin sự đồng ý riêng, đặc biệt khi nội dung có thể nhận diện phụ huynh hoặc trẻ.</div>
+    </details>
+    <details>
+      <summary>10. Sau 4 tuần, gia đình có phải tiếp tục sử dụng Kitto không? <span class="chev">▼</span></summary>
+      <div class="ans">Tùy thuộc vào gia đình. Gia đình có thể tiếp tục áp dụng những thói quen phù hợp, điều chỉnh cách thực hành hoặc dừng lại. Phản hồi sau thử nghiệm giúp Kitto hiểu liệu bộ công cụ có đủ hữu ích để gia đình muốn tiếp tục sử dụng hay không.</div>
+    </details>
+  </section>
+
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Sẵn sàng thử cùng con?</h2>
+      <p>Bộ kit dùng thử · 99.000đ · Chỉ thanh toán nếu thấy tiến triển sau 4 tuần</p>
+      <a class="btn" href="index.html#try">Đăng ký trải nghiệm →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="wrap">
+  © 2026 Kitto · <a href="index.html" style="color:var(--navy);font-weight:600">Trang chủ</a> ·
+  <a href="mailto:kittofam.co@gmail.com" style="color:var(--navy);font-weight:600">Liên hệ</a>
+</footer>
+<button type="button" class="back-top" id="backTop" aria-label="Lên đầu trang">↑</button>
+<script>
+var header=document.querySelector('header');
+addEventListener('scroll',function(){
+  header.classList.toggle('scrolled',scrollY>8);
+  document.getElementById('backTop').classList.toggle('show',scrollY>400);
+},{passive:true});
+document.getElementById('backTop').addEventListener('click',function(){
+  scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
