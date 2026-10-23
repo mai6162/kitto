@@ -237,7 +237,134 @@ footer{
   transition:opacity .25s;z-index:40;display:grid;place-items:center;
 }
 .back-top.show{opacity:1;pointer-events:auto}
+/* --- Khối Khảo sát Collapse (Lồng giao diện trang khảo sát) --- */
+.survey-collapse {
+  background: #ffffff;
+  border: 2px dashed var(--teal);
+  border-radius: 20px;
+  margin: 56px 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
+.survey-collapse[open] {
+  border-style: solid;
+  box-shadow: 0 12px 32px rgba(17,47,88,.08);
+}
+
+/* Phần Banner hiển thị khi thu gọn */
+.survey-collapse summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  background: linear-gradient(135deg, #EEF7F8 0%, #FFF9EA 100%);
+}
+
+.survey-collapse summary::-webkit-details-marker { display: none; }
+.survey-collapse summary::marker { content: ""; }
+
+.sc-head { display: flex; align-items: center; gap: 16px; }
+.sc-icon { font-size: 32px; line-height: 1; }
+.sc-title { font-size: 18px; font-weight: 800; color: var(--navy); margin: 0 0 4px; }
+.sc-desc { font-size: 14.5px; color: var(--muted); margin: 0; }
+
+/* Nút Mở/Thu gọn */
+.sc-toggle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--navy);
+  padding: 8px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+.survey-collapse[open] .sc-toggle-open { display: none; }
+.survey-collapse:not([open]) .sc-toggle-close { display: none; }
+
+/* Phần Giao diện 2 Thẻ Khảo sát bên trong */
+.sc-body {
+  padding: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.sc-intro {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.sc-cards { display: grid; gap: 16px; }
+
+@media (min-width: 640px) {
+  .sc-cards { grid-template-columns: 1fr 1fr; }
+  .sc-title { font-size: 20px; }
+}
+
+.sc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+/* Vạch màu mép trái của thẻ */
+.sc-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+  background: var(--card-accent, var(--teal));
+}
+
+.sc-card.start { --card-accent: var(--green); }
+.sc-card.review { --card-accent: var(--teal); }
+
+.sc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17,47,88,.08);
+  border-color: rgba(28, 168, 184, 0.3); /* Dùng màu teal nhạt làm viền hover */
+}
+
+.sc-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--card-accent);
+}
+
+.sc-card h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin: 0; }
+.sc-card p { font-size: 14px; color: var(--muted); margin: 0 0 12px; flex: 1; }
+
+.sc-cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--soft);
+  padding: 10px 16px;
+  border-radius: 10px;
+  width: fit-content;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sc-card:hover .sc-cta { background: var(--navy); color: #fff; }
 @media(max-width:640px){
   body{font-size:16.5px}
   .week summary{flex-wrap:wrap}
@@ -449,6 +576,42 @@ footer{
         <div class="remember"><strong>Điều cần nhớ:</strong> Tiến bộ không nhất thiết nghĩa là con tiết kiệm được nhiều hơn. Đó có thể là việc con chủ động đề xuất, biết cân nhắc hoặc sẵn sàng nhìn lại một quyết định chưa như mong muốn.</div>
       </div>
     </details>
+    <!-- Khối Khảo sát dạng Thu gọn (Collapse) -->
+<details class="survey-collapse">
+  <summary>
+    <div class="sc-head">
+      <span class="sc-icon">🎯</span>
+      <div>
+        <p class="sc-title">Trạm dừng chân — Đánh giá hành trình</p>
+        <p class="sc-desc">Dành 3 phút chọn phiếu đánh giá (Đầu kỳ / Cuối kỳ)</p>
+      </div>
+    </div>
+    <span class="sc-toggle sc-toggle-open">Mở phiếu</span>
+    <span class="sc-toggle sc-toggle-close">Thu gọn</span>
+  </summary>
+  
+  <div class="sc-body">
+    <p class="sc-intro">Kitto muốn hiểu những gì gia đình đang thực hành và điều gì đã thay đổi. Vui lòng chọn phiếu phù hợp với giai đoạn của gia đình:</p>
+    
+    <div class="sc-cards">
+      <!-- Card 1: Bắt đầu -->
+      <a class="sc-card start" href="https://forms.fillout.com/t/9MebfYzwtyus" target="_blank" rel="noopener noreferrer">
+        <span class="sc-label">Phiếu 1</span>
+        <h3>Bắt đầu hành trình</h3>
+        <p>Dành cho gia đình chưa điền phiếu đánh giá đầu kỳ.</p>
+        <span class="sc-cta">Đánh giá đầu kỳ ↗</span>
+      </a>
+      
+      <!-- Card 2: Nhìn lại -->
+      <a class="sc-card review" href="https://forms.fillout.com/t/9ZWjejF1Unus" target="_blank" rel="noopener noreferrer">
+        <span class="sc-label">Phiếu 2</span>
+        <h3>Nhìn lại sau 4 tuần</h3>
+        <p>Dành cho gia đình đã thực hành Kitto và muốn đánh giá kết quả.</p>
+        <span class="sc-cta">Đánh giá cuối kỳ ↗</span>
+      </a>
+    </div>
+  </div>
+</details>
   </section>
 
   <!-- 4 -->
